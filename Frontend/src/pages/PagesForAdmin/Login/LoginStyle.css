@@ -1,0 +1,161 @@
+:root {
+  --color-gold: #C6A25A;
+  --color-gold-light: #E0C27A;
+  --color-white: #FFFFFF;
+  --color-text-dark: #1B1F1E;
+  --color-text-light: #A2A8A6;
+  --radius: 18px;
+  --transition: all 0.3s ease;
+  --font-main: 'Poppins', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font-main);
+}
+
+/* ===== BACKGROUND ===== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("/src/assets/images/hero-bg copys.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== GLASS CARD ===== */
+.card {
+  width: 100%;
+  max-width: 400px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: var(--radius);
+  padding: 42px 32px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+
+  animation: fadeUp 0.6s ease;
+}
+
+/* Glow subtle */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
+}
+
+/* Header */
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.card-sub {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+}
+
+/* Fields */
+.field { margin-bottom: 18px; }
+
+.field label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+
+  outline: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.field input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.field input:focus {
+  border-color: var(--color-gold);
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 0 3px rgba(198,162,90,0.25);
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: var(--color-gold);
+  color: white;
+
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.login-btn:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+/* Error */
+.error {
+  background: rgba(200,60,60,0.15);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #ffb3b3;
+  margin-bottom: 12px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .card {
+    margin: 20px;
+    padding: 28px 20px;
+  }
+}
