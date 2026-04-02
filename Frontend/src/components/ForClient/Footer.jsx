@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="footer-brand">
             <img
               src="/public/images/gemini-3.1-flash-image-preview (nano-banana-2)_a_بدي_تحول_اللوغو_كلو_.png"
-              class="logo"
+              className="logo"
               alt=""
             />
             <p className="footer-about">
