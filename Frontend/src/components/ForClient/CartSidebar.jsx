@@ -5,14 +5,25 @@ import {
   FaShoppingBag,
   FaTrash,
 } from "react-icons/fa";
-
+import { useNavigate, Link } from "react-router-dom";
 import "./CartSidebar.css";
 import { useCart } from "../../hooks/useCart";
+import { useEffect } from "react";
 export const CartSidebar = ({ isOpen, setIsOpen }) => {
   const { items, total, removeItem, updateQuantity, setIsCartOpen } = useCart();
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+  if (!isOpen) return null;
   return (
     <>
       <div className="cart-overlay" onClick={() => setIsOpen(false)} />
@@ -25,7 +36,6 @@ export const CartSidebar = ({ isOpen, setIsOpen }) => {
             <FaTimes />
           </button>
         </div>
-
         <div className="cart-content">
           {items.length === 0 ? (
             <div className="cart-empty">
@@ -77,14 +87,15 @@ export const CartSidebar = ({ isOpen, setIsOpen }) => {
             </ul>
           )}
         </div>
-
         {items.length > 0 && (
           <div className="cart-footer">
             <div className="subtotal">
-              <p>Subtotal</p>
+              <p>Total</p>
               <p>AED {total.toFixed(2)}</p>
             </div>
-            <button className="checkout-btn">Proceed to Checkout</button>
+            <Link to="/products/checkout">
+              <button className="checkout-btn">Proceed to Checkout</button>
+            </Link>
           </div>
         )}
       </div>
