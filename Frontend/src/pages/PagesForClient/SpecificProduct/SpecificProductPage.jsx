@@ -16,9 +16,11 @@ import {
   FaFire,
 } from "react-icons/fa";
 
+import { useCart } from "../../../hooks/useCart";
+
 export default function SpecificProduct() {
   const { id } = useParams();
-
+  const { addItem } = useCart();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -132,7 +134,17 @@ export default function SpecificProduct() {
               </span>
             </div>
 
-            <button className="add-cart-btn">
+            <button
+              className="add-cart-btn"
+              onClick={() => {
+                addItem({
+                  id: product.id,
+                  name: data.name,
+                  price: product.price,
+                  image: product1,
+                });
+              }}
+            >
               <FaShoppingCart />
               Add to Cart
             </button>
