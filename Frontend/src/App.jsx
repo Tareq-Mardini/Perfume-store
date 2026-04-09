@@ -5,6 +5,7 @@ import ProductPage from "./pages/PagesForClient/Products/ProductsPage";
 import SpecificProductPage from "./pages/PagesForClient/SpecificProduct/SpecificProductPage";
 import { Checkout } from "./pages/PagesForClient/Checkout/Checkout";
 import { CartProvider } from "./Context/CartProvider";
+import Terms from "./pages/PagesForClient/Terms/Terms";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
             <Route path="/products" element={<ProductPage />} />
             <Route path="/product/:id" element={<SpecificProductPage />} />
             <Route path="/products/Checkout" element={<Checkout />} />
+            <Route path="/Terms" element={<Terms />} />
 
             <Route path="/Login-Admin" element={<AdminLogin />} />
           </Routes>
