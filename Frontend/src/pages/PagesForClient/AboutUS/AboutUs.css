@@ -1,0 +1,203 @@
+/* ===== CONTAINER ===== */
+.container-About {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+/* ===== HEADER ===== */
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  color: #c6a25a;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  color: #777;
+  font-size: 16px;
+}
+
+/* ===== STORY ===== */
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.perfume-art {
+  text-align: center;
+}
+
+.perfume-art svg {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.perfume-art p {
+  color: #c6a25a;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* ===== TEXT ===== */
+.about-story-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.about-story-text span {
+  color: #c6a25a;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: #c6a25a;
+  margin: 15px 0 20px;
+}
+
+.about-story-text p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* ===== MISSION & VISION ===== */
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.mv-card {
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.mv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.mv-card h3 {
+  margin-bottom: 10px;
+}
+
+.mv-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== WHY CHOOSE ===== */
+.why-choose {
+  text-align: center;
+}
+
+.why-choose h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.why-choose span {
+  color: #c6a25a;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.why-card {
+  padding: 25px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.why-card h4 {
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-story {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .mission-vision {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+  }
+}
+.icon-wrap {
+  width: 50px;
+  height: 50px;
+  background: rgba(198, 162, 90, 0.1);
+  color: #c6a25a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.icon-circle {
+  width: 55px;
+  height: 55px;
+  background: rgba(198, 162, 90, 0.1);
+  color: #c6a25a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  transition: 0.3s;
+}
+
+.why-card:hover .icon-circle {
+  background: #c6a25a;
+  color: #fff;
+  transform: scale(1.1);
+}
