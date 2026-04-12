@@ -19,6 +19,7 @@ import {
 import { useCart } from "../../../hooks/useCart";
 
 export default function SpecificProduct() {
+  const [activeNote, setActiveNote] = useState("top");
   const { id } = useParams();
   const { addItem } = useCart();
   const [product, setProduct] = useState(null);
@@ -93,38 +94,14 @@ export default function SpecificProduct() {
               <FaLayerGroup /> {product.category}
             </p>
 
-            <div className="price">${product.price}</div>
-
-            <p className="description">{data.description}</p>
-
-            {/* NOTES */}
-            <div className="notes">
-              <div className="note-box">
-                <h4>
-                  <FaLeaf className="note-icon" />
-                  Top Notes
-                </h4>
-                <p>{data.top_notes}</p>
-              </div>
-
-              <div className="note-box">
-                <h4>
-                  <FaHeart className="note-icon" />
-                  Heart Notes
-                </h4>
-                <p>{data.heart_notes}</p>
-              </div>
-
-              <div className="note-box">
-                <h4>
-                  <FaFire className="note-icon" />
-                  Base Notes
-                </h4>
-                <p>{data.base_notes}</p>
-              </div>
+            <div className="price">
+              ${product.price}
+              <span style={{ marginLeft: "20px" }} className="old-price">
+                $60.00
+              </span>
             </div>
 
-            {/* EXTRA */}
+            <p className="description">{data.description}</p>
             <div className="extra">
               <span>
                 <FaClock /> {data.longevity}
@@ -133,21 +110,66 @@ export default function SpecificProduct() {
                 <FaWind /> {data.sillage}
               </span>
             </div>
+            <span
+              style={{ fontWeight: "bold", marginTop: "20px" }}
+              className="selector-label"
+            >
+              Size/Volume
+            </span>
+            <div className="size-selector">
+              <button className="size-btn active">30 ml</button>
+              <button
+                onClick={() => {
+                  addItem({
+                    id: product.id,
+                    name: data.name,
+                    price: product.price,
+                    image: product1,
+                  });
+                }}
+                className="btn btn-buy"
+              >
+                <FaShoppingCart style={{ marginRight: "8px" }} />
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* NOTES */}
+        <div className="notes-section">
+          {/* BUTTONS */}
+          <div className="notes-tabs">
+            <button
+              className={activeNote === "top" ? "active" : ""}
+              onClick={() => setActiveNote("top")}
+            >
+              <FaLeaf /> Top Notes
+            </button>
 
             <button
-              className="add-cart-btn"
-              onClick={() => {
-                addItem({
-                  id: product.id,
-                  name: data.name,
-                  price: product.price,
-                  image: product1,
-                });
-              }}
+              className={activeNote === "heart" ? "active" : ""}
+              onClick={() => setActiveNote("heart")}
             >
-              <FaShoppingCart />
-              Add to Cart
+              <FaHeart /> Heart Notes
             </button>
+
+            <button
+              className={activeNote === "base" ? "active" : ""}
+              onClick={() => setActiveNote("base")}
+            >
+              <FaFire /> Base Notes
+            </button>
+          </div>
+
+          {/* CONTENT */}
+          <div
+            key={activeNote}
+            className="note-content"
+            style={{ maxWidth: "900px", margin: "auto" }}
+          >
+            {activeNote === "top" && <p>{data.top_notes}</p>}
+            {activeNote === "heart" && <p>{data.heart_notes}</p>}
+            {activeNote === "base" && <p>{data.base_notes}</p>}
           </div>
         </div>
       </div>

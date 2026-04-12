@@ -28,7 +28,7 @@ export const CartSidebar = ({ isOpen, setIsOpen }) => {
     <>
       <div className="cart-overlay" onClick={() => setIsOpen(false)} />
       <div style={{ zIndex: 1222222222 }} className="cart-sidebar">
-        <div className="cart-header">
+        <div className="cart-header" style={{ paddingBottom: "22px" }}>
           <h2>
             <FaShoppingBag /> Your Cart
           </h2>

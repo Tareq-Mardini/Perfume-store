@@ -6,6 +6,13 @@ import "./productsStye.css";
 import { useSearchParams } from "react-router-dom";
 import axiosInstance from "../../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import {
+  FaSearch,
+  FaShoppingCart,
+  FaHeart,
+  FaEye,
+  FaFilter,
+} from "react-icons/fa";
 
 export default function ProductPage() {
   const [searchParams, setSearchParams] = useSearchParams("");
@@ -33,6 +40,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log(products);
   }, [products]);
 
   useEffect(() => {
@@ -62,12 +70,10 @@ export default function ProductPage() {
       <div className="container">
         <div className="shop-wrapper">
           {/* SIDEBAR */}
-
           <AsideFilter
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
           />
-
           {/* MAIN */}
           <main className="main-content">
             <div className="section-header">
@@ -81,47 +87,63 @@ export default function ProductPage() {
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
 
-                <button onClick={handleSearch}>Search</button>
+                <button onClick={handleSearch}>
+                  <FaSearch /> Search
+                </button>
               </div>
             </div>
+
             <button className="filter-btn" onClick={toggleSidebar}>
-              ☰ Filters
+              <FaFilter /> Filters
             </button>
-            {loading && (
-              <div className="loading-state">
-                <h2>Loading...</h2>
-              </div>
-            )}
-            {!loading && products.length === 0 && (
-              <div className="not-found-state">
-                <h2>Not Found</h2>
-                <p>
-                  Sorry, we couldn’t find any products matching your search.
-                </p>
-              </div>
-            )}
+
             <div className="product-grid">
               {products.map((product) => (
                 <div className="product-card" key={product.id}>
-                  <img
-                    src={
-                      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                    }
-                    alt={product.translations[0].name}
-                  />
+                  <div className="card-img">
+                    {/* BADGE */}
+                    <span className={`badge ${product.category}`}>
+                      {product.category}
+                    </span>
+
+                    {/* HOVER ACTIONS */}
+                    <div className="hover-icons">
+                      <span onClick={() => navigate(`/product/${product.id}`)}>
+                        <FaShoppingCart />
+                      </span>
+                      <span onClick={() => navigate(`/product/${product.id}`)}>
+                        <FaEye />
+                      </span>
+                    </div>
+
+                    <img
+                      src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be"
+                      alt={product.translations[0].name}
+                    />
+                  </div>
+
                   <div className="card-info">
                     <h3>{product.translations[0].name}</h3>
-                    <div className="card-price">${product.price}</div>
+
+                    <p className="character">
+                      {product.translations[0].character}
+                    </p>
+
+                    <div className="card-price">
+                      <FaShoppingCart /> AED {product.price}
+                    </div>
+
                     <button
                       className="view-details-btn"
                       onClick={() => navigate(`/product/${product.id}`)}
                     >
-                      View Details
+                      <FaEye /> View Details
                     </button>
                   </div>
                 </div>
               ))}
             </div>
+
             {products && products.length > 0 && (
               <div className="pagination">
                 <button

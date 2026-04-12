@@ -1,6 +1,17 @@
 /* -------------------- */
 /* PRODUCT DETAILS LAYOUT */
 /* -------------------- */
+
+:root {
+  --primary-green: #1a3622;
+  --primary-gold: #b8864b;
+  --text-dark: #333333;
+  --text-light: #777777;
+  --bg-light: #f8f9fa;
+  --border-color: #e0e0e0;
+  --transition: all 0.3s ease;
+}
+
 .product-details {
   display: flex;
   gap: 40px;
@@ -123,6 +134,12 @@
   animation: fadeRight 0.9s ease forwards;
 }
 
+.old-price {
+  font-size: 18px;
+  color: #777777;
+  text-decoration: line-through;
+}
+
 .description {
   margin-bottom: 20px;
   line-height: 1.7;
@@ -130,48 +147,175 @@
   animation: fadeRight 1s ease forwards;
 }
 
-/* NOTES */
-.notes {
+.selector-label {
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.size-selector {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
-.note-box {
-  background: #fafafa;
-  padding: 12px 15px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  transition: 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.5s ease forwards;
-  animation-delay: 0.2s;
+.size-btn {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
 }
 
-.note-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+.size-btn:hover,
+.size-btn.active {
+  background: #1a3622;
+  color: white;
+  border-color: #1a3622;
 }
 
-.note-box h4 {
+.action-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  overflow: hidden;
+  height: 45px;
+}
+
+.qty-btn {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.qty-btn:hover {
+  background: var(--bg-light);
+}
+
+.qty-input {
+  width: 40px;
+  border: none;
+  text-align: center;
+  font-weight: 600;
+  outline: none;
+}
+
+.btn {
+  height: 45px;
+  padding: 0 25px;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add {
+  background: var(--primary-green);
+  color: white;
+}
+.btn-add:hover {
+  background: #132a19;
+}
+
+.btn-buy {
+  background: var(--primary-gold);
+  color: white;
+}
+.btn-buy:hover {
+  background: #9d703b;
+}
+
+.btn-wish {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-wish:hover {
+  border-color: var(--primary-green);
   color: var(--primary-green);
-  margin-bottom: 6px;
 }
 
-.note-icon {
-  color: var(--primary-gold);
-  font-size: 14px;
-  animation: bounceIcon 1.2s infinite alternate;
+/* NOTES */
+.notes-section {
+  margin-top: 20px;
 }
 
-.note-box:hover .note-icon {
-  transform: scale(1.2);
+/* BUTTONS */
+.notes-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.notes-tabs button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: white;
+  cursor: pointer;
   transition: 0.3s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+.notes-tabs button:hover {
+  background: #f5f5f5;
+}
+
+.notes-tabs button.active {
+  background: var(--primary-green);
+  color: white;
+  border-color: var(--primary-green);
+}
+
+.note-content {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+
+  animation: smoothFade 0.4s ease;
+}
+
+@keyframes smoothFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* EXTRA INFO */
@@ -234,27 +378,50 @@
 /* ANIMATIONS KEYFRAMES */
 /* -------------------- */
 @keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes growLine {
-  from { width: 0; }
-  to { width: 50%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
 }
 
 @keyframes bounceIcon {
-  from { transform: translateY(0); }
-  to { transform: translateY(-4px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
 }
 
 /* -------------------- */
