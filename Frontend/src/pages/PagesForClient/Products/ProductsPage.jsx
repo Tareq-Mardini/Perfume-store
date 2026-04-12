@@ -67,6 +67,22 @@ export default function ProductPage() {
   return (
     <>
       <Navbar />
+      <div class="page-header">
+        <div class="section-label">Shops</div>
+        <h1>Our Products</h1>
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+
+          <button onClick={handleSearch}>
+            <FaSearch /> Search
+          </button>
+        </div>
+      </div>
       <div className="container">
         <div className="shop-wrapper">
           {/* SIDEBAR */}
@@ -76,7 +92,7 @@ export default function ProductPage() {
           />
           {/* MAIN */}
           <main className="main-content">
-            <div className="section-header">
+            {/* <div className="section-header">
               <h3>Products</h3>
 
               <div className="search-box">
@@ -91,7 +107,7 @@ export default function ProductPage() {
                   <FaSearch /> Search
                 </button>
               </div>
-            </div>
+            </div> */}
 
             <button className="filter-btn" onClick={toggleSidebar}>
               <FaFilter /> Filters
@@ -129,9 +145,7 @@ export default function ProductPage() {
                       {product.translations[0].character}
                     </p>
 
-                    <div className="card-price">
-                      <FaShoppingCart /> AED {product.price}
-                    </div>
+                    <div className="card-price">AED {product.price}</div>
 
                     <button
                       className="view-details-btn"
