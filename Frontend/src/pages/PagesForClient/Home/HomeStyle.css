@@ -302,7 +302,7 @@
 .product-card-image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3/4;
+  height: fit-content;
   background: var(--color-beige-light);
 }
 

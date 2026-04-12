@@ -13,6 +13,13 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.ccontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 @media (min-width: 1024px) {
   .checkout-container {
@@ -254,6 +261,7 @@
   margin-left: auto;
   background-color: #111827;
   color: #fff;
+  padding-top: 1px;
   font-size: 0.625rem;
   width: 1.25rem;
   height: 1.25rem;
