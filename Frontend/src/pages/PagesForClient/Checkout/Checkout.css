@@ -1,7 +1,7 @@
 /* Container */
 .checkout {
   min-height: 100vh;
-  background-color: #f9fafb;
+  background-color: #faf9f6;
   padding: 2rem 1rem;
   font-family: sans-serif;
 }
@@ -60,7 +60,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  background-color: #111827;
+  background-color: #2B2F2E;
   color: #fff;
   border-bottom: 1px solid #f3f4f6;
 }

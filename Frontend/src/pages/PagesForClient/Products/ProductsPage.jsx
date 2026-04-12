@@ -159,7 +159,7 @@ export default function ProductPage() {
                   Prev
                 </button>
 
-                <span className="pagination-info">Page {page}</span>
+                <button className="pagination-btn">Page {page}</button>
 
                 <button
                   onClick={() =>
