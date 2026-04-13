@@ -26,7 +26,7 @@ export default function NavbarHome() {
       <div className="navbar-container">
         <div className="navbar-logo">
           <img
-            src="/src/assets/images/gemini-3.1-flash-image-preview (nano-banana-2).png"
+            src="/src/assets/images/final.png"
             className="logo"
             alt=""
           />

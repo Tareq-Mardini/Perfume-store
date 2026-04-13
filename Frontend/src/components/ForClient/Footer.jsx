@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="footer-brand">
             <img
-              src="/public/images/gemini-3.1-flash-image-preview (nano-banana-2)_a_بدي_تحول_اللوغو_كلو_.png"
+              src="/src/assets/images/final.png"
               className="logo"
               alt=""
             />
@@ -155,7 +155,7 @@ export default function Footer() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <span>
-                The Dubai Mall, Fashion Avenue
+                Al Nahda Street, Suhail 1 Building, Apt 1406
                 <br />
                 Dubai, UAE
               </span>
@@ -171,7 +171,7 @@ export default function Footer() {
               >
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
               </svg>
-              <span>+971 4 123 4567</span>
+              <span>+971 50 720 5277</span>
             </div>
             <div className="footer-contact-item">
               <svg
@@ -185,14 +185,14 @@ export default function Footer() {
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
-              <span>hello@daralud.ae</span>
+              <span>info@munaryss.com</span>
             </div>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <span>© 2026 Dār Al-Ūd. All rights reserved.</span>
+          <span>All rights reserved © Munaryss</span>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

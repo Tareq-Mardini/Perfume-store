@@ -60,6 +60,13 @@ export default function AboutUs() {
                     fill="#C6A25A"
                     opacity="0.1"
                   />
+                  <image 
+                    href="/src/assets/images/final1.png"
+                    x="30"
+                    y="40"
+                    width="60"
+                    height="100"
+                  />
                 </svg>
                 <p>Signature Collection</p>
               </div>
