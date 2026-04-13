@@ -38,6 +38,10 @@ export default function ProductPage() {
     setSearchInput("");
   };
 
+  const primaryImage =
+    products.images?.find((img) => img.is_primary)?.url ||
+    products.images?.[0]?.url;
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     console.log(products);
@@ -67,8 +71,8 @@ export default function ProductPage() {
   return (
     <>
       <Navbar />
-      <div class="page-header">
-        <div class="section-label">Shops</div>
+      <div className="page-header">
+        <div className="section-label">Shops</div>
         <h1>Our Products</h1>
         <div className="search-box">
           <input
@@ -83,7 +87,7 @@ export default function ProductPage() {
           </button>
         </div>
       </div>
-      <div className="container">
+      <div style={{ marginTop: "-50px" }} className="container">
         <div className="shop-wrapper">
           {/* SIDEBAR */}
           <AsideFilter
@@ -114,48 +118,60 @@ export default function ProductPage() {
             </button>
 
             <div className="product-grid">
-              {products.map((product) => (
-                <div className="product-card" key={product.id}>
-                  <div className="card-img">
-                    {/* BADGE */}
-                    <span className={`badge ${product.category}`}>
-                      {product.category}
-                    </span>
+              {products.map((product) => {
+                const primaryImage =
+                  product.images?.find((img) => img.is_primary)?.image ||
+                  product.images?.[0]?.image ||
+                  "https://via.placeholder.com/300";
 
-                    {/* HOVER ACTIONS */}
-                    <div className="hover-icons">
-                      <span onClick={() => navigate(`/product/${product.id}`)}>
-                        <FaShoppingCart />
+                return (
+                  <div className="product-card" key={product.id}>
+                    <div className="card-img">
+                      {/* BADGE */}
+                      <span className={`badge ${product.category}`}>
+                        {product.category}
                       </span>
-                      <span onClick={() => navigate(`/product/${product.id}`)}>
-                        <FaEye />
-                      </span>
+
+                      {/* HOVER ACTIONS */}
+                      <div className="hover-icons">
+                        <span
+                          onClick={() => navigate(`/product/${product.id}`)}
+                        >
+                          <FaShoppingCart />
+                        </span>
+                        <span
+                          onClick={() => navigate(`/product/${product.id}`)}
+                        >
+                          <FaEye />
+                        </span>
+                      </div>
+
+                      {/* ✅ الصورة الصح */}
+                      <img
+                        src={primaryImage}
+                        alt={product.translations[0].name}
+                      />
                     </div>
 
-                    <img
-                      src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be"
-                      alt={product.translations[0].name}
-                    />
+                    <div className="card-info">
+                      <h3>{product.translations[0].name}</h3>
+
+                      <p className="character">
+                        {product.translations[0].character}
+                      </p>
+
+                      <div className="card-price">AED {product.price}</div>
+
+                      <button
+                        className="view-details-btn"
+                        onClick={() => navigate(`/product/${product.id}`)}
+                      >
+                        <FaEye /> View Details
+                      </button>
+                    </div>
                   </div>
-
-                  <div className="card-info">
-                    <h3>{product.translations[0].name}</h3>
-
-                    <p className="character">
-                      {product.translations[0].character}
-                    </p>
-
-                    <div className="card-price">AED {product.price}</div>
-
-                    <button
-                      className="view-details-btn"
-                      onClick={() => navigate(`/product/${product.id}`)}
-                    >
-                      <FaEye /> View Details
-                    </button>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {products && products.length > 0 && (

@@ -64,16 +64,12 @@ function TiktokIcon() {
 
 export default function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer" id="footer">
       <div className="footer-container">
         <div className="footer-grid">
           {/* Brand Column */}
           <div className="footer-brand">
-            <img
-              src="/src/assets/images/final.png"
-              className="logo"
-              alt=""
-            />
+            <img src="/src/assets/images/final.png" className="logo" alt="" />
             <p className="footer-about">
               A house of rare fragrances rooted in Arabian heritage. We craft
               scents that celebrate identity, elegance, and the timeless art of

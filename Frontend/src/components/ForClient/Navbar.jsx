@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CartSidebar } from "./CartSidebar";
 import { useCart } from "../../hooks/useCart";
+import { NavLink } from "react-router-dom";
 
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
@@ -8,6 +9,12 @@ export default function NavbarHome() {
   const [cartOpen, setCartOpen] = useState(false);
   const { items } = useCart();
 
+  const handleScrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -20,10 +27,10 @@ export default function NavbarHome() {
   }, [menuOpen]);
 
   const links = [
-    { name: "Home", href: "#" },
-    { name: "Shops", href: "#shop" },
-    { name: "About Us", href: "#shop" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", type: "route", path: "/" },
+    { name: "Shops", type: "route", path: "/products" },
+    { name: "About Us", type: "route", path: "/about" },
+    { name: "Contact", type: "scroll", target: "footer" },
   ];
 
   return (
@@ -37,11 +44,26 @@ export default function NavbarHome() {
 
           {/* Desktop Links */}
           <div className="navbar-links desktop-only">
-            {links.map((link) => (
-              <a key={link.name} href={link.href}>
-                {link.name}
-              </a>
-            ))}
+            {links.map((link) =>
+              link.type === "route" ? (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ) : (
+                <button
+                  className="nav-link"
+                  onClick={() => handleScrollTo("footer")}
+                >
+                  Contact
+                </button>
+              ),
+            )}
           </div>
 
           {/* Icons */}
@@ -79,15 +101,27 @@ export default function NavbarHome() {
 
         {/* Mobile Menu */}
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
+          {links.map((link) =>
+            link.type === "route" ? (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.name}
+              </NavLink>
+            ) : (
+              <button
+                key={link.name}
+                onClick={() => {
+                  handleScrollTo(link.target);
+                  setMenuOpen(false);
+                }}
+              >
+                {link.name}
+              </button>
+            ),
+          )}
         </div>
       </nav>
 
