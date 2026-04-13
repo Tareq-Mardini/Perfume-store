@@ -1,7 +1,7 @@
 import "../../../styles/rootStyle.css";
 import "./HomeStyle.css";
 import TopBar from "./TopBar";
-import NavbarHome from "../../../components/ForClient/NavbarHome";
+import NavbarHome from "../../../components/ForClient/Navbar";
 import Hero from "./Hero";
 import FeaturedProducts from "./FeaturedProducts";
 import Collections from "./Collections";

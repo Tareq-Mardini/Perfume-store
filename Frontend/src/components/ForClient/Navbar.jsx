@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { CartSidebar } from "./CartSidebar";
 import { useCart } from "../../hooks/useCart";
+
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,33 +14,40 @@ export default function NavbarHome() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // منع السكرول لما المينيو مفتوح
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
+
+  const links = [
+    { name: "Home", href: "#" },
+    { name: "Shops", href: "#shop" },
+    { name: "About Us", href: "#shop" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <>
       <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
         <div className="navbar-container">
+          {/* Logo */}
           <div className="navbar-logo">
-            <img
-              src="/src/assets/images/final.png"
-              className="logo"
-              alt=""
-            />
+            <img src="/src/assets/images/final.png" className="logo" alt="" />
           </div>
 
+          {/* Desktop Links */}
+          <div className="navbar-links desktop-only">
+            {links.map((link) => (
+              <a key={link.name} href={link.href}>
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Icons */}
           <div className="navbar-icons">
             <button
               className="icon-btn cart-btn"
-              aria-label="Cart"
               onClick={() => setCartOpen(true)}
             >
               <svg
@@ -56,9 +64,33 @@ export default function NavbarHome() {
               </svg>
               <span className="cart-count">{items.length}</span>
             </button>
+
+            {/* Hamburger */}
+            <button
+              className={`hamburger ${menuOpen ? "active" : ""}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+          {links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
       </nav>
+
       <CartSidebar isOpen={cartOpen} setIsOpen={setCartOpen} />
     </>
   );
