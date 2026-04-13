@@ -112,6 +112,8 @@ export default function NavbarHome() {
               </NavLink>
             ) : (
               <button
+                style={{ fontSize: "1.2rem" }}
+                className="nav-link"
                 key={link.name}
                 onClick={() => {
                   handleScrollTo(link.target);

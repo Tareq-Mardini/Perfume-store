@@ -26,6 +26,10 @@ export default function SpecificProduct() {
   const [selectedImage, setSelectedImage] = useState("");
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axiosInstance.get(`/api/products/${id}/`);

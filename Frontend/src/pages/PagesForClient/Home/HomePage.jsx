@@ -1,4 +1,5 @@
 import "../../../styles/rootStyle.css";
+import { useEffect } from "react";
 import "./HomeStyle.css";
 import TopBar from "./TopBar";
 import NavbarHome from "../../../components/ForClient/Navbar";
@@ -13,6 +14,10 @@ import Newsletter from "./Newsletter";
 import Features from "./Features";
 import Footer from "../../../components/ForClient/Footer";
 export default function HomePage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <TopBar />

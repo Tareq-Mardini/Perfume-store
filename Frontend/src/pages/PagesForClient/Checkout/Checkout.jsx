@@ -28,6 +28,10 @@ export const Checkout = () => {
     notes: "",
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   // ✅ جلب الكارت من localStorage
   useEffect(() => {
     const cart = items;

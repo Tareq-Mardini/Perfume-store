@@ -44,7 +44,6 @@ export default function ProductPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    console.log(products);
   }, [products]);
 
   useEffect(() => {

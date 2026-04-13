@@ -1,8 +1,13 @@
 import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
+import { useEffect } from "react";
 import "./AboutUs.css";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
 export default function AboutUs() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -60,7 +65,7 @@ export default function AboutUs() {
                     fill="#C6A25A"
                     opacity="0.1"
                   />
-                  <image 
+                  <image
                     href="/src/assets/images/final1.png"
                     x="30"
                     y="40"

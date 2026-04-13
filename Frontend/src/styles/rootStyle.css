@@ -484,7 +484,7 @@ ul { list-style: none; }
 }
 
 /* إخفاء عناصر حسب الشاشة */
-@media (max-width: 768px) {
+@media (max-width: 993px) {
   .desktop-only {
     display: none;
   }

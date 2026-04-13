@@ -1,7 +1,12 @@
 import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
+import { useEffect } from "react";
 import "./Terms.css";
 export default function Terms() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <Navbar />
