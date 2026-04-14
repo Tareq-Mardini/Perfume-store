@@ -79,7 +79,12 @@ export default function SpecificProduct() {
           {/* IMAGES */}
           <div className="product-images">
             <div className="main-image">
-              <img src={selectedImage} alt={data.name} />
+              <img
+                key={selectedImage}
+                src={selectedImage}
+                alt={data.name}
+                className="main-product-img"
+              />
             </div>
 
             <div className="thumbnail-list">
