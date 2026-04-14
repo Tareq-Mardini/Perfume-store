@@ -38,9 +38,7 @@ export default function ProductPage() {
     setSearchInput("");
   };
 
-  const primaryImage =
-    products.images?.find((img) => img.is_primary)?.url ||
-    products.images?.[0]?.url;
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -145,7 +143,6 @@ export default function ProductPage() {
                         </span>
                       </div>
 
-                      {/* ✅ الصورة الصح */}
                       <img
                         src={primaryImage}
                         alt={product.translations[0].name}

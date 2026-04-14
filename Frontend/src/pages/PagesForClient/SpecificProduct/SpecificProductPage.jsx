@@ -1,5 +1,6 @@
 import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
+import { getFullImageUrl } from "../../../utils/image";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../api/axiosInstance";
@@ -24,6 +25,7 @@ export default function SpecificProduct() {
   const { addItem } = useCart();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
+  const [primaryImage, setPrimaryImage] = useState("");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -39,7 +41,10 @@ export default function SpecificProduct() {
 
         const primary =
           data.images.find((img) => img.is_primary)?.image ||
-          data.images[0]?.image;
+          data.images[0]?.image ||
+          "";
+
+        setPrimaryImage(primary);
 
         setSelectedImage(primary);
         console.log(response);
@@ -74,14 +79,14 @@ export default function SpecificProduct() {
           {/* IMAGES */}
           <div className="product-images">
             <div className="main-image">
-              <img src={product1} alt={data.name} />
+              <img src={selectedImage} alt={data.name} />
             </div>
 
             <div className="thumbnail-list">
               {product.images.map((img, index) => (
                 <img
                   key={index}
-                  src={product2}
+                  src={img.image}
                   alt="thumb"
                   className={selectedImage === img.image ? "active" : ""}
                   onClick={() => setSelectedImage(img.image)}
@@ -128,7 +133,7 @@ export default function SpecificProduct() {
                     id: product.id,
                     name: data.name,
                     price: product.price,
-                    image: product1,
+                    image: getFullImageUrl(primaryImage),
                   });
                 }}
                 className="btn btn-buy"
