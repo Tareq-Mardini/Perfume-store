@@ -6,13 +6,7 @@ import "./productsStye.css";
 import { useSearchParams } from "react-router-dom";
 import axiosInstance from "../../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
-import {
-  FaSearch,
-  FaShoppingCart,
-  FaHeart,
-  FaEye,
-  FaFilter,
-} from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaEye, FaFilter } from "react-icons/fa";
 
 export default function ProductPage() {
   const [searchParams, setSearchParams] = useSearchParams("");
@@ -38,8 +32,6 @@ export default function ProductPage() {
     setSearchInput("");
   };
 
-
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [products]);
@@ -48,7 +40,6 @@ export default function ProductPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        console.log("Tareq");
         const response = await axiosInstance.get("/api/products/", {
           params: Object.fromEntries(searchParams),
         });

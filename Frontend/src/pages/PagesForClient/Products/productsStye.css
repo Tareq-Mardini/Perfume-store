@@ -132,18 +132,15 @@
   padding: 22px 18px;
   border-radius: 18px;
   background: #ffffff;
-
-  /* حدود خفيفة */
   border: 1px solid rgba(0, 0, 0, 0.06);
-
-  /* شادو ناعم */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-
-  /* يخلي الارتفاع على قد المحتوى */
   height: fit-content;
-
-  /* نعومة */
   transition: all 0.3s ease;
+
+  /* 🔥 أضف هذا */
+  position: sticky;
+  top: 100px;
+  margin-bottom: 60px;
 }
 
 /* تأثير خفيف عند hover (اختياري بس جميل) */

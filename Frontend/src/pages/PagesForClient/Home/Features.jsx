@@ -92,7 +92,11 @@ export default function Features() {
   }, [isInView]);
 
   return (
-    <section className="section features" ref={ref}>
+    <section
+      style={{ paddingTop: "10px", paddingBottom: "10px" }}
+      className="section features"
+      ref={ref}
+    >
       <div className="container">
         <div className="features-grid" ref={gridRef}>
           {features.map((f, i) => (

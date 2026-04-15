@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { CartSidebar } from "./CartSidebar";
 import { useCart } from "../../hooks/useCart";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/images/final.png";
+import { Link } from "react-router-dom";
 
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +41,9 @@ export default function NavbarHome() {
         <div className="navbar-container">
           {/* Logo */}
           <div className="navbar-logo">
-            <img src="/src/assets/images/final.png" className="logo" alt="" />
+            <Link to="/">
+              <img src={logo} className="logo" alt="logo" />
+            </Link>
           </div>
 
           {/* Desktop Links */}

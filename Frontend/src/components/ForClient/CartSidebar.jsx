@@ -1,14 +1,10 @@
-import {
-  FaTimes,
-  FaMinus,
-  FaPlus,
-  FaShoppingBag,
-  FaTrash,
-} from "react-icons/fa";
+import { FaMinus, FaPlus, FaShoppingBag, FaTrash } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import { useNavigate, Link } from "react-router-dom";
 import "./CartSidebar.css";
 import { useCart } from "../../hooks/useCart";
 import { useEffect } from "react";
+
 export const CartSidebar = ({ isOpen, setIsOpen }) => {
   const { items, total, removeItem, updateQuantity, setIsCartOpen } = useCart();
 
@@ -18,12 +14,12 @@ export const CartSidebar = ({ isOpen, setIsOpen }) => {
     } else {
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
   if (!isOpen) return null;
+
   return (
     <>
       <div className="cart-overlay" onClick={() => setIsOpen(false)} />
@@ -33,7 +29,7 @@ export const CartSidebar = ({ isOpen, setIsOpen }) => {
             <FaShoppingBag /> Your Cart
           </h2>
           <button className="close-btn" onClick={() => setIsOpen(false)}>
-            <FaTimes />
+            <IoClose />
           </button>
         </div>
         <div className="cart-content">

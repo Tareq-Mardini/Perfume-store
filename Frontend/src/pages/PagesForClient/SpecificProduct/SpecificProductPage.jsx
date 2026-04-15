@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../api/axiosInstance";
 import "./SpecificProductStyle.css";
-import product1 from "../../../imagesTest/1.jpg";
-import product2 from "../../../imagesTest/2.jpg";
+
+import { useNavigate } from "react-router-dom";
 import {
   FaShoppingCart,
   FaClock,
@@ -16,20 +16,22 @@ import {
   FaHeart,
   FaFire,
 } from "react-icons/fa";
+import { FaSearch, FaEye, FaFilter } from "react-icons/fa";
 
 import { useCart } from "../../../hooks/useCart";
 
 export default function SpecificProduct() {
+  const [products, setProducts] = useState([]);
   const [activeNote, setActiveNote] = useState("top");
   const { id } = useParams();
   const { addItem } = useCart();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [primaryImage, setPrimaryImage] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [product]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -55,6 +57,19 @@ export default function SpecificProduct() {
 
     fetchProduct();
   }, [id]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axiosInstance.get("/api/products/?page_size=3");
+        setProducts(response.data.results);
+      } catch (error) {
+        setProducts([]);
+        console.error("ERROR: ", error);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   if (!product) {
     return (
@@ -185,6 +200,65 @@ export default function SpecificProduct() {
             {activeNote === "heart" && <p>{data.heart_notes}</p>}
             {activeNote === "base" && <p>{data.base_notes}</p>}
           </div>
+        </div>
+      </div>
+
+      <div className="page-header">
+        <div className="section-label">
+          explore
+          <h1>More Products</h1>
+        </div>
+      </div>
+      <div style={{ paddingTop: "0px" }} className="container">
+        <div className="product-grid-">
+          {products.map((product) => {
+            const primaryImage =
+              product.images?.find((img) => img.is_primary)?.image ||
+              product.images?.[0]?.image;
+
+            return (
+              <div className="product-card" key={product.id}>
+                <div className="card-img">
+                  {/* BADGE */}
+                  <span className={`badge ${product.category}`}>
+                    {product.category}
+                  </span>
+
+                  {/* HOVER ACTIONS */}
+                  <div className="hover-icons">
+                    <span onClick={() => navigate(`/product/${product.id}`)}>
+                      <FaShoppingCart />
+                    </span>
+                    <span onClick={() => navigate(`/product/${product.id}`)}>
+                      <FaEye />
+                    </span>
+                  </div>
+
+                  <img src={primaryImage} alt={product.translations[0].name} />
+                </div>
+
+                <div className="card-info">
+                  <h3>{product.translations[0].name}</h3>
+
+                  <p className="character">
+                    {product.translations[0].character}
+                  </p>
+
+                  <div className="card-price">
+                    AED{" "}
+                    <span style={{ color: "#2B2F2E" }}>{product.price}</span>
+                  </div>
+
+                  <button
+                    className="view-details-btn"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    <FaEye /> View Details
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 

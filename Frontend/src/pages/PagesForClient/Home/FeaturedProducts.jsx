@@ -57,7 +57,12 @@ export default function FeaturedProducts() {
   const [ref, isInView] = useInView();
 
   return (
-    <section className="section" id="featured" ref={ref}>
+    <section
+      style={{ paddingTop: "10px", paddingBottom: "10px" }}
+      className="section"
+      id="featured"
+      ref={ref}
+    >
       <div className="container">
         <div className={`section-header fade-in ${isInView ? "visible" : ""}`}>
           <span className="section-subtitle">✦ Curated for You</span>

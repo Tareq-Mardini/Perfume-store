@@ -40,7 +40,11 @@ export default function Testimonials() {
   }, [isInView]);
 
   return (
-    <section className="section" ref={ref}>
+    <section
+      style={{ paddingTop: "10px", paddingBottom: "10px" }}
+      className="section"
+      ref={ref}
+    >
       <div className="container">
         <div className={`section-header fade-in ${isInView ? "visible" : ""}`}>
           <span className="section-subtitle">✦ Voices of Distinction</span>

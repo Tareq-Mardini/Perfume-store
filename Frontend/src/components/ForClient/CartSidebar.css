@@ -48,13 +48,14 @@
   border: none;
   cursor: pointer;
   padding: 8px;
+  padding-bottom: 5px;
   border-radius: 50%;
   transition: 0.2s;
 }
 
 .close-btn:hover {
   background: rgba(0,0,0,0.1);
-  transform: rotate(90deg);
+ 
 }
 
 /* Content */

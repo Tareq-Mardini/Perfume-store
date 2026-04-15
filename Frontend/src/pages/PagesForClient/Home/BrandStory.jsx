@@ -5,7 +5,12 @@ export default function BrandStory() {
   const [ref, isInView] = useInView();
 
   return (
-    <section className="section story" id="story" ref={ref}>
+    <section
+      style={{ paddingBottom: "20px" }}
+      className="section story"
+      id="story"
+      ref={ref}
+    >
       <div className="story-container">
         <div className={`story-image fade-in ${isInView ? "visible" : ""}`}>
           <img
