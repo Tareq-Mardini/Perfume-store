@@ -118,8 +118,7 @@ export default function ProductPage() {
               {products.map((product) => {
                 const primaryImage =
                   product.images?.find((img) => img.is_primary)?.image ||
-                  product.images?.[0]?.image ||
-                  "https://via.placeholder.com/300";
+                  product.images?.[0]?.image;
 
                 return (
                   <div className="product-card" key={product.id}>
@@ -156,7 +155,12 @@ export default function ProductPage() {
                         {product.translations[0].character}
                       </p>
 
-                      <div className="card-price">AED {product.price}</div>
+                      <div className="card-price">
+                        AED{" "}
+                        <span style={{ color: "#2B2F2E" }}>
+                          {product.price}
+                        </span>
+                      </div>
 
                       <button
                         className="view-details-btn"

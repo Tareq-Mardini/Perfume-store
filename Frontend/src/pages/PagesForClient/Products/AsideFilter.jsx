@@ -118,8 +118,12 @@ export default function AsideFilter({ sidebarOpen }) {
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <span style={{ fontWeight: "bold" }}>${minPrice} </span>
-          <span style={{ fontWeight: "bold" }}>${maxPrice} </span>
+          <span style={{ fontWeight: "bold", fontSize: "13px" }}>
+            AED {minPrice}{" "}
+          </span>
+          <span style={{ fontWeight: "bold", fontSize: "13px" }}>
+            AED {maxPrice}{" "}
+          </span>
         </div>
         <button onClick={applyFilters}>Apply Filters</button>
       </aside>

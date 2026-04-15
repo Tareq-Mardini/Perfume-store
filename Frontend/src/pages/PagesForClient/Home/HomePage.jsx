@@ -24,9 +24,9 @@ export default function HomePage() {
       <NavbarHome />
       <Hero />
       <FeaturedProducts />
-      <Collections />
+      {/* <Collections /> */}
       <Banner />
-      <BestSellers />
+      {/* <BestSellers /> */}
       <BrandStory />
       <Testimonials />
       <Newsletter />

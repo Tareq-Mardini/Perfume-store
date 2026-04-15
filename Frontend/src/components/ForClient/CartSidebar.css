@@ -188,7 +188,8 @@
 .checkout-btn {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+    background-color: #10b981;
+  color: #fff;
   color: #fff;
   border: none;
   cursor: pointer;

@@ -30,7 +30,7 @@ export default function NavbarHome() {
     { name: "Home", type: "route", path: "/" },
     { name: "Shops", type: "route", path: "/products" },
     { name: "About Us", type: "route", path: "/about" },
-    { name: "Contact", type: "scroll", target: "footer" },
+    { name: "Terms", type: "route", path: "/terms" },
   ];
 
   return (
@@ -43,7 +43,10 @@ export default function NavbarHome() {
           </div>
 
           {/* Desktop Links */}
-          <div className="navbar-links desktop-only">
+          <div
+            className="navbar-links desktop-only"
+            style={{ marginRight: "66px" }}
+          >
             {links.map((link) =>
               link.type === "route" ? (
                 <NavLink

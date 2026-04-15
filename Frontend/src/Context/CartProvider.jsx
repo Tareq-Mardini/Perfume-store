@@ -80,6 +80,7 @@ export const CartProvider = ({ children }) => {
         total,
         isCartOpen,
         setIsCartOpen,
+        setItems,
       }}
     >
       {children}

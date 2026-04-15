@@ -457,18 +457,17 @@
 }
 
 /* ألوان حسب النوع */
-.badge.Men {
-  background: linear-gradient(135deg, #1e3a29, #2e5c45);
+.badge.men {
+  background: linear-gradient(135deg, #3b4a52, #7a8a91);
 }
 
 .badge.women {
-  background: linear-gradient(135deg, #b48b54, #e2b97f);
+  background: linear-gradient(135deg, #c6a25a, #e0c27a);
 }
 
 .badge.unisex {
-  background: linear-gradient(135deg, #444, #777);
+  background: linear-gradient(135deg, #b0b7b4, #d6dbd9);
 }
-
 .character {
   font-size: 13px;
   color: var(--text-gray);
