@@ -61,7 +61,7 @@ export default function ProductPage() {
       <Navbar />
       <div className="page-header">
         <div className="section-label">Shops</div>
-        <h1>Our Products</h1>
+        <h1>More Products</h1>
         <div className="search-box">
           <input
             type="text"

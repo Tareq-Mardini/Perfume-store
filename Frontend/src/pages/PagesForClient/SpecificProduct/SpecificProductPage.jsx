@@ -5,6 +5,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../api/axiosInstance";
 import "./SpecificProductStyle.css";
+import {
+  FaArrowLeft,
+  FaMapMarkerAlt,
+  FaBox,
+  FaShieldAlt,
+  FaCreditCard,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import {
@@ -61,7 +69,7 @@ export default function SpecificProduct() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axiosInstance.get("/api/products/?page_size=3");
+        const response = await axiosInstance.get("/api/products/?page_size=4");
         setProducts(response.data.results);
       } catch (error) {
         setProducts([]);
@@ -88,8 +96,20 @@ export default function SpecificProduct() {
   return (
     <>
       <Navbar />
+      <div className="page-header" style={{ marginBottom: "0px" }}>
+        <div className="section-label">Product</div>
+        <h1>{data.name}</h1>
+        <p>
+          Discover the details, notes, and craftsmanship behind this fragrance
+        </p>
+      </div>
+
+
 
       <div className="container">
+        <Link to="/products" className="back-btn">
+          <FaArrowLeft /> Back to shopping
+        </Link>
         <div className="product-details">
           {/* IMAGES */}
           <div className="product-images">
@@ -114,6 +134,7 @@ export default function SpecificProduct() {
               ))}
             </div>
           </div>
+
 
           {/* INFO */}
           <div className="product-info">
@@ -202,14 +223,10 @@ export default function SpecificProduct() {
           </div>
         </div>
       </div>
-
-      <div className="page-header">
-        <div className="section-label">
-          explore
-          <h1>More Products</h1>
-        </div>
-      </div>
       <div style={{ paddingTop: "0px" }} className="container">
+        <Link to="/products" className="back-btn">
+          <FaArrowLeft /> See more products
+        </Link>
         <div className="product-grid-">
           {products.map((product) => {
             const primaryImage =

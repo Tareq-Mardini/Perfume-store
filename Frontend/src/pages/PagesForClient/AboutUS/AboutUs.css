@@ -8,7 +8,7 @@
 /* ===== HEADER ===== */
 .page-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .section-label {
@@ -20,8 +20,8 @@
 }
 
 .page-header h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 2.3rem;
+  margin-bottom: 12px;
 }
 
 .page-header p {
@@ -200,4 +200,42 @@
   background: #c6a25a;
   color: #fff;
   transform: scale(1.1);
+}
+
+/* ===== by bakrsafi ===== */
+.perfume-svg {
+  animation: float 2.5s ease-in-out infinite;
+  will-change: transform;
+  margin-bottom: 0 !important;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes shadowScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.12;
+  }
+  50% {
+    transform: scale(0.6);
+    opacity: 0.05;
+  }
+}
+.shadow-real {
+  width: 100px;
+  height: 10px;
+  margin: 0 auto;
+  margin-top: -20px;
+  background: #1c1a16;
+  opacity: 0.30 !important;
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: shadowScale 2.5s ease-in-out infinite;
 }

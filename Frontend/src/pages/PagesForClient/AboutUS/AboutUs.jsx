@@ -24,7 +24,7 @@ export default function AboutUs() {
           <div class="about-story">
             <div class="about-story-visual">
               <div class="perfume-art">
-                <svg viewBox="0 0 120 200" fill="none">
+                <svg className="perfume-svg" viewBox="0 0 120 200" fill="none">
                   <rect
                     x="35"
                     y="20"
@@ -57,14 +57,6 @@ export default function AboutUs() {
                     fill="#1C1F1E"
                     stroke="#C6A25A"
                   />
-                  <ellipse
-                    cx="60"
-                    cy="192"
-                    rx="30"
-                    ry="5"
-                    fill="#C6A25A"
-                    opacity="0.1"
-                  />
                   <image
                     href="/src/assets/images/final1.png"
                     x="30"
@@ -73,7 +65,9 @@ export default function AboutUs() {
                     height="100"
                   />
                 </svg>
-                <p>Signature Collection</p>
+                <div className="shadow-real">
+                </div>
+                <p style={{ marginTop: "20px" }}>Signature Collection</p>
               </div>
             </div>
 
