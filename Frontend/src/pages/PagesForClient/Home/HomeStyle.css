@@ -92,25 +92,27 @@
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   text-align: center;
-  font-weight: 400;
   position: relative;
   z-index: 1001;
+  overflow: hidden;
 }
 
 .topbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.topbar-content span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.fade-out {
+  opacity: 0;
+  transform: translateY(-5px);
 }
 
-
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ---------- Hero ---------- */
 .hero {

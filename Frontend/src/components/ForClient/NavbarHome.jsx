@@ -104,7 +104,7 @@ export default function NavbarHome() {
           </button>
         </div>
 
-        <button
+        <button 
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"

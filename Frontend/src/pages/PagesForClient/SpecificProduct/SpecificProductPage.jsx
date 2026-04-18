@@ -92,6 +92,7 @@ export default function SpecificProduct() {
   }
 
   const data = product.translations[0];
+  console.log("PRODUCT: ", product);
 
   return (
     <>
@@ -145,10 +146,16 @@ export default function SpecificProduct() {
             </p>
 
             <div className="price">
-              ${product.price}
-              <span style={{ marginLeft: "20px" }} className="old-price">
-                $60.00
-              </span>
+              AED&nbsp;  
+              <span style={{ color: "var(--color-primary)" }}>
+                {product.price}
+              </span> 
+              {product.price_before_discount && (
+                <span style={{ marginLeft: "20px" }} className="old-price">
+                  AED&nbsp;
+                  <span>{product.price_before_discount}</span>
+                </span>
+              )}
             </div>
 
             <p className="description">{data.description}</p>
@@ -167,7 +174,7 @@ export default function SpecificProduct() {
               Size/Volume
             </span>
             <div className="size-selector">
-              <button className="size-btn active">30 ml</button>
+              <button className="size-btn active">{product.bottle_volume} ml</button>
               <button
                 onClick={() => {
                   addItem({

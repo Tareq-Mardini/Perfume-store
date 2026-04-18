@@ -63,13 +63,15 @@
 .search-box input {
   padding: 12px 15px;
   border-radius: 25px;
-  border: 1px solid #eaeaea;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
   width: 280px;
   max-width: 100%;
   outline: none;
   font-size: 14px;
   transition: 0.3s;
-  background: #fff;
+  color: var(--color-white);
+
 }
 
 /* focus effect */

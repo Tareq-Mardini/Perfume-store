@@ -49,7 +49,7 @@ export default function NavbarHome() {
           {/* Desktop Links */}
           <div
             className="navbar-links desktop-only"
-            style={{ marginRight: "66px" }}
+            style={{ marginRight: "130px" }}
           >
             {links.map((link) =>
               link.type === "route" ? (
