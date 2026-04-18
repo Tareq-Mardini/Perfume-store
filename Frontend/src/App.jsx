@@ -7,6 +7,8 @@ import { Checkout } from "./pages/PagesForClient/Checkout/Checkout";
 import { CartProvider } from "./Context/CartProvider";
 import Terms from "./pages/PagesForClient/Terms/Terms";
 import AboutUs from "./pages/PagesForClient/AboutUS/AboutUs";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Admin from "./pages/PagesForAdmin/Dashboard/Admin";
 function App() {
   return (
     <>
@@ -19,6 +21,10 @@ function App() {
             <Route path="/products/Checkout" element={<Checkout />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<AboutUs />} />
+
+            <Route element={<DashboardLayout />}>
+              <Route path="/Admin" element={<Admin />} />
+            </Route>
 
             <Route path="/Login-Admin" element={<AdminLogin />} />
           </Routes>

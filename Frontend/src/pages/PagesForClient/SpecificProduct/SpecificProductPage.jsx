@@ -61,7 +61,7 @@ export default function SpecificProduct() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axiosInstance.get("/api/products/?page_size=3");
+        const response = await axiosInstance.get("/api/products/?page_size=4");
         setProducts(response.data.results);
       } catch (error) {
         setProducts([]);

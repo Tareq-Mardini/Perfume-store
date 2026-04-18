@@ -108,7 +108,7 @@ export const Checkout = () => {
         items,
       };
 
-      await axiosInstance.post("api/orders/", payload);
+      await axiosInstance.post("/api/orders/", payload);
 
       localStorage.removeItem("cart");
       setItems([]);
