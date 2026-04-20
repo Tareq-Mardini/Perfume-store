@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstanceAdmin from "../../../../../api/axiosInstanceAdmin";
-import "./DisplayDetailProduct.css";
+import styles from "./DisplayDetailProduct.module.css";
 
 export default function DisplayDetailProduct() {
   const { id } = useParams();
@@ -24,51 +24,43 @@ export default function DisplayDetailProduct() {
   if (!product) return <p>Loading...</p>;
 
   return (
-    <div className="product-detail">
-      {/* 🔥 Top Section */}
-      <div className="product-top">
-        {/* 🖼️ Image Gallery */}
-        <div className="product-image">
-          {/* الصورة الرئيسية */}
-          <div className="main-image-wrapper">
-            <img src={selectedImage} alt="product" className="main-img" />
+    <div className={styles.productDetail}>
+      <div className={styles.productTop}>
+        <div className={styles.productImage}>
+          <div className={styles.mainImageWrapper}>
+            <img src={selectedImage} className={styles.mainImg} />
           </div>
 
-          {/* الصور الصغيرة */}
-          <div className="thumbs-grid">
+          <div className={styles.thumbsGrid}>
             {product.images?.map((img) => (
               <div
                 key={img.image}
-                className={`thumb-box ${
-                  selectedImage === img.image ? "active" : ""
+                className={`${styles.thumbBox} ${
+                  selectedImage === img.image ? styles.active : ""
                 }`}
                 onClick={() => setSelectedImage(img.image)}
               >
-                <img src={img.image} alt="thumb" />
+                <img src={img.image} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* 🧾 Info */}
-        <div className="product-info">
+        <div className={styles.productInfo}>
           <h1>{product.translations[1]?.name}</h1>
-          <p className="price">${product.price}</p>
-          <p className="category">{product.category}</p>
+          <p className={styles.price}>${product.price}</p>
+          <p className={styles.category}>{product.category}</p>
         </div>
       </div>
 
-      {/* 🌍 كل اللغات */}
-      <div className="translations">
+      <div className={styles.translations}>
         {product.translations.map((t, index) => (
-          <div key={index} className="lang-box" st>
+          <div key={index} className={styles.langBox}>
             <h2>{t.language_code.toUpperCase()}</h2>
-
             <h3>{t.name}</h3>
+            <p className={styles.desc}>{t.description}</p>
 
-            <p className="desc">{t.description}</p>
-
-            <div className="notes">
+            <div className={styles.notes}>
               <p>
                 <strong>Top:</strong> {t.top_notes}
               </p>
