@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Products.css";
-import { getProducts } from "../../../../../services/productsService";
+import {
+  getProducts,
+  deleteProduct,
+} from "../../../../../services/productsService";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -23,6 +26,21 @@ export default function Products() {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete?");
+    if (!confirmDelete) return;
+
+    try {
+      await deleteProduct(id);
+
+      // 🔥 تحديث UI بدون reload
+      setProducts((prev) => prev.filter((p) => p.id !== id));
+    } catch (err) {
+      console.log(err);
+      alert("Failed to delete product");
+    }
+  };
+
   return (
     <div>
       <table className="table">
@@ -42,7 +60,7 @@ export default function Products() {
               </td>
               <td className="td" data-label="Image">
                 <img
-                  src={product.images[0].image}
+                  src={product.images[0]?.image}
                   alt={product.name}
                   width="50"
                   height="50"
@@ -65,7 +83,12 @@ export default function Products() {
                   View
                 </button>
                 <button className="btn-Dash btn-edit">Edit</button>
-                <button className="btn-Dash btn-delete">Delete</button>
+                <button
+                  className="btn-Dash btn-delete"
+                  onClick={() => handleDelete(product.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
