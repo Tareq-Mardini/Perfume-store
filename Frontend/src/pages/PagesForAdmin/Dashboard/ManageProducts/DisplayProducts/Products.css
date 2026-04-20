@@ -1,0 +1,93 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+}
+.th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Buttons */
+.btn-Dash {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+/* View button */
+.btn-view {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+}
+
+/* Edit button */
+.btn-edit {
+  background-color: #f1c40f;
+  color: black;
+  padding: 10px;
+}
+
+/* Delete button */
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+}
+/* 📱 Responsive for mobile */
+@media (max-width: 768px) {
+  .table {
+    border: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .td:last-child {
+    border-bottom: none;
+  }
+
+  .td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+
+  .btn-Dash {
+    margin-bottom: 5px;
+  }
+}
+.th,
+.td {
+  text-align: center;
+  vertical-align: middle;
+}

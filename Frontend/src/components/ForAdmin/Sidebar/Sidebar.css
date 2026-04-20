@@ -1,6 +1,5 @@
 .sidebar-Admin {
   width: 260px;
-
   background: linear-gradient(
     180deg,
     var(--color-primary) 0%,
@@ -9,15 +8,12 @@
   color: var(--color-white);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 100vh; /* أهم تعديل */
+  position: fixed; /* يخليه ثابت */
+  left: 0;
+  top: 0;
   padding: 24px 18px;
-  min-height: 100vh;
   box-shadow: var(--shadow-lg);
-  transition: var(--transition);
-  border-radius: 0px;
-  margin-bottom: 0px;
-
-  z-index: 22;
 }
 /* Top */
 
@@ -32,8 +28,9 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-top: 0px;
-  margin-top: 0px;
+  flex: 1;              /* ياخذ المساحة الوسط */
+  overflow-y: auto;     /* سكرول إذا زادت الروابط */
+  margin-top: 10px;
 }
 
 /* Nav Item */
@@ -74,10 +71,10 @@
 
 /* Bottom */
 .sidebar__bottom {
+  margin-top: auto; /* أهم سطر */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 16px;
 }
-
 /* زر logout */
 .logout {
   width: 100%;

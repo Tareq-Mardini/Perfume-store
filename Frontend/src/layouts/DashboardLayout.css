@@ -16,6 +16,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-left: 260px;
 }
 
 /* الهيدر */
@@ -46,5 +47,10 @@
 @media (min-width: 769px) {
   .overlay {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
   }
 }

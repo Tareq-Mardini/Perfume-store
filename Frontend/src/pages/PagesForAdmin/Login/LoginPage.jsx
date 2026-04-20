@@ -1,16 +1,34 @@
 import { useState } from "react";
 import "./LoginStyle.css";
+import axiosInstance from "../../../api/axiosInstance";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!username || !password) {
       setError("Please fill all fields");
       return;
     }
-    setError("Invalid credentials");
+
+    try {
+      const res = await axiosInstance.post("/api/token/", {
+        username,
+        password,
+      });
+
+      const { access, refresh } = res.data;
+
+      // ✅ تخزينهم
+      localStorage.setItem("accessToken", access);
+      localStorage.setItem("refreshToken", refresh);
+
+      // ✅ نجاح → روح لصفحة ثانية
+      window.location.href = "/admin/products/";
+    } catch (err) {
+      setError("Invalid credentials");
+    }
   };
 
   return (
