@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstanceAdmin from "../../../../../api/axiosInstanceAdmin";
 import styles from "./DisplayDetailProduct.module.css";
+import { getDetailProductAdmin } from "../../../../../services/productsService";
 
 export default function DisplayDetailProduct() {
   const { id } = useParams();
@@ -10,12 +11,12 @@ export default function DisplayDetailProduct() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await axiosInstanceAdmin.get(`/api/admin/products/${id}/`);
-      setProduct(res.data);
+      const res = await getDetailProductAdmin(id);
+      setProduct(res);
 
       // 🔥 أول صورة تكون الافتراضية
-      const primary = res.data.images.find((i) => i.is_primary);
-      setSelectedImage(primary?.image || res.data.images[0]?.image);
+      const primary = res.images.find((i) => i.is_primary);
+      setSelectedImage(primary?.image || res.images[0]?.image);
     };
 
     fetchProduct();
