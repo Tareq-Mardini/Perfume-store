@@ -11,6 +11,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import Products from "./pages/PagesForAdmin/Dashboard/ManageProducts/DisplayProducts/Products";
 import DisplayDetailProduct from "./pages/PagesForAdmin/Dashboard/ManageProducts/DisplayDetailProduct/DisplayDetailProduct";
 import CreateProduct from "./pages/PagesForAdmin/Dashboard/ManageProducts/CreateProduct/CreateProduct";
+import ManageOrders from "./pages/PagesForAdmin/Dashboard/ManageOrders/ManageOrders";
 function App() {
   return (
     <>
@@ -28,10 +29,14 @@ function App() {
             <Route element={<DashboardLayout />}>
               <Route path="/admin/products" element={<Products />} />
               <Route
-                path="/admin/product-Detail/:id"
+                path="/admin/products/product-Detail/:id"
                 element={<DisplayDetailProduct />}
               />
-              <Route path="/admin/create-product" element={<CreateProduct />} />
+              <Route
+                path="/admin/products/create-product"
+                element={<CreateProduct />}
+              />
+              <Route path="/admin/orders" element={<ManageOrders />} />
             </Route>
             <Route path="/Login-Admin" element={<AdminLogin />} />
           </Routes>

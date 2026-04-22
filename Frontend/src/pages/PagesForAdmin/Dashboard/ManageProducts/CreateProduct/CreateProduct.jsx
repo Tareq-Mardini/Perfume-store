@@ -5,8 +5,9 @@ import {
 } from "../../../../../services/productsService.js";
 import "./CreateProduct.css";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function CreateProduct() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     price: "",
     price_before_discount: "",
@@ -66,7 +67,9 @@ export default function CreateProduct() {
     try {
       setLoading(true);
       setErrors({}); // 🔥 clear old errors
-
+      if (images.length <= 0) {
+        throw new Error("enter photo");
+      }
       const response = await createProduct({
         ...form,
         images: [],
@@ -81,13 +84,14 @@ export default function CreateProduct() {
       }
 
       alert("Product created successfully 🚀");
+      navigate("/admin/products");
     } catch (err) {
       console.error(err);
 
       if (err.response?.data) {
         setErrors(err.response.data); // 🔥 backend errors
       } else {
-        alert("Error creating product ❌");
+        alert(err || "Error creating product ❌");
       }
     } finally {
       setLoading(false);
@@ -97,7 +101,7 @@ export default function CreateProduct() {
   return (
     <>
       <Link to="/admin/products">
-        <button className="btn-create-product">Create New Product</button>
+        <button className="btn-create-product">Back to Products</button>
       </Link>
       <form onSubmit={handleSubmit} className="create-product-page">
         <h2>Create Product</h2>

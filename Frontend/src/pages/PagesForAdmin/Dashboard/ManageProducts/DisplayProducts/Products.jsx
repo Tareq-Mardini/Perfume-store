@@ -44,7 +44,7 @@ export default function Products() {
 
   return (
     <>
-      <Link to="/admin/create-product">
+      <Link to="/admin/products/create-product">
         <button className="btn-create-product">Create New Product</button>
       </Link>
       <div>
@@ -82,7 +82,7 @@ export default function Products() {
                   <button
                     className="btn-Dash btn-view"
                     onClick={() =>
-                      navigate(`/admin/product-Detail/${product.id}`)
+                      navigate(`/admin/products/product-Detail/${product.id}`)
                     }
                   >
                     View
