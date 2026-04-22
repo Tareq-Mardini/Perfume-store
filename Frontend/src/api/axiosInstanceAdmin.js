@@ -58,7 +58,7 @@ adminApi.interceptors.response.use(
       } catch (err) {
         // ❌ إذا فشل refresh → logout
         localStorage.clear();
-        window.location.href = "/Login-Admin";
+        window.location.href = "/login-admin";
       }
     }
 

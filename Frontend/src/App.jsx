@@ -38,7 +38,7 @@ function App() {
               />
               <Route path="/admin/orders" element={<ManageOrders />} />
             </Route>
-            <Route path="/Login-Admin" element={<AdminLogin />} />
+            <Route path="/login-admin" element={<AdminLogin />} />
           </Routes>
         </CartProvider>
       </BrowserRouter>

@@ -24,9 +24,7 @@ function Sidebar({ isOpen, onMenuClick }) {
 
       <nav className="sidebar__nav">
         <NavItem to="/admin/products" label="products" />
-        <NavItem to="/users" label="Users" />
         <NavItem to="/admin/orders" label="Orders" />
-        <NavItem to="/settings" label="Settings" />
       </nav>
 
       {/* Bottom */}
