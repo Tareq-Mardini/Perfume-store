@@ -5,17 +5,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../../api/axiosInstance";
 import "./SpecificProductStyle.css";
+import { useLanguage } from "../../../Context/LanguageContext";
+import { useTranslation } from "react-i18next";
+
 import {
   FaArrowLeft,
-  FaMapMarkerAlt,
-  FaBox,
-  FaShieldAlt,
-  FaCreditCard,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
-
-import { useNavigate } from "react-router-dom";
-import {
   FaShoppingCart,
   FaClock,
   FaWind,
@@ -23,20 +17,27 @@ import {
   FaLeaf,
   FaHeart,
   FaFire,
+  FaEye,
 } from "react-icons/fa";
-import { FaSearch, FaEye, FaFilter } from "react-icons/fa";
 
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../../hooks/useCart";
 
 export default function SpecificProduct() {
+  const { t } = useTranslation();
+  const { language } = useLanguage();
+
   const [products, setProducts] = useState([]);
   const [activeNote, setActiveNote] = useState("top");
   const { id } = useParams();
   const { addItem } = useCart();
+
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [primaryImage, setPrimaryImage] = useState("");
+
   const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [product]);
@@ -55,16 +56,14 @@ export default function SpecificProduct() {
           "";
 
         setPrimaryImage(primary);
-
         setSelectedImage(primary);
-        console.log(response);
       } catch (error) {
         console.error("ERROR: ", error);
       }
     };
 
     fetchProduct();
-  }, [id]);
+  }, [id, language]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -76,15 +75,16 @@ export default function SpecificProduct() {
         console.error("ERROR: ", error);
       }
     };
+
     fetchProducts();
-  }, []);
+  }, [language]);
 
   if (!product) {
     return (
       <>
         <Navbar />
         <div className="loading-state">
-          <h2>Loading...</h2>
+          <h2>{t("productPage.loading")}</h2>
         </div>
         <Footer />
       </>
@@ -92,25 +92,26 @@ export default function SpecificProduct() {
   }
 
   const data = product.translations[0];
-  console.log("PRODUCT: ", product);
 
   return (
     <>
       <Navbar />
+
+      {/* HEADER */}
       <div className="page-header" style={{ marginBottom: "0px" }}>
-        <div className="section-label">Product</div>
+        <div className="section-label">{t("productPage.product")}</div>
+
         <h1>{data.name}</h1>
-        <p>
-          Discover the details, notes, and craftsmanship behind this fragrance
-        </p>
+
+        <p>{t("productPage.discover")}</p>
       </div>
-
-
 
       <div className="container">
         <Link to="/products" className="back-btn">
-          <FaArrowLeft /> Back to shopping
+          <FaArrowLeft />
+          {t("productPage.backToShop")}
         </Link>
+
         <div className="product-details">
           {/* IMAGES */}
           <div className="product-images">
@@ -136,7 +137,6 @@ export default function SpecificProduct() {
             </div>
           </div>
 
-
           {/* INFO */}
           <div className="product-info">
             <h2>{data.name}</h2>
@@ -146,19 +146,19 @@ export default function SpecificProduct() {
             </p>
 
             <div className="price">
-              AED&nbsp;  
+              AED&nbsp;
               <span style={{ color: "var(--color-primary)" }}>
                 {product.price}
-              </span> 
+              </span>
               {product.price_before_discount && (
                 <span style={{ marginLeft: "20px" }} className="old-price">
-                  AED&nbsp;
-                  <span>{product.price_before_discount}</span>
+                  AED&nbsp;{product.price_before_discount}
                 </span>
               )}
             </div>
 
             <p className="description">{data.description}</p>
+
             <div className="extra">
               <span>
                 <FaClock /> {data.longevity}
@@ -167,14 +167,19 @@ export default function SpecificProduct() {
                 <FaWind /> {data.sillage}
               </span>
             </div>
+
             <span
-              style={{ fontWeight: "bold", marginTop: "20px" }}
               className="selector-label"
+              style={{ fontWeight: "bold", marginTop: "20px" }}
             >
-              Size/Volume
+              {t("productPage.size")}
             </span>
+
             <div className="size-selector">
-              <button className="size-btn active">{product.bottle_volume} ml</button>
+              <button className="size-btn active">
+                {product.bottle_volume} ml
+              </button>
+
               <button
                 onClick={() => {
                   addItem({
@@ -187,40 +192,41 @@ export default function SpecificProduct() {
                 className="btn btn-buy"
               >
                 <FaShoppingCart style={{ marginRight: "8px" }} />
-                Add To Cart
+                {t("productPage.addToCart")}
               </button>
             </div>
           </div>
         </div>
+
         {/* NOTES */}
         <div className="notes-section">
-          {/* BUTTONS */}
           <div className="notes-tabs">
             <button
               className={activeNote === "top" ? "active" : ""}
               onClick={() => setActiveNote("top")}
             >
-              <FaLeaf /> Top Notes
+              <FaLeaf />
+              {t("productPage.topNotes")}
             </button>
 
             <button
               className={activeNote === "heart" ? "active" : ""}
               onClick={() => setActiveNote("heart")}
             >
-              <FaHeart /> Heart Notes
+              <FaHeart />
+              {t("productPage.heartNotes")}
             </button>
 
             <button
               className={activeNote === "base" ? "active" : ""}
               onClick={() => setActiveNote("base")}
             >
-              <FaFire /> Base Notes
+              <FaFire />
+              {t("productPage.baseNotes")}
             </button>
           </div>
 
-          {/* CONTENT */}
           <div
-            key={activeNote}
             className="note-content"
             style={{ maxWidth: "900px", margin: "auto" }}
           >
@@ -230,10 +236,14 @@ export default function SpecificProduct() {
           </div>
         </div>
       </div>
+
+      {/* RELATED */}
       <div style={{ paddingTop: "0px" }} className="container">
         <Link to="/products" className="back-btn">
-          <FaArrowLeft /> See more products
+          <FaArrowLeft />
+          {t("productPage.seeMore")}
         </Link>
+
         <div className="product-grid-">
           {products.map((product) => {
             const primaryImage =
@@ -243,12 +253,10 @@ export default function SpecificProduct() {
             return (
               <div className="product-card" key={product.id}>
                 <div className="card-img">
-                  {/* BADGE */}
                   <span className={`badge ${product.category}`}>
                     {product.category}
                   </span>
 
-                  {/* HOVER ACTIONS */}
                   <div className="hover-icons">
                     <span onClick={() => navigate(`/product/${product.id}`)}>
                       <FaShoppingCart />
@@ -268,16 +276,13 @@ export default function SpecificProduct() {
                     {product.translations[0].character}
                   </p>
 
-                  <div className="card-price">
-                    AED{" "}
-                    <span style={{ color: "#2B2F2E" }}>{product.price}</span>
-                  </div>
+                  <div className="card-price">AED {product.price}</div>
 
                   <button
                     className="view-details-btn"
                     onClick={() => navigate(`/product/${product.id}`)}
                   >
-                    <FaEye /> View Details
+                    <FaEye /> {t("products.viewDetails")}
                   </button>
                 </div>
               </div>

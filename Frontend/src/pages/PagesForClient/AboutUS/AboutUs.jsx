@@ -2,8 +2,12 @@ import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
 import { useEffect } from "react";
 import "./AboutUs.css";
+import { useTranslation } from "react-i18next";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
+
 export default function AboutUs() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -11,19 +15,20 @@ export default function AboutUs() {
   return (
     <>
       <Navbar />
-      <section class="page-section" id="page-about">
-        <div class="page-header">
-          <div class="section-label">Our Heritage</div>
-          <h1>About Oudh Royale</h1>
-          <p>
-            A legacy of fragrance, born from the rich traditions of Emirati
-            perfumery
-          </p>
+
+      <section className="page-section" id="page-about">
+        {/* HEADER */}
+        <div className="page-header">
+          <div className="section-label">{t("about.headerLabel")}</div>
+          <h1>{t("about.title")}</h1>
+          <p>{t("about.subtitle")}</p>
         </div>
-        <div class="container-About" style={{ marginTop: "-60px" }}>
-          <div class="about-story">
-            <div class="about-story-visual">
-              <div class="perfume-art">
+
+        <div className="container-About" style={{ marginTop: "-60px" }}>
+          {/* STORY */}
+          <div className="about-story">
+            <div className="about-story-visual">
+              <div className="perfume-art">
                 <svg className="perfume-svg" viewBox="0 0 120 200" fill="none">
                   <rect
                     x="35"
@@ -52,11 +57,13 @@ export default function AboutUs() {
                     fill="#C6A25A"
                     opacity="0.7"
                   />
+
                   <path
                     d="M30 28H90V40C90 40 85 50 85 70V160C85 172 75 180 60 180C45 180 35 172 35 160V70C35 50 30 40 30 40V28Z"
                     fill="#1C1F1E"
                     stroke="#C6A25A"
                   />
+
                   <image
                     href="/src/assets/images/final1.png"
                     x="30"
@@ -65,67 +72,52 @@ export default function AboutUs() {
                     height="100"
                   />
                 </svg>
-                <div className="shadow-real">
-                </div>
-                <p style={{ marginTop: "20px" }}>Signature Collection</p>
+
+                <div className="shadow-real"></div>
+
+                {/* هون بس الترجمة */}
+                <p style={{ marginTop: "20px" }}>{t("about.signature")}</p>
               </div>
             </div>
 
-            <div class="about-story-text">
-              <div class="section-label">Our Story</div>
+            <div className="about-story-text">
+              <div className="section-label">{t("about.storyLabel")}</div>
+
               <h2>
-                A Heritage of <span>Arabian Luxury</span>
+                {t("about.storyTitle")} <span>{t("about.storyHighlight")}</span>
               </h2>
-              <div class="gold-divider"></div>
 
-              <p>
-                Founded in the vibrant heart of the United Arab Emirates, Oudh
-                Royale was born from a deep passion for Arabian perfumery
-                traditions. Our mission is to bring timeless oud fragrances into
-                the modern world.
-              </p>
+              <div className="gold-divider"></div>
 
-              <p>
-                We carefully select premium ingredients including rare oud,
-                sandalwood, and floral extracts. Every fragrance is crafted with
-                precision by expert perfumers.
-              </p>
-
-              <p>
-                Today, Oudh Royale represents elegance, authenticity, and
-                luxury, serving customers across the UAE with pride.
-              </p>
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <p>{t("about.p3")}</p>
             </div>
           </div>
 
+          {/* MISSION & VISION */}
           <div className="mission-vision">
             <div className="mv-card">
               <div className="icon-wrap">
                 <Target size={28} />
               </div>
-              <h3>Our Mission</h3>
-              <p>
-                To deliver high-quality luxury fragrances while preserving the
-                rich heritage of Arabian perfumery and providing an exceptional
-                customer experience.
-              </p>
+              <h3>{t("about.missionTitle")}</h3>
+              <p>{t("about.missionDesc")}</p>
             </div>
 
             <div className="mv-card">
               <div className="icon-wrap">
                 <Eye size={28} />
               </div>
-              <h3>Our Vision</h3>
-              <p>
-                To become a leading luxury fragrance brand known for
-                authenticity, craftsmanship, and timeless elegance.
-              </p>
+              <h3>{t("about.visionTitle")}</h3>
+              <p>{t("about.visionDesc")}</p>
             </div>
           </div>
 
+          {/* WHY CHOOSE */}
           <div className="why-choose">
             <h2>
-              Why Choose <span>Oudh Royale</span>
+              {t("about.whyTitle")} <span>{t("about.brand")}</span>
             </h2>
 
             <div className="why-grid">
@@ -133,37 +125,38 @@ export default function AboutUs() {
                 <div className="icon-circle">
                   <ShieldCheck size={26} />
                 </div>
-                <h4>Certified Authentic</h4>
-                <p>100% original fragrances from trusted sources.</p>
+                <h4>{t("about.authTitle")}</h4>
+                <p>{t("about.authDesc")}</p>
               </div>
 
               <div className="why-card">
                 <div className="icon-circle">
                   <Gem size={26} />
                 </div>
-                <h4>Premium Quality</h4>
-                <p>Only the finest ingredients are used.</p>
+                <h4>{t("about.qualityTitle")}</h4>
+                <p>{t("about.qualityDesc")}</p>
               </div>
 
               <div className="why-card">
                 <div className="icon-circle">
                   <Truck size={26} />
                 </div>
-                <h4>Fast Delivery</h4>
-                <p>Quick shipping across the UAE.</p>
+                <h4>{t("about.deliveryTitle")}</h4>
+                <p>{t("about.deliveryDesc")}</p>
               </div>
 
               <div className="why-card">
                 <div className="icon-circle">
                   <CreditCard size={26} />
                 </div>
-                <h4>Cash on Delivery</h4>
-                <p>Pay easily upon receiving your order.</p>
+                <h4>{t("about.paymentTitle")}</h4>
+                <p>{t("about.paymentDesc")}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

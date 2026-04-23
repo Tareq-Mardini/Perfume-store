@@ -13,18 +13,26 @@ export default function NavbarHome() {
   const [cartOpen, setCartOpen] = useState(false);
   const { items } = useCart();
   const [langOpen, setLangOpen] = useState(false);
-  const { changeLanguage } = useLanguage();
+  const { changeLanguage, language } = useLanguage();
+
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (langOpen) {
+      setLangOpen(!langOpen);
+    }
+  }, [language]);
 
   // منع السكرول لما المينيو مفتوح
   useEffect(() => {

@@ -7,8 +7,11 @@ import { useSearchParams } from "react-router-dom";
 import axiosInstance from "../../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaEye, FaFilter } from "react-icons/fa";
+import { useLanguage } from "../../../Context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 export default function ProductPage() {
+  const { t } = useTranslation(); // ✅
   const [searchParams, setSearchParams] = useSearchParams("");
   const [searchInput, setSearchInput] = useState("");
   const page = Number(searchParams.get("page")) || 1;
@@ -17,6 +20,7 @@ export default function ProductPage() {
   const [SotpNext, setSotpNext] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -28,7 +32,6 @@ export default function ProductPage() {
       search: searchInput,
       page: 1,
     });
-
     setSearchInput("");
   };
 
@@ -36,73 +39,59 @@ export default function ProductPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [products]);
 
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get("/api/products/", {
+        params: Object.fromEntries(searchParams),
+      });
+      setProducts(response.data.results);
+      setSotpNext(response.data.next);
+    } catch (error) {
+      setProducts([]);
+      console.error("ERROR: ", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        const response = await axiosInstance.get("/api/products/", {
-          params: Object.fromEntries(searchParams),
-        });
-        setProducts(response.data.results);
-        setSotpNext(response.data.next);
-      } catch (error) {
-        setProducts([]);
-        console.error("ERROR: ", error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchProducts();
     setSidebarOpen(false);
-  }, [searchParams.toString()]);
+  }, [searchParams.toString(), language]);
 
   return (
     <>
       <Navbar />
+
       <div className="page-header">
-        <div className="section-label">Shops</div>
-        <h1>More Products</h1>
+        <div className="section-label">{t("products.label")}</div>
+        <h1>{t("products.title")}</h1>
+
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder={t("products.searchPlaceholder")}
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
 
           <button onClick={handleSearch}>
-            <FaSearch /> Search
+            <FaSearch /> {t("products.searchBtn")}
           </button>
         </div>
       </div>
+
       <div style={{ marginTop: "-50px" }} className="container">
         <div className="shop-wrapper">
-          {/* SIDEBAR */}
           <AsideFilter
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
           />
-          {/* MAIN */}
+
           <main className="main-content">
-            {/* <div className="section-header">
-              <h3>Products</h3>
-
-              <div className="search-box">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                />
-
-                <button onClick={handleSearch}>
-                  <FaSearch /> Search
-                </button>
-              </div>
-            </div> */}
-
             <button className="filter-btn" onClick={toggleSidebar}>
-              <FaFilter /> Filters
+              <FaFilter /> {t("products.filters")}
             </button>
 
             <div className="product-grid">
@@ -114,12 +103,10 @@ export default function ProductPage() {
                 return (
                   <div className="product-card" key={product.id}>
                     <div className="card-img">
-                      {/* BADGE */}
                       <span className={`badge ${product.category}`}>
                         {product.category}
                       </span>
 
-                      {/* HOVER ACTIONS */}
                       <div className="hover-icons">
                         <span
                           onClick={() => navigate(`/product/${product.id}`)}
@@ -157,7 +144,7 @@ export default function ProductPage() {
                         className="view-details-btn"
                         onClick={() => navigate(`/product/${product.id}`)}
                       >
-                        <FaEye /> View Details
+                        <FaEye /> {t("products.viewDetails")}
                       </button>
                     </div>
                   </div>
@@ -177,10 +164,12 @@ export default function ProductPage() {
                   disabled={page === 1}
                   className="pagination-btn"
                 >
-                  Prev
+                  {t("products.prev")}
                 </button>
 
-                <button className="pagination-btn">Page {page}</button>
+                <button className="pagination-btn">
+                  {t("products.page")} {page}
+                </button>
 
                 <button
                   onClick={() =>
@@ -192,17 +181,18 @@ export default function ProductPage() {
                   className="pagination-btn"
                   disabled={SotpNext == null}
                 >
-                  Next
+                  {t("products.next")}
                 </button>
               </div>
             )}
           </main>
         </div>
       </div>
-      {/* OVERLAY */}
+
       {sidebarOpen && (
         <div className="overlay active" onClick={toggleSidebar}></div>
       )}
+
       <Footer />
     </>
   );

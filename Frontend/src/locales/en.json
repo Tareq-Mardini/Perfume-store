@@ -108,7 +108,163 @@
     "email": "info@munaryss.com",
     "rights": "All rights reserved © Munaryss",
     "termsOfService": "Terms of Service"
+  },
+  "about": {
+    "headerLabel": "Our Heritage",
+    "title": "About Oudh Royale",
+    "subtitle": "A legacy of fragrance, born from the rich traditions of Emirati perfumery",
+    "signature": "Signature Collection",
+
+    "storyLabel": "Our Story",
+    "storyTitle": "A Heritage of",
+    "storyHighlight": "Arabian Luxury",
+
+    "p1": "Founded in the vibrant heart of the United Arab Emirates, Oudh Royale was born from a deep passion for Arabian perfumery traditions.",
+    "p2": "We carefully select premium ingredients including rare oud, sandalwood, and floral extracts.",
+    "p3": "Today, Oudh Royale represents elegance, authenticity, and luxury.",
+
+    "missionTitle": "Our Mission",
+    "missionDesc": "To deliver high-quality luxury fragrances while preserving Arabian heritage.",
+
+    "visionTitle": "Our Vision",
+    "visionDesc": "To become a leading luxury fragrance brand known for authenticity and elegance.",
+
+    "whyTitle": "Why Choose",
+    "brand": "Oudh Royale",
+
+    "authTitle": "Certified Authentic",
+    "authDesc": "100% original fragrances.",
+
+    "qualityTitle": "Premium Quality",
+    "qualityDesc": "Only the finest ingredients.",
+
+    "deliveryTitle": "Fast Delivery",
+    "deliveryDesc": "Quick shipping across UAE.",
+
+    "paymentTitle": "Cash on Delivery",
+    "paymentDesc": "Pay upon receiving your order."
+  }
+,
+  "terms": {
+    "headerLabel": "Legal",
+    "title": "Terms & Conditions",
+    "subtitle": "Please read these terms carefully before placing an order.",
+
+    "companyTitle": "Company Information",
+    "companyDesc": "Munaryss Trading LLC is committed to protecting customer privacy and providing a safe shopping experience in accordance with UAE laws.",
+    "legalName": "Legal Name",
+    "emirate": "Emirate",
+    "license": "Trade License No",
+
+    "dataCollection": "Data Collection",
+    "collectDesc": "We collect minimal data such as:",
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "address": "Delivery address",
+    "tech": "Technical data",
+
+    "useTitle": "Use of Data",
+    "useDesc": "Data is used for the following purposes:",
+    "orderProcessing": "Order processing",
+    "communication": "Customer communication",
+    "improve": "Service improvement",
+    "fraud": "Fraud prevention",
+
+    "payment": "Payment Policy",
+    "cod": "Cash on Delivery (COD)",
+    "card": "Card Payment",
+
+    "shipping": "Shipping Policy",
+    "uae": "UAE",
+    "uaeTime": "1–2 business days",
+    "gcc": "GCC",
+    "gccTime": "4–5 business days",
+
+    "return": "Return & Exchange Policy",
+    "returnCond": "Returns are accepted within 3 days if the product is:",
+    "unopened": "Unopened",
+    "unused": "Unused",
+    "original": "In original condition",
+
+    "refund": "Refunds:",
+    "refund1": "If returned unopened: Customer pays delivery fees, and shipping or service charges will be deducted from the refund.",
+    "refund2": "If opened: No return unless there is a manufacturing defect.",
+
+    "exchange": "Exchanges:",
+    "exchange1": "If unopened: Customer pays delivery cost again.",
+    "exchange2": "If defective: Company covers all costs.",
+    "exchange3": "All returns are subject to inspection.",
+
+    "sharing": "Data Sharing",
+    "sharingDesc": "Customer data is shared only with trusted partners under strict protection agreements.",
+
+    "security": "Data Security",
+    "ssl": "SSL encryption",
+    "access": "Access control",
+    "updates": "Regular system updates",
+
+    "disclaimer": "Disclaimer",
+    "external": "For external use only",
+    "eyes": "Avoid eye contact",
+    "test": "Test before use",
+    "children": "Keep away from children",
+    "heat": "Store away from heat",
+
+    "notes": "Important Notes",
+    "note1": "Fragrance may vary depending on skin type",
+    "note2": "Longevity varies per person",
+    "note3": "May be affected by environment, climate, and clothing",
+
+    "rights": "Your Rights",
+    "right1": "Access your data",
+    "right2": "Modify or delete your data",
+    "right3": "Withdraw consent at any time",
+
+    "contact": "Contact",
+    "rightsReserved": "All rights reserved © Munaryss"
   }
 
+,
+  "products": {
+    "label": "Shops",
+    "title": "More Products",
+    "searchPlaceholder": "Search products...",
+    "searchBtn": "Search",
+    "filters": "Filters",
+    "viewDetails": "View Details",
+    "prev": "Prev",
+    "next": "Next",
+    "page": "Page"
+  }
+,
+
+  "filters": {
+    "categories": "Categories",
+    "men": "Men",
+    "women": "Women",
+    "unisex": "Unisex",
+    "all": "All",
+    "price": "Price",
+    "apply": "Apply Filters"
+  }
+,
+"productPage": {
+  "product": "Product",
+  "loading": "Loading...",
+  "backToShop": "Back to shopping",
+  "discover": "Discover the details, notes, and craftsmanship behind this fragrance",
+  "size": "Size/Volume",
+  "addToCart": "Add To Cart",
+  "topNotes": "Top Notes",
+  "heartNotes": "Heart Notes",
+  "baseNotes": "Base Notes",
+  "seeMore": "See more products"
+},
+"cart": {
+  "title": "Your Cart",
+  "empty": "Your cart is empty",
+  "total": "Total",
+  "checkout": "Proceed to Checkout"
+}
 }
 

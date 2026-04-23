@@ -15,6 +15,17 @@
   --radius-lg: 24px;
 }
 
+html[dir="rtl"] ul  {
+  direction: rtl;
+  padding-right: 20px;
+  
+}
+
+html[dir="rtl"] li ::before {
+  text-align: right;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -120,14 +131,13 @@ body {
   list-style: none;
 }
 
+/* الوضع العادي (إنجليزي) */
 .legal-card ul li {
   position: relative;
   padding-left: 20px;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  color: var(--color-text-medium);
 }
 
+/* النقطة */
 .legal-card ul li::before {
   content: "";
   position: absolute;
@@ -138,7 +148,15 @@ body {
   border-radius: 50%;
   background: var(--color-gold);
 }
+html[dir="rtl"] .legal-card ul li {
+  padding-left: 0;
+  padding-right: 20px;
+}
 
+html[dir="rtl"] .legal-card ul li::before {
+  left: auto;
+  right: 0;
+}
 .legal-meta {
   text-align: center;
   padding: 20px;

@@ -2,7 +2,11 @@ import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
 import { useEffect } from "react";
 import "./Terms.css";
+import { useTranslation } from "react-i18next";
+
 export default function Terms() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -11,177 +15,178 @@ export default function Terms() {
     <>
       <Navbar />
 
-      <div class="page-header">
-        <div class="section-label">Legal</div>
-        <h1>Terms & Conditions</h1>
-        <p>Please read these terms carefully before placing an order.</p>
+      <div className="page-header">
+        <div className="section-label">{t("terms.headerLabel")}</div>
+        <h1>{t("terms.title")}</h1>
+        <p>{t("terms.subtitle")}</p>
       </div>
 
-      <div class="container" style={{ maxWidth: "900px" }}>
-        <div class="legal-card">
+      <div className="container" style={{ maxWidth: "900px" }}>
+        {/* 1 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">1</span> Company Information
+            <span className="legal-num">1</span> {t("terms.companyTitle")}
           </h2>
-          <p>
-            Munaryss Trading LLC is committed to protecting customer privacy and
-            providing a safe shopping experience in accordance with UAE laws.
-          </p>
+          <p>{t("terms.companyDesc")}</p>
           <ul>
             <li>
-              <strong>Legal Name:</strong> Munaryss Trading LLC
+              <strong>{t("terms.legalName")}:</strong> Munaryss Trading LLC
             </li>
             <li>
-              <strong>Emirate:</strong> Dubai
+              <strong>{t("terms.emirate")}:</strong> Dubai
             </li>
             <li>
-              <strong>Trade License No:</strong> 1582680
+              <strong>{t("terms.license")}:</strong> 1582680
             </li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 2 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">2</span> Data Collection
+            <span className="legal-num">2</span> {t("terms.dataCollection")}
           </h2>
-          <p>We collect minimal data such as:</p>
+          <p>{t("terms.collectDesc")}</p>
           <ul>
-            <li>Full name</li>
-            <li>Phone number</li>
-            <li>Delivery address</li>
-            <li>Technical data</li>
+            <li>{t("terms.fullName")}</li>
+            <li>{t("terms.phone")}</li>
+            <li>{t("terms.address")}</li>
+            <li>{t("terms.tech")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 3 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">3</span> Use of Data
+            <span className="legal-num">3</span> {t("terms.useTitle")}
           </h2>
-          <p>Data is used for the following purposes:</p>
+          <p>{t("terms.useDesc")}</p>
           <ul>
-            <li>Order processing</li>
-            <li>Customer communication</li>
-            <li>Service improvement</li>
-            <li>Fraud prevention</li>
+            <li>{t("terms.orderProcessing")}</li>
+            <li>{t("terms.communication")}</li>
+            <li>{t("terms.improve")}</li>
+            <li>{t("terms.fraud")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 4 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">4</span> Payment Policy
+            <span className="legal-num">4</span> {t("terms.payment")}
           </h2>
           <ul>
-            <li>Cash on Delivery (COD)</li>
-            <li>Card Payment</li>
+            <li>{t("terms.cod")}</li>
+            <li>{t("terms.card")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 5 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">5</span> Shipping Policy
+            <span className="legal-num">5</span> {t("terms.shipping")}
           </h2>
           <ul>
             <li>
-              <strong>UAE:</strong> 1–2 business days
+              <strong>{t("terms.uae")}:</strong> {t("terms.uaeTime")}
             </li>
             <li>
-              <strong>GCC:</strong> 4–5 business days
+              <strong>{t("terms.gcc")}:</strong> {t("terms.gccTime")}
             </li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 6 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">6</span> Return & Exchange Policy
+            <span className="legal-num">6</span> {t("terms.return")}
           </h2>
-          <p>Returns are accepted within 3 days if the product is:</p>
+          <p>{t("terms.returnCond")}</p>
           <ul>
-            <li>Unopened</li>
-            <li>Unused</li>
-            <li>In original condition</li>
-          </ul>
-
-          <p>
-            <strong>Refunds:</strong>
-          </p>
-          <ul>
-            <li>
-              If returned unopened: Customer pays delivery fees, and shipping or
-              service charges will be deducted from the refund.
-            </li>
-            <li>
-              If opened: No return unless there is a manufacturing defect.
-            </li>
+            <li>{t("terms.unopened")}</li>
+            <li>{t("terms.unused")}</li>
+            <li>{t("terms.original")}</li>
           </ul>
 
           <p>
-            <strong>Exchanges:</strong>
+            <strong>{t("terms.refund")}</strong>
           </p>
           <ul>
-            <li>If unopened: Customer pays delivery cost again.</li>
-            <li>If defective: Company covers all costs.</li>
-            <li>All returns are subject to inspection.</li>
+            <li>{t("terms.refund1")}</li>
+            <li>{t("terms.refund2")}</li>
           </ul>
-        </div>
 
-        <div class="legal-card">
-          <h2>
-            <span class="legal-num">7</span> Data Sharing
-          </h2>
           <p>
-            Customer data is shared only with trusted partners under strict
-            protection agreements.
+            <strong>{t("terms.exchange")}</strong>
           </p>
-        </div>
-
-        <div class="legal-card">
-          <h2>
-            <span class="legal-num">8</span> Data Security
-          </h2>
           <ul>
-            <li>SSL encryption</li>
-            <li>Access control</li>
-            <li>Regular system updates</li>
+            <li>{t("terms.exchange1")}</li>
+            <li>{t("terms.exchange2")}</li>
+            <li>{t("terms.exchange3")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 7 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">9</span> Disclaimer
+            <span className="legal-num">7</span> {t("terms.sharing")}
+          </h2>
+          <p>{t("terms.sharingDesc")}</p>
+        </div>
+
+        {/* 8 */}
+        <div className="legal-card">
+          <h2>
+            <span className="legal-num">8</span> {t("terms.security")}
           </h2>
           <ul>
-            <li>For external use only</li>
-            <li>Avoid eye contact</li>
-            <li>Test before use</li>
-            <li>Keep away from children</li>
-            <li>Store away from heat</li>
+            <li>{t("terms.ssl")}</li>
+            <li>{t("terms.access")}</li>
+            <li>{t("terms.updates")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 9 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">10</span> Important Notes
+            <span className="legal-num">9</span> {t("terms.disclaimer")}
           </h2>
           <ul>
-            <li>Fragrance may vary depending on skin type</li>
-            <li>Longevity varies per person</li>
-            <li>May be affected by environment, climate, and clothing</li>
+            <li>{t("terms.external")}</li>
+            <li>{t("terms.eyes")}</li>
+            <li>{t("terms.test")}</li>
+            <li>{t("terms.children")}</li>
+            <li>{t("terms.heat")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 10 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">11</span> Your Rights
+            <span className="legal-num">10</span> {t("terms.notes")}
           </h2>
           <ul>
-            <li>Access your data</li>
-            <li>Modify or delete your data</li>
-            <li>Withdraw consent at any time</li>
+            <li>{t("terms.note1")}</li>
+            <li>{t("terms.note2")}</li>
+            <li>{t("terms.note3")}</li>
           </ul>
         </div>
 
-        <div class="legal-card">
+        {/* 11 */}
+        <div className="legal-card">
           <h2>
-            <span class="legal-num">12</span> Contact
+            <span className="legal-num">11</span> {t("terms.rights")}
+          </h2>
+          <ul>
+            <li>{t("terms.right1")}</li>
+            <li>{t("terms.right2")}</li>
+            <li>{t("terms.right3")}</li>
+          </ul>
+        </div>
+
+        {/* 12 */}
+        <div className="legal-card">
+          <h2>
+            <span className="legal-num">12</span> {t("terms.contact")}
           </h2>
           <ul>
             <li>
@@ -191,7 +196,6 @@ export default function Terms() {
               <strong>Email:</strong> info@munaryss.com
             </li>
           </ul>
-          <p>All rights reserved © Munaryss</p>
         </div>
       </div>
 
