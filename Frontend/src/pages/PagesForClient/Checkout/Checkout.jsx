@@ -12,8 +12,11 @@ import Navbar from "../../../components/ForClient/Navbar";
 import Footer from "../../../components/ForClient/Footer";
 import { useCart } from "../../../hooks/useCart";
 import axiosInstance from "../../../api/axiosInstance";
+import { useTranslation } from "react-i18next";
 
 export const Checkout = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [itemsOfCart, setitemsOfCart] = useState([]);
@@ -30,7 +33,6 @@ export const Checkout = () => {
     delivery_notes: "",
   });
 
-  // ❗ errors state
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -51,35 +53,32 @@ export const Checkout = () => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
-
-    // حذف الخطأ عند الكتابة
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  // ✅ VALIDATION FUNCTION
   const validate = () => {
     let newErrors = {};
 
     if (!formData.customer_name.trim()) {
-      newErrors.customer_name = "Name is required";
+      newErrors.customer_name = t("checkout.errors.nameRequired");
     } else if (formData.customer_name.length < 3) {
-      newErrors.customer_name = "Minimum 3 characters";
+      newErrors.customer_name = t("checkout.errors.nameMin");
     }
 
     if (!formData.customer_phone.trim()) {
-      newErrors.customer_phone = "Phone is required";
+      newErrors.customer_phone = t("checkout.errors.phoneRequired");
     } else if (!/^\d{7,15}$/.test(formData.customer_phone)) {
-      newErrors.customer_phone = "Invalid phone number";
+      newErrors.customer_phone = t("checkout.errors.phoneInvalid");
     }
 
     if (!formData.area.trim()) {
-      newErrors.area = "Area is required";
+      newErrors.area = t("checkout.errors.areaRequired");
     }
 
     if (!formData.building_number) {
-      newErrors.building_number = "Building number required";
+      newErrors.building_number = t("checkout.errors.buildingRequired");
     } else if (Number(formData.building_number) <= 0) {
-      newErrors.building_number = "Invalid number";
+      newErrors.building_number = t("checkout.errors.buildingInvalid");
     }
 
     return newErrors;
@@ -131,27 +130,27 @@ export const Checkout = () => {
           {/* LEFT */}
           <div className="checkout-left">
             <Link to="/products" className="back-btn">
-              <FaArrowLeft /> Back to shopping
+              <FaArrowLeft />
+              {t("checkout.back")}
             </Link>
 
             <div className="checkout-card">
               <div className="checkout-header">
                 <div>
-                  <h1>Checkout</h1>
-                  <p>Enter your delivery details</p>
+                  <h1>{t("checkout.title")}</h1>
+                  <p>{t("checkout.subtitle")}</p>
                 </div>
                 <FaMapMarkerAlt />
               </div>
 
               <form onSubmit={handleSubmit} className="form">
-                {/* Contact */}
-                <h2>Contact Info</h2>
+                <h2>{t("checkout.contact")}</h2>
 
                 <div className="input-group">
-                  <label>Full Name *</label>
+                  <label>{t("checkout.fullName")} *</label>
                   <input
                     name="customer_name"
-                    placeholder="John Doe"
+                    placeholder={t("checkout.namePlaceholder")}
                     value={formData.customer_name}
                     onChange={handleChange}
                     className={errors.customer_name ? "input-error" : ""}
@@ -162,12 +161,14 @@ export const Checkout = () => {
                 </div>
 
                 <div className="input-group">
-                  <label>Phone *</label>
+                  <label>{t("checkout.phone")} *</label>
                   <div className="phone">
                     <span>+971</span>
                     <input
+                      dir="ltr"
+                      style={{ textAlign: "left" }}
                       name="customer_phone"
-                      placeholder="501234567"
+                      placeholder={t("checkout.phonePlaceholder")}
                       value={formData.customer_phone}
                       onChange={handleChange}
                       className={errors.customer_phone ? "input-error" : ""}
@@ -178,11 +179,10 @@ export const Checkout = () => {
                   )}
                 </div>
 
-                {/* Address */}
-                <h2>Delivery Address</h2>
+                <h2>{t("checkout.address")}</h2>
 
                 <div className="input-group">
-                  <label>City</label>
+                  <label>{t("checkout.city")}</label>
                   <select
                     name="city"
                     value={formData.city}
@@ -198,11 +198,12 @@ export const Checkout = () => {
                     <option>Al Ain</option>
                   </select>
                 </div>
+
                 <div className="input-group">
-                  <label>Area *</label>
+                  <label>{t("checkout.area")} *</label>
                   <input
                     name="area"
-                    placeholder="e.g. Marina"
+                    placeholder={t("checkout.areaPlaceholder")}
                     value={formData.area}
                     onChange={handleChange}
                     className={errors.area ? "input-error" : ""}
@@ -211,21 +212,21 @@ export const Checkout = () => {
                 </div>
 
                 <div className="input-group">
-                  <label>Street</label>
+                  <label>{t("checkout.street")}</label>
                   <input
                     name="street"
-                    placeholder="Street name"
+                    placeholder={t("checkout.streetPlaceholder")}
                     value={formData.street}
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="input-group">
-                  <label>Building Number *</label>
+                  <label>{t("checkout.building")} *</label>
                   <input
                     type="number"
                     name="building_number"
-                    placeholder="e.g. 12"
+                    placeholder={t("checkout.buildingPlaceholder")}
                     value={formData.building_number}
                     onChange={handleChange}
                     className={errors.building_number ? "input-error" : ""}
@@ -236,31 +237,30 @@ export const Checkout = () => {
                 </div>
 
                 <div className="input-group">
-                  <label>Notes</label>
+                  <label>{t("checkout.notes")}</label>
                   <textarea
                     name="delivery_notes"
-                    placeholder="Optional notes..."
+                    placeholder={t("checkout.notesPlaceholder")}
                     value={formData.delivery_notes}
                     onChange={handleChange}
                   />
                 </div>
 
-                {/* Payment */}
-                <h2>Payment</h2>
+                <h2>{t("checkout.payment")}</h2>
 
                 <div className="payment">
                   <FaCreditCard />
                   <div>
-                    <h4>Cash on Delivery</h4>
-                    <p>Pay when you receive</p>
+                    <h4>{t("checkout.codTitle")}</h4>
+                    <p>{t("checkout.codDesc")}</p>
                   </div>
                   <FaShieldAlt />
                 </div>
 
                 <button disabled={isSubmitting} className="submit-btn">
                   {isSubmitting
-                    ? "Processing..."
-                    : `Place Order (AED ${total.toFixed(2)})`}
+                    ? t("checkout.processing")
+                    : `${t("checkout.placeOrder")} (AED ${total.toFixed(2)})`}
                 </button>
               </form>
             </div>
@@ -270,7 +270,7 @@ export const Checkout = () => {
           <div className="checkout-right">
             <div className="summary">
               <h2>
-                <FaBox /> Order Summary
+                <FaBox /> {t("checkout.summary")}
               </h2>
 
               <ul>
@@ -287,7 +287,7 @@ export const Checkout = () => {
               </ul>
 
               <div className="total">
-                <p>Total</p>
+                <p>{t("checkout.total")}</p>
                 <b>AED {total.toFixed(2)}</b>
               </div>
             </div>

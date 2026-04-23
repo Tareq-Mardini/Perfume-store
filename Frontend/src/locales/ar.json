@@ -266,5 +266,47 @@
   "empty": "السلة فارغة",
   "total": "الإجمالي",
   "checkout": "إتمام الطلب"
+},
+"checkout": {
+  "back": "العودة للتسوق",
+  "title": "إتمام الطلب",
+  "subtitle": "أدخل بيانات التوصيل",
+  "contact": "معلومات الاتصال",
+  "fullName": "الاسم الكامل",
+  "phone": "الهاتف",
+  "namePlaceholder": "محمد أحمد",
+  "phonePlaceholder": "501234567",
+
+  "address": "عنوان التوصيل",
+  "city": "المدينة",
+  "area": "المنطقة",
+  "street": "الشارع",
+  "building": "رقم المبنى",
+  "notes": "ملاحظات",
+
+  "areaPlaceholder": "مثلاً مارينا",
+  "streetPlaceholder": "اسم الشارع",
+  "buildingPlaceholder": "مثلاً 12",
+  "notesPlaceholder": "ملاحظات اختيارية...",
+
+  "payment": "الدفع",
+  "codTitle": "الدفع عند الاستلام",
+  "codDesc": "ادفع عند الاستلام",
+
+  "processing": "جاري المعالجة...",
+  "placeOrder": "إتمام الطلب",
+
+  "summary": "ملخص الطلب",
+  "total": "الإجمالي",
+
+  "errors": {
+    "nameRequired": "الاسم مطلوب",
+    "nameMin": "الحد الأدنى 3 أحرف",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "phoneInvalid": "رقم غير صحيح",
+    "areaRequired": "المنطقة مطلوبة",
+    "buildingRequired": "رقم المبنى مطلوب",
+    "buildingInvalid": "رقم غير صالح"
+  }
 }
 }

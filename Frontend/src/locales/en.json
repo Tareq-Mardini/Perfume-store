@@ -265,6 +265,48 @@
   "empty": "Your cart is empty",
   "total": "Total",
   "checkout": "Proceed to Checkout"
+},
+"checkout": {
+  "back": "Back to shopping",
+  "title": "Checkout",
+  "subtitle": "Enter your delivery details",
+  "contact": "Contact Info",
+  "fullName": "Full Name",
+  "phone": "Phone",
+  "namePlaceholder": "John Doe",
+  "phonePlaceholder": "501234567",
+
+  "address": "Delivery Address",
+  "city": "City",
+  "area": "Area",
+  "street": "Street",
+  "building": "Building Number",
+  "notes": "Notes",
+
+  "areaPlaceholder": "e.g. Marina",
+  "streetPlaceholder": "Street name",
+  "buildingPlaceholder": "e.g. 12",
+  "notesPlaceholder": "Optional notes...",
+
+  "payment": "Payment",
+  "codTitle": "Cash on Delivery",
+  "codDesc": "Pay when you receive",
+
+  "processing": "Processing...",
+  "placeOrder": "Place Order",
+
+  "summary": "Order Summary",
+  "total": "Total",
+
+  "errors": {
+    "nameRequired": "Name is required",
+    "nameMin": "Minimum 3 characters",
+    "phoneRequired": "Phone is required",
+    "phoneInvalid": "Invalid phone number",
+    "areaRequired": "Area is required",
+    "buildingRequired": "Building number required",
+    "buildingInvalid": "Invalid number"
+  }
 }
 }
 
