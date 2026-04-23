@@ -265,7 +265,7 @@ ul { list-style: none; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr ;
   gap: 48px;
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -538,4 +538,28 @@ ul { list-style: none; }
   width: 100%;
 }.nav-link.active {
   color: var(--color-gold);
+}.lang-switcher {
+  position: relative;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 9999;
+  min-width: 120px;
+}
+
+.lang-dropdown div {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.lang-dropdown div:hover {
+  background: #f2f2f2;
 }

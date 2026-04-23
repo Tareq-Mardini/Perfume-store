@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useInView } from "../../../hooks/useInView";
 
 export default function BrandStory() {
+  const { t } = useTranslation();
   const [ref, isInView] = useInView();
 
   return (
@@ -15,43 +17,32 @@ export default function BrandStory() {
         <div className={`story-image fade-in ${isInView ? "visible" : ""}`}>
           <img
             src="/src/assets/images/story.jpg"
-            alt="Arabian Perfumery Craftsmanship"
+            alt={t("story.imageAlt")}
             loading="lazy"
           />
+
           <div className="story-image-badge">
             <div className="number">25+</div>
-            <div className="label">Years of Craft</div>
+            <div className="label">{t("story.badge")}</div>
           </div>
         </div>
 
         <div
           className={`story-content fade-in fade-in-delay-2 ${isInView ? "visible" : ""}`}
         >
-          <div className="story-label">✦ Our Heritage</div>
-          <h2 className="story-title">A Legacy Woven in Scent</h2>
-          <p className="story-text">
-            For over two decades, Dār Al-Ūd has stood at the crossroads of
-            tradition and innovation. Born in the aromatic souks of the Arabian
-            Gulf, our house draws upon centuries of perfumery wisdom passed down
-            through generations of master blenders.
-          </p>
-          <p className="story-text">
-            Each fragrance begins as a vision — a memory of dew-kissed rose
-            gardens, the warmth of aged oud wood, the quiet power of rare Yemeni
-            frankincense. Our perfumers travel the ancient spice routes,
-            hand-selecting the world's most precious ingredients to compose
-            scents that transcend time.
-          </p>
-          <p className="story-text">
-            We believe a fragrance is more than a scent — it is an identity, a
-            signature, a story told without words. Every bottle we craft is an
-            invitation to discover the extraordinary within the everyday.
-          </p>
+          <div className="story-label">✦ {t("story.label")}</div>
+
+          <h2 className="story-title">{t("story.title")}</h2>
+
+          <p className="story-text">{t("story.p1")}</p>
+
+          <p className="story-text">{t("story.p2")}</p>
+
+          <p className="story-text">{t("story.p3")}</p>
+
           <div className="story-signature">
             <div className="story-signature-line" />
-            <span className="story-signature-text">
-              — The House of Dār Al-Ūd
-            </span>
+            <span className="story-signature-text">{t("story.signature")}</span>
           </div>
         </div>
       </div>

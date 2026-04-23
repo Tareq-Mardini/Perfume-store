@@ -153,7 +153,7 @@ export default function ManageOrders() {
 
                 {order.items.map((item) => (
                   <div key={item.id} className="item-row">
-                    <span>Product ID: {item.product}</span>
+                    <span>Name Product: {item.product_name}</span>
                     <span>Qty: {item.quantity}</span>
                     <span>${item.price_at_purchase}</span>
                   </div>

@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
@@ -9,20 +12,21 @@ export default function Hero() {
           alt="Luxury Arabian Perfume"
         />
       </div>
+
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <div className="hero-badge">✦ Crafted in the Heart of Arabia</div>
+        <div className="hero-badge">✦ {t("hero.badge")}</div>
+
         <h1 className="hero-title">
-          Discover Your <span className="gold">Signature Scent</span>
+          {t("hero.title.part1")}{" "}
+          <span className="gold">{t("hero.title.highlight")}</span>
         </h1>
-        <p className="hero-desc">
-          Immerse yourself in the art of Arabian perfumery. Each fragrance is a
-          journey through rare oud, precious saffron, and timeless elegance —
-          crafted for those who seek distinction.
-        </p>
+
+        <p className="hero-desc">{t("hero.description")}</p>
+
         <a href="#featured" className="hero-cta">
-          Explore Collection
+          {t("hero.cta")}
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -38,7 +42,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-scroll">
-        <span>Scroll</span>
+        <span>{t("hero.scroll")}</span>
         <div className="hero-scroll-line" />
       </div>
     </section>

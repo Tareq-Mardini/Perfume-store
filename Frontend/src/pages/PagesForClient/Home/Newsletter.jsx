@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useInView } from "../../../hooks/useInView";
+import { useTranslation } from "react-i18next";
 
 export default function Newsletter() {
+  const { t } = useTranslation();
+
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [ref, isInView] = useInView();
@@ -24,13 +27,13 @@ export default function Newsletter() {
           className="section-subtitle"
           style={{ color: "var(--color-gold-light)" }}
         >
-          ✦ Stay Connected
+          ✦ {t("newsletter.subtitle")}
         </span>
-        <h2 className="newsletter-title">Join the Inner Circle</h2>
-        <p className="newsletter-desc">
-          Be the first to discover new collections, exclusive launches, and
-          private events. Receive curated scent stories delivered to your inbox.
-        </p>
+
+        <h2 className="newsletter-title">{t("newsletter.title")}</h2>
+
+        <p className="newsletter-desc">{t("newsletter.description")}</p>
+
         {submitted ? (
           <div
             style={{
@@ -40,20 +43,20 @@ export default function Newsletter() {
               padding: "14px 0",
             }}
           >
-            ✦ Welcome to the circle. Thank you for subscribing.
+            ✦ {t("newsletter.success")}
           </div>
         ) : (
           <form className="newsletter-form" onSubmit={handleSubmit}>
             <input
               type="email"
               className="newsletter-input"
-              placeholder="Enter your email address"
+              placeholder={t("newsletter.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
             <button type="submit" className="newsletter-btn">
-              Subscribe
+              {t("newsletter.button")}
             </button>
           </form>
         )}

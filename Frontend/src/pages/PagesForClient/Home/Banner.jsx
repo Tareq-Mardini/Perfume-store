@@ -1,24 +1,26 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useInView } from "../../../hooks/useInView";
 
 export default function Banner() {
+  const { t } = useTranslation();
   const [ref, isInView] = useInView();
 
   return (
     <section className="banner" ref={ref}>
       <div className={`banner-container fade-in ${isInView ? "visible" : ""}`}>
         <div className="banner-content">
-          <div className="banner-label">✦ Limited Edition</div>
+          <div className="banner-label">✦ {t("banner.label")}</div>
+
           <h2 className="banner-title">
-            The Art of <span className="gold">Oud</span> — Reimagined
+            {t("banner.title.part1")}{" "}
+            <span className="gold">{t("banner.title.highlight")}</span>
           </h2>
-          <p className="banner-desc">
-            Experience our master perfumer's latest creation — a rare blend of
-            Cambodian oud, Indian saffron, and Turkish rose. Only 500 bottles
-            crafted worldwide.
-          </p>
+
+          <p className="banner-desc">{t("banner.description")}</p>
+
           <a href="#featured" className="banner-cta">
-            Discover Now
+            {t("banner.cta")}
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -32,7 +34,8 @@ export default function Banner() {
             </svg>
           </a>
         </div>
-        <div className="banner-decoration">Oud</div>
+
+        <div className="banner-decoration">{t("banner.decoration")}</div>
       </div>
     </section>
   );

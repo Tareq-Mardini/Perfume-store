@@ -4,13 +4,16 @@ import { useCart } from "../../hooks/useCart";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/final.png";
 import { Link } from "react-router-dom";
+import { FaGlobe } from "react-icons/fa";
+import { useLanguage } from "../../Context/LanguageContext";
 
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { items } = useCart();
-
+  const [langOpen, setLangOpen] = useState(false);
+  const { changeLanguage } = useLanguage();
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -25,6 +28,7 @@ export default function NavbarHome() {
 
   // منع السكرول لما المينيو مفتوح
   useEffect(() => {
+    console.log("tareq");
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
@@ -34,6 +38,7 @@ export default function NavbarHome() {
     { name: "About Us", type: "route", path: "/about" },
     { name: "Terms", type: "route", path: "/terms" },
   ];
+  console.log("tareq");
 
   return (
     <>
@@ -93,7 +98,22 @@ export default function NavbarHome() {
               </svg>
               <span className="cart-count">{items.length}</span>
             </button>
+            <div className="lang-switcher">
+              <button
+                className="icon-btn"
+                onClick={() => setLangOpen(!langOpen)}
+              >
+                <FaGlobe />
+              </button>
 
+              {langOpen && (
+                <div className="lang-dropdown">
+                  <div onClick={() => changeLanguage("ar")}>🇸🇦 العربية</div>
+
+                  <div onClick={() => changeLanguage("en")}>🇺🇸 English</div>
+                </div>
+              )}
+            </div>
             {/* Hamburger */}
             <button
               className={`hamburger ${menuOpen ? "active" : ""}`}
