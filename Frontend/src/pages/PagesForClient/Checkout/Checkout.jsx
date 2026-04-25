@@ -166,7 +166,6 @@ export const Checkout = () => {
                     <span>+971</span>
                     <input
                       dir="ltr"
-                      style={{ textAlign: "left" }}
                       name="customer_phone"
                       placeholder={t("checkout.phonePlaceholder")}
                       value={formData.customer_phone}

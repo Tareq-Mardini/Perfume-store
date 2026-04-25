@@ -6,6 +6,7 @@ import logo from "../../assets/images/final.png";
 import { Link } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,7 +15,7 @@ export default function NavbarHome() {
   const { items } = useCart();
   const [langOpen, setLangOpen] = useState(false);
   const { changeLanguage, language } = useLanguage();
-
+  const { t } = useTranslation();
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -41,10 +42,10 @@ export default function NavbarHome() {
   }, [menuOpen]);
 
   const links = [
-    { name: "Home", type: "route", path: "/" },
-    { name: "Shops", type: "route", path: "/products" },
-    { name: "About Us", type: "route", path: "/about" },
-    { name: "Terms", type: "route", path: "/terms" },
+    { name: t("navbar.home"), type: "route", path: "/" },
+    { name: t("navbar.shops"), type: "route", path: "/products" },
+    { name: t("navbar.about"), type: "route", path: "/about" },
+    { name: t("navbar.terms"), type: "route", path: "/terms" },
   ];
   console.log("tareq");
 
@@ -62,7 +63,10 @@ export default function NavbarHome() {
           {/* Desktop Links */}
           <div
             className="navbar-links desktop-only"
-            style={{ marginRight: "130px" }}
+            style={{
+              marginRight: language === "en" ? "130px" : "0px",
+              marginLeft: language === "ar" ? "130px" : "0px",
+            }}
           >
             {links.map((link) =>
               link.type === "route" ? (

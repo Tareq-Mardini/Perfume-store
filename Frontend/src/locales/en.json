@@ -307,6 +307,12 @@
     "buildingRequired": "Building number required",
     "buildingInvalid": "Invalid number"
   }
+},
+"navbar": {
+  "home": "Home",
+  "shops": "Shops",
+  "about": "About Us",
+  "terms": "Terms"
 }
 }
 

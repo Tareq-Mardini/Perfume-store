@@ -308,5 +308,11 @@
     "buildingRequired": "رقم المبنى مطلوب",
     "buildingInvalid": "رقم غير صالح"
   }
+},
+"navbar": {
+  "home": "الرئيسية",
+  "shops": "المتجر",
+  "about": "من نحن",
+  "terms": "الشروط"
 }
 }
