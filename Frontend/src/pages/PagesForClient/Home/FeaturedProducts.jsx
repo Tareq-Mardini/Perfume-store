@@ -8,6 +8,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./FeaturesProducts.module.css";
 import { FaEye } from "react-icons/fa";
+import product1 from "../../../assets/images/product-1.jpg";
+import product2 from "../../../assets/images/product-4.jpg";
+import product3 from "../../../assets/images/product-4.jpg";
 
 const productsStatic = [
   {
@@ -17,7 +20,7 @@ const productsStatic = [
     price: 0,
     rating: 0,
     reviews: 0,
-    image: "/src/assets/images/product-1.jpg",
+    image: product1,
     badge: null,
     isComingSoon: true,
     comingSoonLabel: "Bakhoor",
@@ -29,7 +32,7 @@ const productsStatic = [
     price: 0,
     rating: 0,
     reviews: 0,
-    image: "/src/assets/images/product-4.jpg",
+    image: product2,
     badge: null,
     isComingSoon: true,
     comingSoonLabel: "Prayer Beads",
@@ -41,7 +44,7 @@ const productsStatic = [
     price: 0,
     rating: 0,
     reviews: 0,
-    image: "/src/assets/images/product-4.jpg",
+    image: product3,
     badge: null,
     isComingSoon: true,
     comingSoonLabel: "Gift boxes",
@@ -117,7 +120,11 @@ export default function FeaturedProducts() {
                     {getCategoryName(product.category)}
                   </span>
 
-                  <img src={primaryImage} alt={product.translations[0].name} />
+                  <img
+                    src={primaryImage}
+                    alt={product.translations[0].name}
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="card-info">

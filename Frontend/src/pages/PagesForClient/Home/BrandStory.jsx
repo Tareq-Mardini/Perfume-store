@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "../../../hooks/useInView";
+import story from "../../../assets/images/story.jpg";
 
 export default function BrandStory() {
   const { t } = useTranslation();
@@ -15,11 +16,7 @@ export default function BrandStory() {
     >
       <div className="story-container">
         <div className={`story-image fade-in ${isInView ? "visible" : ""}`}>
-          <img
-            src="/src/assets/images/story.jpg"
-            alt={t("story.imageAlt")}
-            loading="lazy"
-          />
+          <img src={story} alt={t("story.imageAlt")} loading="lazy" />
 
           <div className="story-image-badge">
             <div className="number">25+</div>

@@ -315,7 +315,7 @@
   "terms": "Terms"
 },
 "topbar": {
-  "freeDelivery": "✦ Free Delivery Across UAE | Fast & Secure Shipping ✦",
+  "freeDelivery": "✦ Free Delivery Across UAE ✦",
   "premium": "✦ Premium Fragrance Experience ✦",
   "authentic": "✦ Authentic Perfumes Only ✦"
 },
@@ -337,6 +337,13 @@
 },
 "featuredComming": {
   "comingSoon": "Coming Soon"
-}
+},
+
+  "empty": {
+    "loading": "Loading...",
+    "noResultsTitle": "No results found",
+    "noResultsDesc": "We couldn't find any products matching your search"
+  }
+
 }
 

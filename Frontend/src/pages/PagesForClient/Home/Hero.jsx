@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import heroPG from "../../../assets/images/hero-bg.jpg";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -7,10 +8,7 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
-        <img
-          src="/src/assets/images/hero-bg.jpg"
-          alt="Luxury Arabian Perfume"
-        />
+        <img src={heroPG} alt="Luxury Arabian Perfume" loading="lazy" />
       </div>
 
       <div className="hero-overlay" />
@@ -39,11 +37,6 @@ export default function Hero() {
             <polyline points="12 5 19 12 12 19" />
           </svg>
         </a>
-      </div>
-
-      <div className="hero-scroll">
-        <span>{t("hero.scroll")}</span>
-        <div className="hero-scroll-line" />
       </div>
     </section>
   );

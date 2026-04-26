@@ -10,6 +10,7 @@ import { FaSearch, FaShoppingCart, FaEye, FaFilter } from "react-icons/fa";
 import { useLanguage } from "../../../Context/LanguageContext";
 import { useTranslation } from "react-i18next";
 
+
 export default function ProductPage() {
   const { t } = useTranslation(); // ✅
   const [searchParams, setSearchParams] = useSearchParams("");
@@ -104,61 +105,71 @@ export default function ProductPage() {
               </button>
 
               <div className="product-grid">
-                {products.map((product) => {
-                  const primaryImage =
-                    product.images?.find((img) => img.is_primary)?.image ||
-                    product.images?.[0]?.image;
+                {loading ? (
+                  <p>{t("empty.loading")}</p>
+                ) : products.length === 0 ? (
+                  <div className="no-results">
+                    <FaSearch className="no-results-icon" />
+                    <h3>{t("empty.noResultsTitle")}</h3>
+                    <p>{t("empty.noResultsDesc")}</p>
+                  </div>
+                ) : (
+                  products.map((product) => {
+                    const primaryImage =
+                      product.images?.find((img) => img.is_primary)?.image ||
+                      product.images?.[0]?.image;
 
-                  return (
-                    <div className="product-card" key={product.id}>
-                      <div className="card-img">
-                        <span className={`badge ${product.category}`}>
-                          {getCategoryName(product.category)}
-                        </span>
+                    return (
+                      <div className="product-card" key={product.id}>
+                        <div className="card-img">
+                          <span className={`badge ${product.category}`}>
+                            {getCategoryName(product.category)}
+                          </span>
 
-                        <div className="hover-icons">
-                          <span
-                            onClick={() => navigate(`/product/${product.id}`)}
-                          >
-                            <FaShoppingCart />
-                          </span>
-                          <span
-                            onClick={() => navigate(`/product/${product.id}`)}
-                          >
-                            <FaEye />
-                          </span>
+                          <div className="hover-icons">
+                            <span
+                              onClick={() => navigate(`/product/${product.id}`)}
+                            >
+                              <FaShoppingCart />
+                            </span>
+                            <span
+                              onClick={() => navigate(`/product/${product.id}`)}
+                            >
+                              <FaEye />
+                            </span>
+                          </div>
+
+                          <img
+                            src={primaryImage}
+                            alt={product.translations[0].name}
+                          />
                         </div>
 
-                        <img
-                          src={primaryImage}
-                          alt={product.translations[0].name}
-                        />
-                      </div>
+                        <div className="card-info">
+                          <h3>{product.translations[0].name}</h3>
 
-                      <div className="card-info">
-                        <h3>{product.translations[0].name}</h3>
+                          <p className="character">
+                            {product.translations[0].character}
+                          </p>
 
-                        <p className="character">
-                          {product.translations[0].character}
-                        </p>
+                          <div className="card-price">
+                            AED{" "}
+                            <span style={{ color: "#2B2F2E" }}>
+                              {product.price}
+                            </span>
+                          </div>
 
-                        <div className="card-price">
-                          AED{" "}
-                          <span style={{ color: "#2B2F2E" }}>
-                            {product.price}
-                          </span>
+                          <button
+                            className="view-details-btn"
+                            onClick={() => navigate(`/product/${product.id}`)}
+                          >
+                            <FaEye /> {t("products.viewDetails")}
+                          </button>
                         </div>
-
-                        <button
-                          className="view-details-btn"
-                          onClick={() => navigate(`/product/${product.id}`)}
-                        >
-                          <FaEye /> {t("products.viewDetails")}
-                        </button>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                )}
               </div>
 
               {products && products.length > 0 && (

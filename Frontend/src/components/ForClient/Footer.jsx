@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import footer from "../../assets/images/final.png";
 
 function InstagramIcon() {
   return (
@@ -65,7 +66,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <img src="/src/assets/images/final.png" className="logo" alt="" />
+            <img src={footer} className="logo" alt="" />
 
             <p className="footer-about">{t("footer.about")}</p>
 

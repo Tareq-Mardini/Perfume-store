@@ -647,11 +647,11 @@ ul { list-style: none; }
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   overflow: hidden;
   z-index: 9999;
-  min-width: 120px;
+  min-width: 90px;
 }
 
 .lang-dropdown div {
-  padding: 10px;
+  padding: 7px;
   cursor: pointer;
   font-size: 14px;
 }

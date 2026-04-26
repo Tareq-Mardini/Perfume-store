@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./AboutUs.css";
 import { useTranslation } from "react-i18next";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
+import logo from "../../../assets/images/final1.png";
 
 export default function AboutUs() {
   const { t } = useTranslation();
