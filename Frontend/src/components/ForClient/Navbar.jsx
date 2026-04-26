@@ -120,9 +120,9 @@ export default function NavbarHome() {
 
               {langOpen && (
                 <div className="lang-dropdown">
-                  <div onClick={() => changeLanguage("ar")}>🇸🇦 العربية</div>
+                  <div onClick={() => changeLanguage("ar")}>العربية</div>
 
-                  <div onClick={() => changeLanguage("en")}>🇺🇸 English</div>
+                  <div onClick={() => changeLanguage("en")}> English</div>
                 </div>
               )}
             </div>

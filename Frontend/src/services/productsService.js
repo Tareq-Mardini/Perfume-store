@@ -20,6 +20,11 @@ export const createProduct = async (data) => {
   return res.data;
 };
 
+export const updateProduct = async (id, data) => {
+  const res = await axiosInstanceAdmin.patch(`/api/admin/products/${id}/`, data);
+  return res.data;
+};
+
 // ✅ upload images
 export const uploadProductImages = async (productId, images) => {
   const formData = new FormData();
@@ -29,7 +34,7 @@ export const uploadProductImages = async (productId, images) => {
   });
 
   const res = await axiosInstanceAdmin.post(
-    `/api/admin/products/${productId}/images/`,
+    `/api/products/${productId}/images/bulk/`,
     formData,
     {
       headers: {

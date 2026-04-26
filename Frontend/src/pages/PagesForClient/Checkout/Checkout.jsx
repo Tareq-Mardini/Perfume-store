@@ -242,6 +242,7 @@ export const Checkout = () => {
                     placeholder={t("checkout.notesPlaceholder")}
                     value={formData.delivery_notes}
                     onChange={handleChange}
+                    style={{ maxWidth: "100%", minWidth: "100%" }}
                   />
                 </div>
 

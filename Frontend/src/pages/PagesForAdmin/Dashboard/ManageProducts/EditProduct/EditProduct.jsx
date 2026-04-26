@@ -1,55 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import {
-  createProduct,
-  uploadProductImages,
-} from "../../../../../services/productsService.js";
-import "./CreateProduct.css";
-import { Link, useNavigate } from "react-router-dom";
+  getDetailProductAdmin,
+  updateProduct,
+} from "../../../../../services/productsService";
+import "../CreateProduct/CreateProduct.css";
 
-export default function CreateProduct() {
+export default function EditProduct() {
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    price: "",
-    price_before_discount: "",
-    category: "",
-    bottle_volume: "",
-    translations: [
-      {
-        language_code: "en",
-        name: "",
-        character: "",
-        sillage: "",
-        longevity: "",
-        description: "",
-        top_notes: "",
-        heart_notes: "",
-        base_notes: "",
-      },
-      {
-        language_code: "ar",
-        name: "",
-        character: "",
-        sillage: "",
-        longevity: "",
-        description: "",
-        top_notes: "",
-        heart_notes: "",
-        base_notes: "",
-      },
-    ],
-  });
-
+  const [form, setForm] = useState(null);
   const [errors, setErrors] = useState({});
-  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // 📸 images
-  const handleImagesChange = (e) => {
-    setImages(Array.from(e.target.files));
-  };
+  // ✅ جلب البيانات
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const data = await getDetailProductAdmin(id);
 
-  // 🧠 normal fields
+        setForm({
+          price: data.price || "",
+          price_before_discount: data.price_before_discount || "",
+          category: data.category || "",
+          bottle_volume: data.bottle_volume || "",
+          translations: data.translations || [],
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  // 🧠 handle change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -69,24 +55,9 @@ export default function CreateProduct() {
       setLoading(true);
       setErrors({});
 
-      if (images.length <= 0) {
-        throw new Error("enter photo");
-      }
+      await updateProduct(id, form);
 
-      const response = await createProduct({
-        ...form,
-        images: [],
-      });
-
-      const productId = response.id || response.data?.id;
-
-      if (!productId) throw new Error("ID not found");
-
-      if (images.length > 0) {
-        await uploadProductImages(productId, images);
-      }
-
-      alert("Product created successfully 🚀");
+      alert("Product updated ✅");
       navigate("/admin/products");
     } catch (err) {
       console.error(err);
@@ -94,12 +65,14 @@ export default function CreateProduct() {
       if (err.response?.data) {
         setErrors(err.response.data);
       } else {
-        alert(err || "Error creating product ❌");
+        alert("Error updating ❌");
       }
     } finally {
       setLoading(false);
     }
   };
+
+  if (!form) return <p>Loading...</p>;
 
   return (
     <>
@@ -108,7 +81,7 @@ export default function CreateProduct() {
       </Link>
 
       <form onSubmit={handleSubmit} className="create-product-page">
-        <h2>Create Product</h2>
+        <h2>Edit Product</h2>
 
         {/* 🔹 Basic Info */}
         <div className="grid-2">
@@ -125,9 +98,6 @@ export default function CreateProduct() {
               value={form.price_before_discount}
               onChange={handleChange}
             />
-            {errors.price_before_discount && (
-              <p className="error">{errors.price_before_discount[0]}</p>
-            )}
           </div>
 
           <div className="form-group">
@@ -137,9 +107,6 @@ export default function CreateProduct() {
               value={form.bottle_volume}
               onChange={handleChange}
             />
-            {errors.bottle_volume && (
-              <p className="error">{errors.bottle_volume[0]}</p>
-            )}
           </div>
 
           <div className="form-group">
@@ -154,7 +121,6 @@ export default function CreateProduct() {
               <option value="men">men</option>
               <option value="women">women</option>
             </select>
-            {errors.category && <p className="error">{errors.category[0]}</p>}
           </div>
         </div>
 
@@ -168,7 +134,7 @@ export default function CreateProduct() {
                 <label>Name</label>
                 <input
                   name="name"
-                  value={t.name}
+                  value={t.name || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -177,7 +143,7 @@ export default function CreateProduct() {
                 <label>Character</label>
                 <input
                   name="character"
-                  value={t.character}
+                  value={t.character || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -186,7 +152,7 @@ export default function CreateProduct() {
                 <label>Sillage</label>
                 <input
                   name="sillage"
-                  value={t.sillage}
+                  value={t.sillage || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -195,7 +161,7 @@ export default function CreateProduct() {
                 <label>Longevity</label>
                 <input
                   name="longevity"
-                  value={t.longevity}
+                  value={t.longevity || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -204,9 +170,8 @@ export default function CreateProduct() {
             <div className="form-group">
               <label>Description</label>
               <textarea
-                style={{ maxWidth: "100%" }}
                 name="description"
-                value={t.description}
+                value={t.description || ""}
                 onChange={(e) => handleTranslationChange(index, e)}
               />
             </div>
@@ -217,7 +182,7 @@ export default function CreateProduct() {
                 <label>Top Notes</label>
                 <input
                   name="top_notes"
-                  value={t.top_notes}
+                  value={t.top_notes || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -226,7 +191,7 @@ export default function CreateProduct() {
                 <label>Heart Notes</label>
                 <input
                   name="heart_notes"
-                  value={t.heart_notes}
+                  value={t.heart_notes || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -235,7 +200,7 @@ export default function CreateProduct() {
                 <label>Base Notes</label>
                 <input
                   name="base_notes"
-                  value={t.base_notes}
+                  value={t.base_notes || ""}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
@@ -243,21 +208,8 @@ export default function CreateProduct() {
           </div>
         ))}
 
-        {/* 📸 Upload */}
-        <div className="upload-box">
-          <label>Upload Images</label>
-          <input type="file" multiple onChange={handleImagesChange} />
-        </div>
-
-        {/* 🖼️ Preview */}
-        <div className="preview">
-          {images.map((img, i) => (
-            <img key={i} src={URL.createObjectURL(img)} alt="preview" />
-          ))}
-        </div>
-
         <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Product"}
+          {loading ? "Updating..." : "Update Product"}
         </button>
       </form>
     </>

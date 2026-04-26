@@ -65,13 +65,7 @@ export default function AboutUs() {
                     stroke="#C6A25A"
                   />
 
-                  <image
-                    href="/src/assets/images/final1.png"
-                    x="30"
-                    y="40"
-                    width="60"
-                    height="100"
-                  />
+                  <image href={logo} x="30" y="40" width="60" height="100" />
                 </svg>
 
                 <div className="shadow-real"></div>

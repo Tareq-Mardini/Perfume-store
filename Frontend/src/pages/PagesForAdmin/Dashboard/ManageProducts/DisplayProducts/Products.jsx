@@ -87,7 +87,14 @@ export default function Products() {
                   >
                     View
                   </button>
-                  <button className="btn-Dash btn-edit">Edit</button>
+                  <button
+                    className="btn-Dash btn-edit"
+                    onClick={() =>
+                      navigate(`/admin/products/edit/${product.id}`)
+                    }
+                  >
+                    Edit
+                  </button>
                   <button
                     className="btn-Dash btn-delete"
                     onClick={() => handleDelete(product.id)}

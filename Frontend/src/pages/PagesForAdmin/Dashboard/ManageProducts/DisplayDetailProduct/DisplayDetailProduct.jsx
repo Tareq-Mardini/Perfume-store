@@ -62,7 +62,11 @@ export default function DisplayDetailProduct() {
 
         <div className={styles.translations}>
           {product.translations.map((t, index) => (
-            <div key={index} className={styles.langBox}>
+            <div
+              dir={t.language_code === "ar" ? "rtl" : "ltr"}
+              key={index}
+              className={styles.langBox}
+            >
               <h2>{t.language_code.toUpperCase()}</h2>
               <h3>{t.name}</h3>
               <p className={styles.desc}>{t.description}</p>

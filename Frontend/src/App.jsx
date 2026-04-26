@@ -15,6 +15,7 @@ import CreateProduct from "./pages/PagesForAdmin/Dashboard/ManageProducts/Create
 import ManageOrders from "./pages/PagesForAdmin/Dashboard/ManageOrders/ManageOrders";
 import { LanguageProvider } from "./Context/LanguageContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import EditProduct from "./pages/PagesForAdmin/Dashboard/ManageProducts/EditProduct/EditProduct";
 import "./i18n";
 
 const theme = createTheme({
@@ -49,6 +50,14 @@ function App() {
                     element={<CreateProduct />}
                   />
                   <Route path="/admin/orders" element={<ManageOrders />} />
+                  <Route
+                    path="/admin/products/edit/:id"
+                    element={<EditProduct />}
+                  />
+                  {/* <Route
+                    path="/admin/products/edit/images/:id"
+                    element={<EditImages />}
+                  /> */}
                 </Route>
                 <Route path="/login-admin" element={<AdminLogin />} />
               </Routes>
