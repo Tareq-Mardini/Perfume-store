@@ -1,3 +1,87 @@
+/* =======================
+   CAIRO (ARABIC ONLY)
+======================= */
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  unicode-range: U+0600-06FF;
+}
+
+/* =======================
+   ENGLISH FONT (DEFAULT)
+======================= */
+
+@font-face {
+  font-family: "AppFont";
+  src: local("Poppins"), local("Arial"), sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+0000-00FF;
+}
+
+/* =======================
+   ROOT VARIABLES
+======================= */
+
 :root {
   --color-primary: #2B2F2E;
   --color-primary-light: #3A3F3D;
@@ -23,7 +107,7 @@
 
   --color-border: #E3E6E2;
 
-  --font-main: 'Poppins', sans-serif;
+  --font-main: "AppFont", "Cairo", sans-serif;
 
   --radius: 14px;
   --radius-sm: 10px;
@@ -40,6 +124,10 @@
   --max-width: 1280px;
 }
 
+/* =======================
+   BASE RESET
+======================= */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -48,8 +136,6 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -59,6 +145,16 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
+
+/* Arabic mode */
+html[lang="ar"] body {
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+/* =======================
+   OPTIONAL CLEANUP
+======================= */
 
 ::selection {
   background: var(--color-gold);
