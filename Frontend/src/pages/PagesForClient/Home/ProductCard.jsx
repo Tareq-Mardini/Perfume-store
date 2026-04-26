@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 const badgeClassMap = {
   Exclusive: "badge-exclusive",
   New: "badge-new",
@@ -20,6 +20,7 @@ function StarRating({ rating }) {
 }
 
 export default function ProductCard({ product, delay = 0, isInView }) {
+  const { t } = useTranslation();
   return (
     <div
       className={`product-card fade-in fade-in-delay-${delay} ${
@@ -31,10 +32,10 @@ export default function ProductCard({ product, delay = 0, isInView }) {
         <div className="cs-full-overlay">
           <div className="cs-full-blur" />
           <div className="cs-full-content">
-            <span className="cs-full-title">COMING SOON</span>
-            <span className="cs-full-sub">
-              {product.comingSoonLabel}
+            <span className="cs-full-title">
+              {t("featuredComming.comingSoon")}
             </span>
+            <span className="cs-full-sub">{product.comingSoonLabel}</span>
           </div>
         </div>
       )}

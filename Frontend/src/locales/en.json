@@ -313,6 +313,30 @@
   "shops": "Shops",
   "about": "About Us",
   "terms": "Terms"
+},
+"topbar": {
+  "freeDelivery": "✦ Free Delivery Across UAE | Fast & Secure Shipping ✦",
+  "premium": "✦ Premium Fragrance Experience ✦",
+  "authentic": "✦ Authentic Perfumes Only ✦"
+},
+"featured": {
+  "subtitle": "Curated for You",
+  "title": "Featured Fragrances",
+  "desc": "Hand-selected masterpieces from our atelier, each bottle a testament to Arabian perfumery.",
+  "more": "More Products",
+
+  "bakhoor": "Bakhoor",
+  "tasbih": "Tasbih",
+  "gifts": "Gift Boxes",
+
+  "bakhoorCategory": "Bakhoor Collection",
+  "tasbihCategory": "Tasbih Collection",
+  "giftsCategory": "Gift Boxes",
+
+  "comingSoon": "Coming Soon"
+},
+"featuredComming": {
+  "comingSoon": "Coming Soon"
 }
 }
 

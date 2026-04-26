@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function TopBar() {
+  const { t } = useTranslation();
+
   const messages = [
-    "✦ Free Delivery Across UAE | Fast & Secure Shipping ✦",
-    "✦ Premium Fragrance Experience ✦",
-    "✦ Authentic Perfumes Only ✦",
+    t("topbar.freeDelivery"),
+    t("topbar.premium"),
+    t("topbar.authentic"),
   ];
 
   const [index, setIndex] = useState(0);
@@ -18,7 +21,6 @@ export default function TopBar() {
         setIndex((prev) => (prev + 1) % messages.length);
         setFade(true);
       }, 300);
-
     }, 3000);
 
     return () => clearInterval(interval);

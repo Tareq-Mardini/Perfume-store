@@ -6,14 +6,12 @@
   --color-text-light: #A2A8A6;
   --radius: 18px;
   --transition: all 0.3s ease;
-  --font-main: 'Poppins', sans-serif;
+
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
-body {
-  font-family: var(--font-main);
-}
+
 
 /* ===== BACKGROUND ===== */
 .page {
@@ -21,11 +19,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("/src/assets/images/hero-bg copys.jpg");
-
   background-size: cover;
   background-position: center;
 }

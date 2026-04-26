@@ -26,174 +26,183 @@ export default function ProductPage() {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const handleSearch = () => {
-    if (!searchInput.trim()) return;
-    setSearchParams({
-      search: searchInput,
-      page: 1,
-    });
-    setSearchInput("");
-  };
+    const getCategoryName = (category) => {
+      if (language === "ar") {
+        if (category === "unisex") return "رجالي ونسائي";
+        if (category === "men") return "رجالي";
+        if (category === "women") return "نسائي";
+      }
+      return category;
+    };
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [products]);
-
-  const fetchProducts = async () => {
-    setLoading(true);
-    try {
-      const response = await axiosInstance.get("/api/products/", {
-        params: Object.fromEntries(searchParams),
+    const handleSearch = () => {
+      if (!searchInput.trim()) return;
+      setSearchParams({
+        search: searchInput,
+        page: 1,
       });
-      setProducts(response.data.results);
-      setSotpNext(response.data.next);
-    } catch (error) {
-      setProducts([]);
-      console.error("ERROR: ", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      setSearchInput("");
+    };
 
-  useEffect(() => {
-    fetchProducts();
-    setSidebarOpen(false);
-  }, [searchParams.toString(), language]);
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [products]);
 
-  return (
-    <>
-      <Navbar />
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await axiosInstance.get("/api/products/", {
+          params: Object.fromEntries(searchParams),
+        });
+        setProducts(response.data.results);
+        setSotpNext(response.data.next);
+      } catch (error) {
+        setProducts([]);
+        console.error("ERROR: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      <div className="page-header">
-        <div className="section-label">{t("products.label")}</div>
-        <h1>{t("products.title")}</h1>
+    useEffect(() => {
+      fetchProducts();
+      setSidebarOpen(false);
+    }, [searchParams.toString(), language]);
 
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder={t("products.searchPlaceholder")}
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
+    return (
+      <>
+        <Navbar />
 
-          <button onClick={handleSearch}>
-            <FaSearch /> {t("products.searchBtn")}
-          </button>
-        </div>
-      </div>
+        <div className="page-header">
+          <div className="section-label">{t("products.label")}</div>
+          <h1>{t("products.title")}</h1>
 
-      <div style={{ marginTop: "-50px" }} className="container">
-        <div className="shop-wrapper">
-          <AsideFilter
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-          />
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder={t("products.searchPlaceholder")}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
 
-          <main className="main-content">
-            <button className="filter-btn" onClick={toggleSidebar}>
-              <FaFilter /> {t("products.filters")}
+            <button onClick={handleSearch}>
+              <FaSearch /> {t("products.searchBtn")}
             </button>
-
-            <div className="product-grid">
-              {products.map((product) => {
-                const primaryImage =
-                  product.images?.find((img) => img.is_primary)?.image ||
-                  product.images?.[0]?.image;
-
-                return (
-                  <div className="product-card" key={product.id}>
-                    <div className="card-img">
-                      <span className={`badge ${product.category}`}>
-                        {product.category}
-                      </span>
-
-                      <div className="hover-icons">
-                        <span
-                          onClick={() => navigate(`/product/${product.id}`)}
-                        >
-                          <FaShoppingCart />
-                        </span>
-                        <span
-                          onClick={() => navigate(`/product/${product.id}`)}
-                        >
-                          <FaEye />
-                        </span>
-                      </div>
-
-                      <img
-                        src={primaryImage}
-                        alt={product.translations[0].name}
-                      />
-                    </div>
-
-                    <div className="card-info">
-                      <h3>{product.translations[0].name}</h3>
-
-                      <p className="character">
-                        {product.translations[0].character}
-                      </p>
-
-                      <div className="card-price">
-                        AED{" "}
-                        <span style={{ color: "#2B2F2E" }}>
-                          {product.price}
-                        </span>
-                      </div>
-
-                      <button
-                        className="view-details-btn"
-                        onClick={() => navigate(`/product/${product.id}`)}
-                      >
-                        <FaEye /> {t("products.viewDetails")}
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {products && products.length > 0 && (
-              <div className="pagination">
-                <button
-                  onClick={() =>
-                    setSearchParams({
-                      ...Object.fromEntries(searchParams),
-                      page: page - 1,
-                    })
-                  }
-                  disabled={page === 1}
-                  className="pagination-btn"
-                >
-                  {t("products.prev")}
-                </button>
-
-                <button className="pagination-btn">
-                  {t("products.page")} {page}
-                </button>
-
-                <button
-                  onClick={() =>
-                    setSearchParams({
-                      ...Object.fromEntries(searchParams),
-                      page: page + 1,
-                    })
-                  }
-                  className="pagination-btn"
-                  disabled={SotpNext == null}
-                >
-                  {t("products.next")}
-                </button>
-              </div>
-            )}
-          </main>
+          </div>
         </div>
-      </div>
 
-      {sidebarOpen && (
-        <div className="overlay active" onClick={toggleSidebar}></div>
-      )}
+        <div style={{ marginTop: "-50px" }} className="container">
+          <div className="shop-wrapper">
+            <AsideFilter
+              sidebarOpen={sidebarOpen}
+              setSidebarOpen={setSidebarOpen}
+            />
 
-      <Footer />
-    </>
-  );
+            <main className="main-content">
+              <button className="filter-btn" onClick={toggleSidebar}>
+                <FaFilter /> {t("products.filters")}
+              </button>
+
+              <div className="product-grid">
+                {products.map((product) => {
+                  const primaryImage =
+                    product.images?.find((img) => img.is_primary)?.image ||
+                    product.images?.[0]?.image;
+
+                  return (
+                    <div className="product-card" key={product.id}>
+                      <div className="card-img">
+                        <span className={`badge ${product.category}`}>
+                          {getCategoryName(product.category)}
+                        </span>
+
+                        <div className="hover-icons">
+                          <span
+                            onClick={() => navigate(`/product/${product.id}`)}
+                          >
+                            <FaShoppingCart />
+                          </span>
+                          <span
+                            onClick={() => navigate(`/product/${product.id}`)}
+                          >
+                            <FaEye />
+                          </span>
+                        </div>
+
+                        <img
+                          src={primaryImage}
+                          alt={product.translations[0].name}
+                        />
+                      </div>
+
+                      <div className="card-info">
+                        <h3>{product.translations[0].name}</h3>
+
+                        <p className="character">
+                          {product.translations[0].character}
+                        </p>
+
+                        <div className="card-price">
+                          AED{" "}
+                          <span style={{ color: "#2B2F2E" }}>
+                            {product.price}
+                          </span>
+                        </div>
+
+                        <button
+                          className="view-details-btn"
+                          onClick={() => navigate(`/product/${product.id}`)}
+                        >
+                          <FaEye /> {t("products.viewDetails")}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {products && products.length > 0 && (
+                <div className="pagination">
+                  <button
+                    onClick={() =>
+                      setSearchParams({
+                        ...Object.fromEntries(searchParams),
+                        page: page - 1,
+                      })
+                    }
+                    disabled={page === 1}
+                    className="pagination-btn"
+                  >
+                    {t("products.prev")}
+                  </button>
+
+                  <button className="pagination-btn">
+                    {t("products.page")} {page}
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      setSearchParams({
+                        ...Object.fromEntries(searchParams),
+                        page: page + 1,
+                      })
+                    }
+                    className="pagination-btn"
+                    disabled={SotpNext == null}
+                  >
+                    {t("products.next")}
+                  </button>
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
+
+        {sidebarOpen && (
+          <div className="overlay active" onClick={toggleSidebar}></div>
+        )}
+
+        <Footer />
+      </>
+    );
 }

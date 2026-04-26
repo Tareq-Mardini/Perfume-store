@@ -1,30 +1,15 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { useInView } from "../../../hooks/useInView";
+import axiosInstance from "../../../api/axiosInstance";
+import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../../Context/LanguageContext";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./FeaturesProducts.module.css";
+import { FaEye } from "react-icons/fa";
 
-const products = [
-  {
-    id: 1,
-    name: "Royal Oud Elixir",
-    category: "Oud Collection",
-    price: 1050,
-    rating: 5,
-    reviews: 128,
-    image: "/src/assets/images/product-1.jpg",
-    badge: "Exclusive",
-  },
-  {
-    id: 2,
-    name: "Amber Noir Intense",
-    category: "Oriental Collection",
-    price: 720,
-    rating: 5,
-    reviews: 96,
-    image: "/src/assets/images/product-2.jpg",
-    badge: "New",
-  },
-
-  // ✅ Coming Soon - Incense
+const productsStatic = [
   {
     id: 3,
     name: "Golden Bakhoor",
@@ -37,8 +22,6 @@ const products = [
     isComingSoon: true,
     comingSoonLabel: "Bakhoor",
   },
-
-  // ✅ Coming Soon - Beads
   {
     id: 4,
     name: "Luxury Tasbih",
@@ -51,10 +34,54 @@ const products = [
     isComingSoon: true,
     comingSoonLabel: "Prayer Beads",
   },
+  {
+    id: 5,
+    name: "Luxury Tasbih",
+    category: "Tasbih Collection",
+    price: 0,
+    rating: 0,
+    reviews: 0,
+    image: "/src/assets/images/product-4.jpg",
+    badge: null,
+    isComingSoon: true,
+    comingSoonLabel: "Gift boxes",
+  },
 ];
 
 export default function FeaturedProducts() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
   const [ref, isInView] = useInView();
+  const navigate = useNavigate();
+  const { language } = useLanguage();
+
+  // ✅ ترجمة الكاتيجوري حسب اللغة
+  const getCategoryName = (category) => {
+    if (language === "ar") {
+      if (category === "unisex") return "رجالي ونسائي";
+      if (category === "men") return "رجالي";
+      if (category === "women") return "نسائي";
+    }
+    return category;
+  };
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get("/api/products/?page_size=1");
+      setProducts(response.data.results);
+    } catch (error) {
+      setProducts([]);
+      console.error("ERROR: ", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [language]);
 
   return (
     <section
@@ -64,21 +91,78 @@ export default function FeaturedProducts() {
       ref={ref}
     >
       <div className="container">
+        {/* HEADER */}
         <div className={`section-header fade-in ${isInView ? "visible" : ""}`}>
-          <span className="section-subtitle">✦ Curated for You</span>
-          <h2 className="section-title">Featured Fragrances</h2>
+          <span className="section-subtitle">✦ {t("featured.subtitle")}</span>
+
+          <h2 className="section-title">{t("featured.title")}</h2>
+
           <div className="section-divider" />
-          <p className="section-desc">
-            Hand-selected masterpieces from our atelier, each bottle a testament
-            to the art of Arabian perfumery.
-          </p>
+
+          <p className="section-desc">{t("featured.desc")}</p>
         </div>
 
-        <div className="products-grid">
-          {products.map((product, i) => (
+        {/* GRID */}
+        <div className={styles["product-grid"]}>
+          {/* ✅ منتجات API */}
+          {products.map((product) => {
+            const primaryImage =
+              product.images?.find((img) => img.is_primary)?.image ||
+              product.images?.[0]?.image;
+
+            return (
+              <div className="product-card" key={product.id}>
+                <div className="card-img">
+                  <span className={`badge ${product.category}`}>
+                    {getCategoryName(product.category)}
+                  </span>
+
+                  <img src={primaryImage} alt={product.translations[0].name} />
+                </div>
+
+                <div className="card-info">
+                  <h3>{product.translations[0].name}</h3>
+
+                  <p className="character">
+                    {product.translations[0].character}
+                  </p>
+
+                  <div className="card-price">AED {product.price}</div>
+
+                  <button
+                    className="view-details-btn"
+                    onClick={() => navigate(`/products/`)}
+                  >
+                    <FaEye /> {t("featured.more")}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* ✅ منتجات static */}
+          {productsStatic.map((product, i) => (
             <ProductCard
               key={product.id}
-              product={product}
+              product={{
+                ...product,
+                name:
+                  product.id === 3
+                    ? t("featured.bakhoor")
+                    : product.id === 4
+                      ? t("featured.tasbih")
+                      : t("featured.gifts"),
+                category:
+                  product.id === 3
+                    ? t("featured.bakhoorCategory")
+                    : product.category,
+                comingSoonLabel:
+                  product.id === 3
+                    ? t("featured.bakhoor")
+                    : product.id === 4
+                      ? t("featured.tasbih")
+                      : t("featured.gifts"),
+              }}
               delay={i + 1}
               isInView={isInView}
             />

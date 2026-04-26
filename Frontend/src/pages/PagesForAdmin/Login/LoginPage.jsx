@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./LoginStyle.css";
 import axiosInstance from "../../../api/axiosInstance";
+import heroBg from "/src/assets/images/hero-bg copys.jpg";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +34,15 @@ export default function Login() {
 
   return (
     <>
-      <div className="page">
+      <div
+        className="page"
+        style={{
+          backgroundImage: `
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url(${heroBg})
+    `,
+        }}
+      >
         <div className="card">
           <h1 className="card-title">Admin Login</h1>
           <p className="card-sub">Enter your credentials to continue</p>
