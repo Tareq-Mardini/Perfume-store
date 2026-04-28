@@ -5,8 +5,11 @@ import {
   getProducts,
   deleteProduct,
 } from "../../../../../services/productsService";
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
+  const { t } = useTranslation();
+
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -17,7 +20,7 @@ export default function Products() {
       setProducts(data);
     } catch (err) {
       console.log(err);
-      setError("Failed to load products");
+      setError(t("adminProducts.errorLoad"));
     }
   };
 
@@ -26,14 +29,15 @@ export default function Products() {
   }, []);
 
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete?");
+    const confirmDelete = window.confirm(t("adminProducts.confirmDelete"));
     if (!confirmDelete) return;
+
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.id !== id));
     } catch (err) {
       console.log(err);
-      alert("Failed to delete product");
+      alert(t("adminProducts.errorDelete"));
     }
   };
 
@@ -42,10 +46,13 @@ export default function Products() {
       {/* ===== HEADER ===== */}
       <div className={styles.header}>
         <h2 className={styles.headerTitle}>
-          All <span>Products</span>
+          {t("adminProducts.title")} <span>{t("adminProducts.highlight")}</span>
         </h2>
+
         <Link to="/admin/products/create-product">
-          <button className={styles.btnCreate}>+ Create New Product</button>
+          <button className={styles.btnCreate}>
+            {t("adminProducts.createBtn")}
+          </button>
         </Link>
       </div>
 
@@ -58,9 +65,9 @@ export default function Products() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Actions</th>
+              <th>{t("adminProducts.name")}</th>
+              <th>{t("adminProducts.image")}</th>
+              <th>{t("adminProducts.actions")}</th>
             </tr>
           </thead>
 
@@ -68,26 +75,26 @@ export default function Products() {
             {products.length === 0 ? (
               <tr>
                 <td colSpan={4} className={styles.emptyState}>
-                  No products found.
+                  {t("adminProducts.empty")}
                 </td>
               </tr>
             ) : (
               products.map((product, index) => (
                 <tr key={product.id}>
-                  {/* ID — incremental */}
+                  {/* ID */}
                   <td data-label="#">
                     <span className={styles.idBadge}>{index + 1}</span>
                   </td>
 
                   {/* Name */}
-                  <td data-label="Name">
+                  <td data-label={t("adminProducts.name")}>
                     <span className={styles.productName}>
                       {product.translations[1]?.name}
                     </span>
                   </td>
 
                   {/* Image */}
-                  <td data-label="Image">
+                  <td data-label={t("adminProducts.image")}>
                     <img
                       src={product.images[0]?.image}
                       alt={product.translations[1]?.name}
@@ -96,7 +103,7 @@ export default function Products() {
                   </td>
 
                   {/* Actions */}
-                  <td data-label="Actions">
+                  <td data-label={t("adminProducts.actions")}>
                     <div className={styles.actions}>
                       <button
                         className={`${styles.btn} ${styles.btnView}`}
@@ -106,21 +113,23 @@ export default function Products() {
                           )
                         }
                       >
-                        View
+                        {t("adminProducts.view")}
                       </button>
+
                       <button
                         className={`${styles.btn} ${styles.btnEdit}`}
                         onClick={() =>
                           navigate(`/admin/products/edit/${product.id}`)
                         }
                       >
-                        Edit
+                        {t("adminProducts.edit")}
                       </button>
+
                       <button
                         className={`${styles.btn} ${styles.btnDelete}`}
                         onClick={() => handleDelete(product.id)}
                       >
-                        Delete
+                        {t("adminProducts.delete")}
                       </button>
                     </div>
                   </td>

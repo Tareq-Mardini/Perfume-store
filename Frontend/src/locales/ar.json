@@ -341,7 +341,24 @@
   "empty": {
     "loading": "جاري التحميل...",
     "noResultsTitle": "لا يوجد نتائج",
-    "noResultsDesc": "لم يتم العثور على أي منتجات مطابقة لبحثك"
+    "noResultsDesc": "لم يتم العثور على أي منتجات مطابقة لبحثك"}
+  ,
+ "adminProducts": {
+    "title": "جميع",
+    "highlight": "المنتجات",
+    "createBtn": "+ إضافة منتج جديد",
+    "name": "الاسم",
+    "image": "الصورة",
+    "actions": "الإجراءات",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "empty": "لا يوجد منتجات",
+    "errorLoad": "فشل تحميل المنتجات",
+    "errorDelete": "فشل حذف المنتج",
+    "confirmDelete": "هل أنت متأكد من الحذف؟"
   }
+
+
 }
 

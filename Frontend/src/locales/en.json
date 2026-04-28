@@ -343,7 +343,24 @@
     "loading": "Loading...",
     "noResultsTitle": "No results found",
     "noResultsDesc": "We couldn't find any products matching your search"
+  },
+ 
+ "adminProducts": {
+    "title": "All",
+    "highlight": "Products",
+    "createBtn": "+ Create New Product",
+    "name": "Name",
+    "image": "Image",
+    "actions": "Actions",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "empty": "No products found.",
+    "errorLoad": "Failed to load products",
+    "errorDelete": "Failed to delete product",
+    "confirmDelete": "Are you sure you want to delete?"
   }
-
 }
+
+
 

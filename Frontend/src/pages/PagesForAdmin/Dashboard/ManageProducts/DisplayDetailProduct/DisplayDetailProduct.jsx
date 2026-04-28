@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import styles from "./DisplayDetailProduct.module.css";
 import { getDetailProductAdmin } from "../../../../../services/productsService";
+import { useTranslation } from "react-i18next";
 
 const langLabel = { en: "English", ar: "العربية" };
 
 export default function DisplayDetailProduct() {
+  const { t } = useTranslation();
   const { id } = useParams();
+
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -14,26 +17,31 @@ export default function DisplayDetailProduct() {
     const fetchProduct = async () => {
       const res = await getDetailProductAdmin(id);
       setProduct(res);
+
       const primary = res.images.find((i) => i.is_primary);
       setSelectedImage(primary?.image || res.images[0]?.image);
     };
+
     fetchProduct();
   }, [id]);
 
-  if (!product) return <p className={styles.loading}>Loading...</p>;
+  if (!product)
+    return <p className={styles.loading}>{t("productPage.loading")}</p>;
 
   const enTranslation = product.translations.find(
-    (t) => t.language_code === "en",
+    (tItem) => tItem.language_code === "en",
   );
 
   return (
     <div className={styles.wrapper}>
       {/* ===== BACK ===== */}
       <Link to="/admin/products">
-        <button className={styles.btnBack}>← Back to Products</button>
+        <button className={styles.btnBack}>
+          ← {t("adminProducts.title")} {t("adminProducts.highlight")}
+        </button>
       </Link>
 
-      {/* ===== TOP: IMAGE + INFO ===== */}
+      {/* ===== TOP ===== */}
       <div className={styles.productTop}>
         {/* Images */}
         <div className={styles.imageSection}>
@@ -79,11 +87,12 @@ export default function DisplayDetailProduct() {
 
           <div className={styles.specsGrid}>
             <div className={styles.specCard}>
-              <p className={styles.specLabel}>Bottle Volume</p>
+              <p className={styles.specLabel}>{t("productPage.size")}</p>
               <p className={styles.specValue}>{product.bottle_volume} ml</p>
             </div>
+
             <div className={styles.specCard}>
-              <p className={styles.specLabel}>Category</p>
+              <p className={styles.specLabel}>{t("filters.categories")}</p>
               <p
                 className={styles.specValue}
                 style={{ textTransform: "capitalize" }}
@@ -91,14 +100,16 @@ export default function DisplayDetailProduct() {
                 {product.category}
               </p>
             </div>
+
             <div className={styles.specCard}>
-              <p className={styles.specLabel}>Sillage</p>
+              <p className={styles.specLabel}>{t("productPage.sillage")}</p>
               <p className={styles.specValue}>
                 {enTranslation?.sillage || "—"}
               </p>
             </div>
+
             <div className={styles.specCard}>
-              <p className={styles.specLabel}>Longevity</p>
+              <p className={styles.specLabel}>{t("productPage.longevity")}</p>
               <p className={styles.specValue}>
                 {enTranslation?.longevity || "—"}
               </p>
@@ -108,41 +119,44 @@ export default function DisplayDetailProduct() {
       </div>
 
       {/* ===== TRANSLATIONS ===== */}
-      <p className={styles.sectionTitle}>Translations</p>
+      <p className={styles.sectionTitle}>{t("productPage.product")}</p>
 
       <div className={styles.translations}>
-        {product.translations.map((t, index) => (
+        {product.translations.map((tr, index) => (
           <div
             key={index}
-            dir={t.language_code === "ar" ? "rtl" : "ltr"}
+            dir={tr.language_code === "ar" ? "rtl" : "ltr"}
             className={styles.langBox}
           >
-            {/* Lang header */}
             <div className={styles.langHeader}>
               <span className={styles.langBadge}>
-                {t.language_code.toUpperCase()}
+                {tr.language_code.toUpperCase()}
               </span>
               <h3 className={styles.langName}>
-                {langLabel[t.language_code] || t.language_code}
+                {langLabel[tr.language_code] || tr.language_code}
               </h3>
             </div>
 
-            <h2 className={styles.productTitle}>{t.name}</h2>
-            <p className={styles.desc}>{t.description}</p>
+            <h2 className={styles.productTitle}>{tr.name}</h2>
+            <p className={styles.desc}>{tr.description}</p>
 
             {/* Notes */}
             <div className={styles.notesGrid}>
               <div className={styles.noteCard}>
-                <p className={styles.noteLabel}>Top Notes</p>
-                <p className={styles.noteValue}>{t.top_notes || "—"}</p>
+                <p className={styles.noteLabel}>{t("productPage.topNotes")}</p>
+                <p className={styles.noteValue}>{tr.top_notes || "—"}</p>
               </div>
+
               <div className={styles.noteCard}>
-                <p className={styles.noteLabel}>Heart Notes</p>
-                <p className={styles.noteValue}>{t.heart_notes || "—"}</p>
+                <p className={styles.noteLabel}>
+                  {t("productPage.heartNotes")}
+                </p>
+                <p className={styles.noteValue}>{tr.heart_notes || "—"}</p>
               </div>
+
               <div className={styles.noteCard}>
-                <p className={styles.noteLabel}>Base Notes</p>
-                <p className={styles.noteValue}>{t.base_notes || "—"}</p>
+                <p className={styles.noteLabel}>{t("productPage.baseNotes")}</p>
+                <p className={styles.noteValue}>{tr.base_notes || "—"}</p>
               </div>
             </div>
           </div>
