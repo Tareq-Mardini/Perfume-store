@@ -78,18 +78,18 @@ export default function ProductPage() {
           <div className="section-label">{t("products.label")}</div>
           <h1>{t("products.title")}</h1>
         </div>
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder={t("products.searchPlaceholder")}
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder={t("products.searchPlaceholder")}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
 
-          <button onClick={handleSearch}>
-            <FaSearch /> {t("products.searchBtn")}
-          </button>
-        </div>
+            <button onClick={handleSearch}>
+              <FaSearch /> {t("products.searchBtn")}
+            </button>
+          </div>
 
         <div style={{ marginTop: "-50px" }} className="container">
           <div className="shop-wrapper">

@@ -54,7 +54,6 @@
 .nav__item.active {
   background: rgba(var(--color-gold-rgb), 0.12);
   color: var(--color-gold);
-  box-shadow: var(--shadow-gold);
 }
 
 /* خط جانبي ذهبي */
