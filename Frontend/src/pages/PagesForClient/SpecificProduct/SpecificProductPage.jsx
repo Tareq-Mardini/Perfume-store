@@ -37,270 +37,275 @@ export default function SpecificProduct() {
   const [primaryImage, setPrimaryImage] = useState("");
 
   const navigate = useNavigate();
-  
-   const getCategoryName = (category) => {
-     if (language === "ar") {
-       if (category === "unisex") return "رجالي ونسائي";
-       if (category === "men") return "رجالي";
-       if (category === "women") return "نسائي";
-     }
-     return category;
-   };
 
-   useEffect(() => {
-     window.scrollTo({ top: 0, behavior: "smooth" });
-   }, [product]);
+  const getCategoryName = (category) => {
+    if (language === "ar") {
+      if (category === "unisex") return "رجالي ونسائي";
+      if (category === "men") return "رجالي";
+      if (category === "women") return "نسائي";
+    }
+    return category;
+  };
 
-   useEffect(() => {
-     const fetchProduct = async () => {
-       try {
-         const response = await axiosInstance.get(`/api/products/${id}/`);
-         const data = response.data;
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [product]);
 
-         setProduct(data);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axiosInstance.get(`/api/products/${id}/`);
+        const data = response.data;
 
-         const primary =
-           data.images.find((img) => img.is_primary)?.image ||
-           data.images[0]?.image ||
-           "";
+        setProduct(data);
 
-         setPrimaryImage(primary);
-         setSelectedImage(primary);
-       } catch (error) {
-         console.error("ERROR: ", error);
-       }
-     };
+        const primary =
+          data.images.find((img) => img.is_primary)?.image ||
+          data.images[0]?.image ||
+          "";
 
-     fetchProduct();
-   }, [id, language]);
+        setPrimaryImage(primary);
+        setSelectedImage(primary);
+      } catch (error) {
+        console.error("ERROR: ", error);
+      }
+    };
 
-   useEffect(() => {
-     const fetchProducts = async () => {
-       try {
-         const response = await axiosInstance.get("/api/products/?page_size=4");
-         setProducts(response.data.results);
-       } catch (error) {
-         setProducts([]);
-         console.error("ERROR: ", error);
-       }
-     };
+    fetchProduct();
+  }, [id, language]);
 
-     fetchProducts();
-   }, [language]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axiosInstance.get("/api/products/?page_size=4");
+        setProducts(response.data.results);
+      } catch (error) {
+        setProducts([]);
+        console.error("ERROR: ", error);
+      }
+    };
 
-   if (!product) {
-     return (
-       <>
-         <Navbar />
-         <div className="loading-state">
-           <h2>{t("productPage.loading")}</h2>
-         </div>
-         <Footer />
-       </>
-     );
-   }
+    fetchProducts();
+  }, [language]);
 
-   const data = product.translations[0];
+  if (!product) {
+    return (
+      <>
+        <Navbar />
+        <div className="loading-state">
+          <h2>{t("productPage.loading")}</h2>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
-   return (
-     <>
-       <Navbar />
+  const data = product.translations[0];
 
-       {/* HEADER */}
-       <div className="page-header" style={{ marginBottom: "0px" }}>
-         <div className="section-label">{t("productPage.product")}</div>
+  return (
+    <>
+      <Navbar />
 
-         <h1>{data.name}</h1>
+      {/* HEADER */}
+      <div className="page-header" style={{ marginBottom: "0px" }}>
+        <div className="section-label">{t("productPage.product")}</div>
 
-         <p>{t("productPage.discover")}</p>
-       </div>
+        <h1>{data.name}</h1>
 
-       <div className="container">
-         <Link to="/products" className="back-btn">
-           <FaArrowLeft />
-           {t("productPage.backToShop")}
-         </Link>
+        <p>{t("productPage.discover")}</p>
+      </div>
 
-         <div className="product-details">
-           {/* IMAGES */}
-           <div className="product-images">
-             <div className="main-image">
-               <img
-                 key={selectedImage}
-                 src={selectedImage}
-                 alt={data.name}
-                 className="main-product-img"
-               />
-             </div>
+      <div className="container">
+        <Link to="/products" className="back-btn">
+          <FaArrowLeft />
+          {t("productPage.backToShop")}
+        </Link>
 
-             <div className="thumbnail-list">
-               {product.images.map((img, index) => (
-                 <img
-                   key={index}
-                   src={img.image}
-                   alt="thumb"
-                   className={selectedImage === img.image ? "active" : ""}
-                   onClick={() => setSelectedImage(img.image)}
-                 />
-               ))}
-             </div>
-           </div>
+        <div className="product-details">
+          {/* IMAGES */}
+          <div className="product-images">
+            <div className="main-image">
+              <img
+                key={selectedImage}
+                src={selectedImage}
+                alt={data.name}
+                className="main-product-img"
+              />
+            </div>
 
-           {/* INFO */}
-           <div className="product-info">
-             <h2>{data.name}</h2>
+            <div className="thumbnail-list">
+              {product.images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img.image}
+                  alt="thumb"
+                  className={selectedImage === img.image ? "active" : ""}
+                  onClick={() => setSelectedImage(img.image)}
+                />
+              ))}
+            </div>
+          </div>
 
-             <p className="category">
-               <FaLayerGroup /> {product.category}
-             </p>
+          {/* INFO */}
+          <div className="product-info">
+            <h2>{data.name}</h2>
 
-             <div className="price">
-               AED&nbsp;
-               <span style={{ color: "var(--color-primary)" }}>
-                 {product.price}
-               </span>
-               {product.price_before_discount && (
-                 <span style={{ marginLeft: "20px" }} className="old-price">
-                   AED&nbsp;{product.price_before_discount}
-                 </span>
-               )}
-             </div>
+            <p className="category">
+              <FaLayerGroup />
+              {getCategoryName(product.category)}
+            </p>
 
-             <p className="description">{data.description}</p>
+            <div className="price">
+              AED&nbsp;
+              <span style={{ color: "var(--color-primary)" }}>
+                {product.price}
+              </span>
+              {product.price_before_discount && (
+                <span style={{ marginLeft: "20px" }} className="old-price">
+                  AED&nbsp;{product.price_before_discount}
+                </span>
+              )}
+            </div>
 
-             <div className="extra">
-               <span>
-                 <FaClock /> {data.longevity}
-               </span>
-               <span>
-                 <FaWind /> {data.sillage}
-               </span>
-             </div>
+            <p className="description">{data.description}</p>
 
-             <span
-               className="selector-label"
-               style={{ fontWeight: "bold", marginTop: "20px" }}
-             >
-               {t("productPage.size")}
-             </span>
+            <div className="extra">
+              <span>
+                <FaClock /> {data.longevity}
+              </span>
+              <span>
+                <FaWind /> {data.sillage}
+              </span>
+            </div>
 
-             <div className="size-selector">
-               <button className="size-btn active">
-                 {product.bottle_volume} ml
-               </button>
+            <span
+              className="selector-label"
+              style={{ fontWeight: "bold", marginTop: "20px" }}
+            >
+              {t("productPage.size")}
+            </span>
 
-               <button
-                 onClick={() => {
-                   addItem({
-                     id: product.id,
-                     name: data.name,
-                     price: product.price,
-                     image: getFullImageUrl(primaryImage),
-                   });
-                 }}
-                 className="btn btn-buy"
-               >
-                 <FaShoppingCart style={{ marginRight: "8px" }} />
-                 {t("productPage.addToCart")}
-               </button>
-             </div>
-           </div>
-         </div>
+            <div className="size-selector">
+              <button className="size-btn active">
+                {product.bottle_volume} ml
+              </button>
 
-         {/* NOTES */}
-         <div className="notes-section">
-           <div className="notes-tabs">
-             <button
-               className={activeNote === "top" ? "active" : ""}
-               onClick={() => setActiveNote("top")}
-             >
-               <FaLeaf />
-               {t("productPage.topNotes")}
-             </button>
+              <button
+                onClick={() => {
+                  addItem({
+                    id: product.id,
+                    name: data.name,
+                    price: product.price,
+                    image: getFullImageUrl(primaryImage),
+                  });
+                }}
+                className="btn btn-buy"
+              >
+                <FaShoppingCart
+                  style={{
+                    [language === "ar" ? "marginLeft" : "marginRight"]: "8px",
+                  }}
+                />
+                {t("productPage.addToCart")}
+              </button>
+            </div>
+          </div>
+        </div>
 
-             <button
-               className={activeNote === "heart" ? "active" : ""}
-               onClick={() => setActiveNote("heart")}
-             >
-               <FaHeart />
-               {t("productPage.heartNotes")}
-             </button>
+        {/* NOTES */}
+        <div className="notes-section">
+          <div className="notes-tabs">
+            <button
+              className={activeNote === "top" ? "active" : ""}
+              onClick={() => setActiveNote("top")}
+            >
+              <FaLeaf />
+              {t("productPage.topNotes")}
+            </button>
 
-             <button
-               className={activeNote === "base" ? "active" : ""}
-               onClick={() => setActiveNote("base")}
-             >
-               <FaFire />
-               {t("productPage.baseNotes")}
-             </button>
-           </div>
+            <button
+              className={activeNote === "heart" ? "active" : ""}
+              onClick={() => setActiveNote("heart")}
+            >
+              <FaHeart />
+              {t("productPage.heartNotes")}
+            </button>
 
-           <div
-             className="note-content"
-             style={{ maxWidth: "900px", margin: "auto" }}
-           >
-             {activeNote === "top" && <p>{data.top_notes}</p>}
-             {activeNote === "heart" && <p>{data.heart_notes}</p>}
-             {activeNote === "base" && <p>{data.base_notes}</p>}
-           </div>
-         </div>
-       </div>
+            <button
+              className={activeNote === "base" ? "active" : ""}
+              onClick={() => setActiveNote("base")}
+            >
+              <FaFire />
+              {t("productPage.baseNotes")}
+            </button>
+          </div>
 
-       {/* RELATED */}
-       <div style={{ paddingTop: "0px" }} className="container">
-         <Link to="/products" className="back-btn">
-           <FaArrowLeft />
-           {t("productPage.seeMore")}
-         </Link>
+          <div
+            className="note-content"
+            style={{ maxWidth: "900px", margin: "auto" }}
+          >
+            {activeNote === "top" && <p>{data.top_notes}</p>}
+            {activeNote === "heart" && <p>{data.heart_notes}</p>}
+            {activeNote === "base" && <p>{data.base_notes}</p>}
+          </div>
+        </div>
+      </div>
 
-         <div className="product-grid-">
-           {products.map((product) => {
-             const primaryImage =
-               product.images?.find((img) => img.is_primary)?.image ||
-               product.images?.[0]?.image;
+      {/* RELATED */}
+      <div style={{ paddingTop: "0px" }} className="container">
+        <Link to="/products" className="back-btn">
+          <FaArrowLeft />
+          {t("productPage.seeMore")}
+        </Link>
 
-             return (
-               <div className="product-card" key={product.id}>
-                 <div className="card-img">
-                   <span className={`badge ${product.category}`}>
-                     {getCategoryName(product.category)}
-                   </span>
+        <div className="product-grid-">
+          {products.map((product) => {
+            const primaryImage =
+              product.images?.find((img) => img.is_primary)?.image ||
+              product.images?.[0]?.image;
 
-                   <div className="hover-icons">
-                     <span onClick={() => navigate(`/product/${product.id}`)}>
-                       <FaShoppingCart />
-                     </span>
-                     <span onClick={() => navigate(`/product/${product.id}`)}>
-                       <FaEye />
-                     </span>
-                   </div>
+            return (
+              <div className="product-card" key={product.id}>
+                <div className="card-img">
+                  <span className={`badge ${product.category}`}>
+                    {getCategoryName(product.category)}
+                  </span>
 
-                   <img src={primaryImage} alt={product.translations[0].name} />
-                 </div>
+                  <div className="hover-icons">
+                    <span onClick={() => navigate(`/product/${product.id}`)}>
+                      <FaShoppingCart />
+                    </span>
+                    <span onClick={() => navigate(`/product/${product.id}`)}>
+                      <FaEye />
+                    </span>
+                  </div>
 
-                 <div className="card-info">
-                   <h3>{product.translations[0].name}</h3>
+                  <img src={primaryImage} alt={product.translations[0].name} />
+                </div>
 
-                   <p className="character">
-                     {product.translations[0].character}
-                   </p>
+                <div className="card-info">
+                  <h3>{product.translations[0].name}</h3>
 
-                   <div className="card-price">AED {product.price}</div>
+                  <p className="character">
+                    {product.translations[0].character}
+                  </p>
 
-                   <button
-                     className="view-details-btn"
-                     onClick={() => navigate(`/product/${product.id}`)}
-                   >
-                     <FaEye /> {t("products.viewDetails")}
-                   </button>
-                 </div>
-               </div>
-             );
-           })}
-         </div>
-       </div>
+                  <div className="card-price">AED {product.price}</div>
 
-       <Footer />
-     </>
-   );
+                  <button
+                    className="view-details-btn"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    <FaEye /> {t("products.viewDetails")}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
 }

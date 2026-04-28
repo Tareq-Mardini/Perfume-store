@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
 import { useTranslation } from "react-i18next";
+import { Earth } from "lucide-react";
 
 export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
@@ -92,6 +93,22 @@ export default function NavbarHome() {
 
           {/* Icons */}
           <div className="navbar-icons">
+            <div className="lang-switcher">
+              <button
+                className="icon-btn"
+                onClick={() => setLangOpen(!langOpen)}
+              >
+                <Earth size={20} strokeWidth={1.5} />
+              </button>
+
+              {langOpen && (
+                <div className="lang-dropdown">
+                  <div onClick={() => changeLanguage("ar")}>العربية</div>
+
+                  <div onClick={() => changeLanguage("en")}> English</div>
+                </div>
+              )}
+            </div>
             <button
               className="icon-btn cart-btn"
               onClick={() => setCartOpen(true)}
@@ -110,22 +127,6 @@ export default function NavbarHome() {
               </svg>
               <span className="cart-count">{items.length}</span>
             </button>
-            <div className="lang-switcher">
-              <button
-                className="icon-btn"
-                onClick={() => setLangOpen(!langOpen)}
-              >
-                <FaGlobe />
-              </button>
-
-              {langOpen && (
-                <div className="lang-dropdown">
-                  <div onClick={() => changeLanguage("ar")}>العربية</div>
-
-                  <div onClick={() => changeLanguage("en")}> English</div>
-                </div>
-              )}
-            </div>
             {/* Hamburger */}
             <button
               className={`hamburger ${menuOpen ? "active" : ""}`}

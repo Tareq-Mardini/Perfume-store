@@ -1,0 +1,294 @@
+/* ==============================
+   Products Admin — CSS Module
+   ============================== */
+
+.wrapper {
+  padding: 32px 24px;
+}
+
+/* ===== HEADER ROW ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.headerTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1b1f1e;
+  letter-spacing: 0.3px;
+}
+
+.headerTitle span {
+  color: #c6a25a;
+}
+
+/* ===== CREATE BUTTON ===== */
+.btnCreate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c6a25a;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(198, 162, 90, 0.3);
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.btnCreate:hover {
+  transform: translateY(-2px);
+  background: #b48b54;
+  box-shadow: 0 10px 28px rgba(198, 162, 90, 0.45);
+}
+
+.btnCreate:active {
+  transform: scale(0.97);
+}
+
+/* ===== TABLE CARD ===== */
+.tableCard {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e3e6e2;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== TABLE ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+/* ===== THEAD ===== */
+.table thead {
+  background: #f5f3ee;
+  border-bottom: 1.5px solid #e3e6e2;
+}
+
+.table thead th {
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #676d6b;
+}
+
+/* ===== TBODY ===== */
+.table tbody tr {
+  border-bottom: 1px solid #f0f2ef;
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: #faf9f6;
+}
+
+.table tbody td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #1b1f1e;
+  vertical-align: middle;
+}
+
+/* ===== ID BADGE ===== */
+.idBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f3ee;
+  border: 1px solid #e3e6e2;
+  color: #676d6b;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  min-width: 36px;
+}
+
+/* ===== PRODUCT NAME ===== */
+.productName {
+  font-weight: 600;
+  color: #1b1f1e;
+}
+
+/* ===== PRODUCT IMAGE ===== */
+.productImg {
+  width: 80px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1.5px solid #e3e6e2;
+  display: block;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.productImg:hover {
+  transform: scale(1.08);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  background: #fff;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* View */
+/* View */
+.btnView {
+  border: none;
+  background: #7ab648;
+  color: #fff;
+}
+.btnView:hover {
+  background: #5a8f3c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(122, 182, 72, 0.4);
+}
+
+/* Edit */
+.btnEdit {
+  border: none;
+  background: #d4a85c;
+  color: #fff;
+}
+.btnEdit:hover {
+  background: #c6a25a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 168, 92, 0.4);
+}
+
+/* Delete */
+.btnDelete {
+  border: none;
+  background: #e06b6b;
+  color: #fff;
+}
+.btnDelete:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(224, 107, 107, 0.4);
+}
+
+/* ===== EMPTY STATE ===== */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #a2a8a6;
+  font-size: 15px;
+}
+
+/* ===== ERROR ===== */
+.error {
+  text-align: center;
+  padding: 20px;
+  color: #a32d2d;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 20px 14px;
+  }
+
+  .headerTitle {
+    font-size: 18px;
+  }
+
+  .btnCreate {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .tableCard {
+    border-radius: 14px;
+    overflow-x: auto;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: block;
+    margin-bottom: 14px;
+    border: 1px solid #e3e6e2;
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4px;
+    border-bottom: 1px solid #f0f2ef;
+    text-align: right;
+  }
+
+  .table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    font-size: 12px;
+    color: #a2a8a6;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+}

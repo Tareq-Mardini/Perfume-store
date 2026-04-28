@@ -21,7 +21,7 @@ export const createProduct = async (data) => {
 };
 
 export const updateProduct = async (id, data) => {
-  const res = await axiosInstanceAdmin.patch(`/api/admin/products/${id}/`, data);
+  const res = await axiosInstanceAdmin.put(`/api/admin/products/${id}/`, data);
   return res.data;
 };
 

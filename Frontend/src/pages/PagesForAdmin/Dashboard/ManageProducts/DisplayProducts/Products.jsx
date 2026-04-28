@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Products.css";
+import { useNavigate, Link } from "react-router-dom";
+import styles from "./Products.module.css";
 import {
   getProducts,
   deleteProduct,
 } from "../../../../../services/productsService";
-import { Link } from "react-router-dom";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -14,11 +14,9 @@ export default function Products() {
   const fetchData = async () => {
     try {
       const data = await getProducts();
-      console.log("PRODUCTS API:", data);
       setProducts(data);
     } catch (err) {
       console.log(err);
-      console.log("Failed to load products");
       setError("Failed to load products");
     }
   };
@@ -30,11 +28,8 @@ export default function Products() {
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete?");
     if (!confirmDelete) return;
-
     try {
       await deleteProduct(id);
-
-      // 🔥 تحديث UI بدون reload
       setProducts((prev) => prev.filter((p) => p.id !== id));
     } catch (err) {
       console.log(err);
@@ -43,70 +38,98 @@ export default function Products() {
   };
 
   return (
-    <>
-      <Link to="/admin/products/create-product">
-        <button className="btn-create-product">Create New Product</button>
-      </Link>
-      <div>
-        <table className="table">
+    <div className={styles.wrapper}>
+      {/* ===== HEADER ===== */}
+      <div className={styles.header}>
+        <h2 className={styles.headerTitle}>
+          All <span>Products</span>
+        </h2>
+        <Link to="/admin/products/create-product">
+          <button className={styles.btnCreate}>+ Create New Product</button>
+        </Link>
+      </div>
+
+      {/* ===== ERROR ===== */}
+      {error && <p className={styles.error}>{error}</p>}
+
+      {/* ===== TABLE ===== */}
+      <div className={styles.tableCard}>
+        <table className={styles.table}>
           <thead>
             <tr>
-              <th className="th">Name</th>
-              <th className="th">Image</th>
-              <th className="th">Actions</th>
+              <th>#</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td className="td" data-label="Name">
-                  {product.translations[1].name}
-                </td>
-                <td className="td" data-label="Image">
-                  <img
-                    src={product.images[0]?.image}
-                    alt={product.name}
-                    width="50"
-                    height="50"
-                    style={{
-                      borderRadius: "8px",
-                      width: "130px",
-                      height: "100px",
-                      margin: "auto",
-                    }}
-                  />
-                </td>
-
-                <td className="td" data-label="Actions">
-                  <button
-                    className="btn-Dash btn-view"
-                    onClick={() =>
-                      navigate(`/admin/products/product-Detail/${product.id}`)
-                    }
-                  >
-                    View
-                  </button>
-                  <button
-                    className="btn-Dash btn-edit"
-                    onClick={() =>
-                      navigate(`/admin/products/edit/${product.id}`)
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn-Dash btn-delete"
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    Delete
-                  </button>
+            {products.length === 0 ? (
+              <tr>
+                <td colSpan={4} className={styles.emptyState}>
+                  No products found.
                 </td>
               </tr>
-            ))}
+            ) : (
+              products.map((product, index) => (
+                <tr key={product.id}>
+                  {/* ID — incremental */}
+                  <td data-label="#">
+                    <span className={styles.idBadge}>{index + 1}</span>
+                  </td>
+
+                  {/* Name */}
+                  <td data-label="Name">
+                    <span className={styles.productName}>
+                      {product.translations[1]?.name}
+                    </span>
+                  </td>
+
+                  {/* Image */}
+                  <td data-label="Image">
+                    <img
+                      src={product.images[0]?.image}
+                      alt={product.translations[1]?.name}
+                      className={styles.productImg}
+                    />
+                  </td>
+
+                  {/* Actions */}
+                  <td data-label="Actions">
+                    <div className={styles.actions}>
+                      <button
+                        className={`${styles.btn} ${styles.btnView}`}
+                        onClick={() =>
+                          navigate(
+                            `/admin/products/product-Detail/${product.id}`,
+                          )
+                        }
+                      >
+                        View
+                      </button>
+                      <button
+                        className={`${styles.btn} ${styles.btnEdit}`}
+                        onClick={() =>
+                          navigate(`/admin/products/edit/${product.id}`)
+                        }
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className={`${styles.btn} ${styles.btnDelete}`}
+                        onClick={() => handleDelete(product.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

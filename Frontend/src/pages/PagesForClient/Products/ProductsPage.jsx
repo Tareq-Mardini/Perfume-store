@@ -77,19 +77,18 @@ export default function ProductPage() {
         <div className="page-header">
           <div className="section-label">{t("products.label")}</div>
           <h1>{t("products.title")}</h1>
+        </div>
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder={t("products.searchPlaceholder")}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
 
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder={t("products.searchPlaceholder")}
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
-
-            <button onClick={handleSearch}>
-              <FaSearch /> {t("products.searchBtn")}
-            </button>
-          </div>
+          <button onClick={handleSearch}>
+            <FaSearch /> {t("products.searchBtn")}
+          </button>
         </div>
 
         <div style={{ marginTop: "-50px" }} className="container">
@@ -109,7 +108,9 @@ export default function ProductPage() {
                   <p>{t("empty.loading")}</p>
                 ) : products.length === 0 ? (
                   <div className="no-results">
-                    <FaSearch className="no-results-icon" />
+                    <div className="no-results-icon-wrapper">
+                      <FaSearch className="no-results-icon" />
+                    </div>
                     <h3>{t("empty.noResultsTitle")}</h3>
                     <p>{t("empty.noResultsDesc")}</p>
                   </div>
