@@ -6,10 +6,12 @@ import {
   deleteProductImage,
   setImageAsPrimary,
 } from "../../../../../services/productsService";
-
+import { Link } from "react-router-dom";
 import styles from "./EditImages.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function EditImages() {
+  const { t } = useTranslation();
   const [settingPrimaryId, setSettingPrimaryId] = useState(null);
   const [deletingId, setDeletingId] = useState(null);
   const { id } = useParams();
@@ -105,23 +107,33 @@ export default function EditImages() {
   if (error) return <div className={styles.error}>{error}</div>;
 
   return (
-    <div className={styles.container}>
+    <div style={{ paddingTop: "0px" }} className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>صور المنتج</h2>
-        <button
-          className={styles.addBtn}
-          onClick={() => fileInputRef.current.click()}
-        >
-          <span>+</span> إضافة صور
-        </button>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          multiple
-          hidden
-          onChange={handleFileChange}
-        />
+        <div>
+          {" "}
+          <Link to="/admin/products">
+            <button className={styles.btnBack}>
+              ← {t("adminProducts.title")} {t("adminProducts.highlight")}
+            </button>
+          </Link>
+        </div>
+        <div>
+          {" "}
+          <button
+            className={styles.addBtn}
+            onClick={() => fileInputRef.current.click()}
+          >
+            <span>+</span> إضافة صور
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            multiple
+            hidden
+            onChange={handleFileChange}
+          />
+        </div>
       </div>
 
       {/* Preview الصور الجديدة المختارة */}

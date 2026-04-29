@@ -67,7 +67,7 @@ export default function EditProduct() {
     return <p className={styles.loading}>{t("productPage.loading")}</p>;
 
   return (
-    <div className={styles.wrapper}>
+    <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
       {/* ===== BACK ===== */}
       <Link to="/admin/products">
         <button className={styles.btnBack}>

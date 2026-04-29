@@ -57,7 +57,7 @@ export default function ManageOrders() {
     return <p className={styles.loading}>{t("productPage.loading")}</p>;
 
   return (
-    <div className={styles.page}>
+    <div style={{ paddingTop: "0px" }} className={styles.page}>
       {/* Header */}
       <div className={styles.pageHeader}>
         <h2 className={styles.pageTitle}>

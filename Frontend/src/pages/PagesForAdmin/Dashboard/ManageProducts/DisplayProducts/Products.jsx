@@ -42,7 +42,7 @@ export default function Products() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
       {/* ===== HEADER ===== */}
       <div className={styles.header}>
         <h2 className={styles.headerTitle}>

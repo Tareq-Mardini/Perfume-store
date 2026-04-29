@@ -88,7 +88,7 @@ export default function CreateProduct() {
   const langLabel = { en: "English", ar: "العربية" };
 
   return (
-    <div className={styles.wrapper}>
+    <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
       {/* ===== BACK ===== */}
       <Link to="/admin/products">
         <button className={styles.btnBack}>
