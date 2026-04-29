@@ -1,0 +1,297 @@
+/* EditImages.module.css */
+
+.container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1b1f1e;
+  letter-spacing: 0.3px;
+  flex: 1;
+  margin: 0;
+}
+
+.title span {
+  color: #c6a25a;
+}
+
+/* ===== زر إضافة ===== */
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c6a25a;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(198, 162, 90, 0.3);
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  background: #b48b54;
+  box-shadow: 0 10px 28px rgba(198, 162, 90, 0.45);
+}
+
+.addBtn:active {
+  transform: scale(0.97);
+}
+
+/* ===== Grid الصور الحالية ===== */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #e3e6e2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  background: #f5f3ee;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* الصورة الـ primary */
+.card.primary {
+  border-color: #7ab648;
+  box-shadow: 0 0 0 3px rgba(122, 182, 72, 0.25);
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.clickable:hover {
+  opacity: 0.85;
+}
+
+/* Primary Badge */
+.primaryBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #7ab648;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(122, 182, 72, 0.45);
+}
+
+/* ===== Loading Overlay ===== */
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 31, 30, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #c6a25a;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== زر الحذف ===== */
+.deleteBtn {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: #e06b6b;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(224, 107, 107, 0.45);
+}
+
+.deleteBtn:hover:not(:disabled) {
+  background: #c0392b;
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(224, 107, 107, 0.55);
+}
+
+.deleteBtn.deleting {
+  background: #e06b6b;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== قسم الـ Upload ===== */
+.uploadSection {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f5f3ee;
+  border-radius: 16px;
+  border: 2px dashed #d4a85c;
+}
+
+.uploadTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #676d6b;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 1rem 0;
+}
+
+.previewGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.previewCard {
+  position: relative;
+  width: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #e3e6e2;
+  background: #fff;
+}
+
+/* زر ✕ لحذف صورة من الـ preview */
+.removeBtn {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: #e06b6b;
+  color: white;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(224, 107, 107, 0.4);
+}
+
+.removeBtn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+/* زر الرفع */
+.uploadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #7ab648;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(122, 182, 72, 0.3);
+  letter-spacing: 0.3px;
+}
+
+.uploadBtn:hover:not(:disabled) {
+  background: #5a8f3c;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(122, 182, 72, 0.45);
+}
+
+.uploadBtn:disabled {
+  background: #a8d48a;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===== رسائل ===== */
+.uploadError {
+  color: #e06b6b;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.loading,
+.error {
+  padding: 3rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #676d6b;
+}
+
+.error {
+  color: #a32d2d;
+  font-weight: 600;
+}

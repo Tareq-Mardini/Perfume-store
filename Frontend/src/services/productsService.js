@@ -42,6 +42,22 @@ export const uploadProductImages = async (productId, images) => {
       },
     }
   );
+  return res.data;
+};
 
+  export const getProductImages = async (productId) => {
+  const res = await axiosInstanceAdmin.get(`/api/product-images/?product=${productId}`);
+  return res.data;
+};
+
+export const deleteProductImage = async (imageId) => {
+  const res = await axiosInstanceAdmin.delete(`/api/product-images/${imageId}/`);
+  return res.data;
+};
+
+export const setImageAsPrimary = async (imageId) => {
+  const res = await axiosInstanceAdmin.patch(`/api/product-images/${imageId}/`, {
+    is_primary: true,
+  });
   return res.data;
 };

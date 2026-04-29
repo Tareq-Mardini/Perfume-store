@@ -131,6 +131,15 @@ export default function Products() {
                       >
                         {t("adminProducts.delete")}
                       </button>
+
+                      <button
+                        className={`${styles.btn} ${styles.btnView}`}
+                        onClick={() =>
+                          navigate(`/admin/products/edit-images/${product.id}`)
+                        }
+                      >
+                        tatat
+                      </button>
                     </div>
                   </td>
                 </tr>
