@@ -5,8 +5,11 @@ import {
 } from "../../../../services/OrdersService";
 import styles from "./ManageOrders.module.css";
 import { FaCog } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function ManageOrders() {
+  const { t } = useTranslation();
+
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -39,10 +42,10 @@ export default function ManageOrders() {
       );
 
       setOpenDropdown(null);
-      alert("status update");
+      alert(t("adminOrders.statusUpdated"));
     } catch (err) {
       console.error(err);
-      alert("Failed to update status ❌");
+      alert(t("adminOrders.statusError"));
     }
   };
 
@@ -50,18 +53,19 @@ export default function ManageOrders() {
     fetchOrders();
   }, [page, statusFilter]);
 
-  if (loading) return <p className={styles.loading}>Loading...</p>;
+  if (loading)
+    return <p className={styles.loading}>{t("productPage.loading")}</p>;
 
   return (
     <div className={styles.page}>
-      {/* 🔹 Header */}
+      {/* Header */}
       <div className={styles.pageHeader}>
         <h2 className={styles.pageTitle}>
-          Orders <span>Management</span>
+          {t("adminOrders.title")} <span>{t("adminOrders.highlight")}</span>
         </h2>
 
         <div className={styles.filterBox}>
-          <span className={styles.filterLabel}>Filter</span>
+          <span className={styles.filterLabel}>{t("adminOrders.filter")}</span>
 
           <select
             className={styles.filterSelect}
@@ -71,18 +75,18 @@ export default function ManageOrders() {
               setPage(1);
             }}
           >
-            <option value="">All</option>
-            <option value="pending">Pending</option>
-            <option value="approved">Approved</option>
-            <option value="rejected">Rejected</option>
-            <option value="shipped">Shipped</option>
-            <option value="delivered">Delivered</option>
+            <option value="">{t("filters.all")}</option>
+            <option value="pending">{t("adminOrders.pending")}</option>
+            <option value="approved">{t("adminOrders.approved")}</option>
+            <option value="rejected">{t("adminOrders.rejected")}</option>
+            <option value="shipped">{t("adminOrders.shipped")}</option>
+            <option value="delivered">{t("adminOrders.delivered")}</option>
           </select>
         </div>
       </div>
 
       {orders.length === 0 ? (
-        <p className={styles.emptyState}>No orders found 😢</p>
+        <p className={styles.emptyState}>{t("adminOrders.empty")}</p>
       ) : (
         <>
           {orders.map((order) => (
@@ -104,7 +108,7 @@ export default function ManageOrders() {
                       ]
                     }`}
                   >
-                    {order.status}
+                    {t(`adminOrders.${order.status}`)}
                   </span>
 
                   <div className={styles.statusWrapper}>
@@ -133,7 +137,7 @@ export default function ManageOrders() {
                             className={styles.dropdownItem}
                             onClick={() => handleStatusChange(order.id, status)}
                           >
-                            {status}
+                            {t(`adminOrders.${status}`)}
                           </div>
                         ))}
                       </div>
@@ -147,31 +151,41 @@ export default function ManageOrders() {
                 {/* Info */}
                 <div className={styles.orderInfo}>
                   <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>Phone</span>
+                    <span className={styles.infoKey}>
+                      {t("adminOrders.phone")}
+                    </span>
                     <span className={styles.infoVal}>
                       {order.customer_phone}
                     </span>
                   </div>
 
                   <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>City</span>
+                    <span className={styles.infoKey}>
+                      {t("adminOrders.city")}
+                    </span>
                     <span className={styles.infoVal}>{order.city}</span>
                   </div>
 
                   <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>Area</span>
+                    <span className={styles.infoKey}>
+                      {t("adminOrders.area")}
+                    </span>
                     <span className={styles.infoVal}>{order.area}</span>
                   </div>
 
                   <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>Total</span>
+                    <span className={styles.infoKey}>
+                      {t("adminOrders.total")}
+                    </span>
                     <span className={styles.totalVal}>
                       ${order.total_amount}
                     </span>
                   </div>
 
                   <div className={styles.infoRow}>
-                    <span className={styles.infoKey}>Date</span>
+                    <span className={styles.infoKey}>
+                      {t("adminOrders.date")}
+                    </span>
                     <span className={styles.infoVal}>
                       {new Date(order.created_at).toLocaleString()}
                     </span>
@@ -180,7 +194,9 @@ export default function ManageOrders() {
 
                 {/* Items */}
                 <div className={styles.orderItems}>
-                  <div className={styles.itemsTitle}>Items</div>
+                  <div className={styles.itemsTitle}>
+                    {t("adminOrders.items")}
+                  </div>
 
                   {order.items.map((item) => (
                     <div key={item.id} className={styles.itemRow}>
@@ -206,17 +222,19 @@ export default function ManageOrders() {
                 disabled={page === 1}
                 onClick={() => setPage(page - 1)}
               >
-                Prev
+                {t("products.prev")}
               </button>
 
-              <span className={styles.pageIndicator}>page {page}</span>
+              <span className={styles.pageIndicator}>
+                {t("products.page")} {page}
+              </span>
 
               <button
                 className={styles.paginationBtn}
                 disabled={page >= totalPages}
                 onClick={() => setPage(page + 1)}
               >
-                Next
+                {t("products.next")}
               </button>
             </div>
           )}

@@ -405,7 +405,45 @@
   "error": "Error creating product ❌",
   "noImage": "Please upload at least one image"
 
-}}
+},
+"adminEditProduct": {
+  "back": "Back to Products",
+  "title": "Edit",
+  "product": "Product",
+  "basicInfo": "Basic Information",
+  "price": "Price",
+  "priceBefore": "Price Before Discount",
+  "volume": "Bottle Volume (ml)",
+  "select": "Select",
+  "name": "Name",
+  "character": "Character",
+  "description": "Description",
+  "notes": "Notes",
+  "update": "Update Product",
+  "updating": "Updating...",
+  "success": "Product updated successfully",
+  "error": "Error updating product"
+},
+"adminOrders": {
+  "title": "Orders",
+  "highlight": "Management",
+  "filter": "Filter",
+  "pending": "Pending",
+  "approved": "Approved",
+  "rejected": "Rejected",
+  "shipped": "Shipped",
+  "delivered": "Delivered",
+  "empty": "No orders found 😢",
+  "phone": "Phone",
+  "city": "City",
+  "area": "Area",
+  "total": "Total",
+  "date": "Date",
+  "items": "Items",
+  "statusUpdated": "Status updated successfully",
+  "statusError": "Failed to update status"
+}
+}
 
 
 
