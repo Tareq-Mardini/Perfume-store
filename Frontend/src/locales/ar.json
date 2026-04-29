@@ -259,7 +259,9 @@
   "topNotes": "النوتات العليا",
   "heartNotes": "نوتات القلب",
   "baseNotes": "النوتات الأساسية",
-  "seeMore": "عرض المزيد من المنتجات"
+  "seeMore": "عرض المزيد من المنتجات",
+  "longevity":"فترة البقاء",
+  "sillage":"الأنتشار"
 },
 "cart": {
   "title": "سلة التسوق",
@@ -358,7 +360,50 @@
     "errorDelete": "فشل حذف المنتج",
     "confirmDelete": "هل أنت متأكد من الحذف؟"
   }
+,
+"adminCreateProduct": {
+  "back": "العودة للمنتجات",
+  "title": "إنشاء",
+  "highlight": "منتج",
 
+  "basicInfo": "المعلومات الأساسية",
+  "price": "السعر",
+  "pricePlaceholder": "مثال: 199",
+
+  "priceBefore": "السعر قبل الخصم",
+  "priceBeforePlaceholder": "مثال: 249",
+
+  "volume": "حجم العبوة (مل)",
+  "volumePlaceholder": "مثال: 100",
+
+  "category": "الفئة",
+  "select": "— اختر —",
+  "unisex": "للجنسين",
+  "men": "رجالي",
+  "women": "نسائي",
+
+  "translations": "الترجمات",
+  "name": "الاسم",
+  "character": "الطابع",
+  "sillage": "الفوحان",
+  "longevity": "الثبات",
+  "description": "الوصف",
+
+  "notes": "النوتات",
+  "topNotes": "النوتات العليا",
+  "heartNotes": "نوتات القلب",
+  "baseNotes": "النوتات الأساسية",
+
+  "upload": "رفع الصور",
+  "uploadHint": "يمكنك اختيار عدة صور دفعة واحدة",
+
+  "creating": "جاري الإنشاء...",
+  "submit": "✦ إنشاء المنتج",
+
+  "success": "تم إنشاء المنتج بنجاح 🚀",
+  "error": "حدث خطأ أثناء إنشاء المنتج ❌",
+  "noImage": "يرجى رفع صورة واحدة على الأقل"
+}
 
 }
 

@@ -5,8 +5,10 @@ import {
 } from "../../../../../services/productsService.js";
 import styles from "./CreateProduct.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function CreateProduct() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -64,7 +66,7 @@ export default function CreateProduct() {
       setLoading(true);
       setErrors({});
 
-      if (images.length <= 0) throw new Error("enter photo");
+      if (images.length <= 0) throw new Error(t("adminCreateProduct.noImage"));
 
       const response = await createProduct({ ...form, images: [] });
       const productId = response.id || response.data?.id;
@@ -72,12 +74,12 @@ export default function CreateProduct() {
 
       if (images.length > 0) await uploadProductImages(productId, images);
 
-      alert("Product created successfully 🚀");
+      alert(t("adminCreateProduct.success"));
       navigate("/admin/products");
     } catch (err) {
       console.error(err);
       if (err.response?.data) setErrors(err.response.data);
-      else alert(err || "Error creating product ❌");
+      else alert(t("adminCreateProduct.error"));
     } finally {
       setLoading(false);
     }
@@ -89,7 +91,9 @@ export default function CreateProduct() {
     <div className={styles.wrapper}>
       {/* ===== BACK ===== */}
       <Link to="/admin/products">
-        <button className={styles.btnBack}>← Back to Products</button>
+        <button className={styles.btnBack}>
+          ← {t("adminCreateProduct.back")}
+        </button>
       </Link>
 
       {/* ===== FORM CARD ===== */}
@@ -98,22 +102,26 @@ export default function CreateProduct() {
         <div className={styles.formHeader}>
           <div className={styles.formHeaderIcon}>✦</div>
           <h2>
-            Create <span>Product</span>
+            {t("adminCreateProduct.title")}{" "}
+            <span>{t("adminCreateProduct.highlight")}</span>
           </h2>
         </div>
 
         {/* Body */}
         <form onSubmit={handleSubmit} className={styles.formBody}>
           {/* ── Basic Info ── */}
-          <p className={styles.sectionTitle}>Basic Information</p>
+          <p className={styles.sectionTitle}>
+            {t("adminCreateProduct.basicInfo")}
+          </p>
+
           <div className={styles.grid2}>
             <div className={styles.formGroup}>
-              <label>Price</label>
+              <label>{t("adminCreateProduct.price")}</label>
               <input
                 name="price"
                 value={form.price}
                 onChange={handleChange}
-                placeholder="e.g. 199"
+                placeholder={t("adminCreateProduct.pricePlaceholder")}
               />
               {errors.price && (
                 <span className={styles.fieldError}>{errors.price[0]}</span>
@@ -121,12 +129,12 @@ export default function CreateProduct() {
             </div>
 
             <div className={styles.formGroup}>
-              <label>Price Before Discount</label>
+              <label>{t("adminCreateProduct.priceBefore")}</label>
               <input
                 name="price_before_discount"
                 value={form.price_before_discount}
                 onChange={handleChange}
-                placeholder="e.g. 249"
+                placeholder={t("adminCreateProduct.priceBeforePlaceholder")}
               />
               {errors.price_before_discount && (
                 <span className={styles.fieldError}>
@@ -136,12 +144,12 @@ export default function CreateProduct() {
             </div>
 
             <div className={styles.formGroup}>
-              <label>Bottle Volume (ml)</label>
+              <label>{t("adminCreateProduct.volume")}</label>
               <input
                 name="bottle_volume"
                 value={form.bottle_volume}
                 onChange={handleChange}
-                placeholder="e.g. 100"
+                placeholder={t("adminCreateProduct.volumePlaceholder")}
               />
               {errors.bottle_volume && (
                 <span className={styles.fieldError}>
@@ -151,16 +159,16 @@ export default function CreateProduct() {
             </div>
 
             <div className={styles.formGroup}>
-              <label>Category</label>
+              <label>{t("adminCreateProduct.category")}</label>
               <select
                 name="category"
                 value={form.category}
                 onChange={handleChange}
               >
-                <option value="">— Select —</option>
-                <option value="unisex">Unisex</option>
-                <option value="men">Men</option>
-                <option value="women">Women</option>
+                <option value="">{t("adminCreateProduct.select")}</option>
+                <option value="unisex">{t("adminCreateProduct.unisex")}</option>
+                <option value="men">{t("adminCreateProduct.men")}</option>
+                <option value="women">{t("adminCreateProduct.women")}</option>
               </select>
               {errors.category && (
                 <span className={styles.fieldError}>{errors.category[0]}</span>
@@ -169,82 +177,90 @@ export default function CreateProduct() {
           </div>
 
           {/* ── Translations ── */}
-          {form.translations.map((t, index) => (
+          {form.translations.map((tr, index) => (
             <div key={index} className={styles.translationBox}>
               <div className={styles.translationHeader}>
                 <span className={styles.langBadge}>
-                  {t.language_code.toUpperCase()}
+                  {tr.language_code.toUpperCase()}
                 </span>
-                <h3>{langLabel[t.language_code]}</h3>
+                <h3>{langLabel[tr.language_code]}</h3>
               </div>
 
               <div className={styles.grid2}>
                 <div className={styles.formGroup}>
-                  <label>Name</label>
+                  <label>{t("adminCreateProduct.name")}</label>
                   <input
                     name="name"
-                    value={t.name}
+                    value={tr.name}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
-                  <label>Character</label>
+                  <label>{t("adminCreateProduct.character")}</label>
                   <input
                     name="character"
-                    value={t.character}
+                    value={tr.character}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
-                  <label>Sillage</label>
+                  <label>{t("adminCreateProduct.sillage")}</label>
                   <input
                     name="sillage"
-                    value={t.sillage}
+                    value={tr.sillage}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
-                  <label>Longevity</label>
+                  <label>{t("adminCreateProduct.longevity")}</label>
                   <input
                     name="longevity"
-                    value={t.longevity}
+                    value={tr.longevity}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
               </div>
 
               <div className={styles.formGroup}>
-                <label>Description</label>
+                <label>{t("adminCreateProduct.description")}</label>
                 <textarea
                   name="description"
-                  value={t.description}
+                  value={tr.description}
                   onChange={(e) => handleTranslationChange(index, e)}
                 />
               </div>
 
-              <p className={styles.sectionTitle}>Notes</p>
+              <p className={styles.sectionTitle}>
+                {t("adminCreateProduct.notes")}
+              </p>
+
               <div className={styles.grid2}>
                 <div className={styles.formGroup}>
-                  <label>Top Notes</label>
+                  <label>{t("adminCreateProduct.topNotes")}</label>
                   <input
                     name="top_notes"
-                    value={t.top_notes}
+                    value={tr.top_notes}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
-                  <label>Heart Notes</label>
+                  <label>{t("adminCreateProduct.heartNotes")}</label>
                   <input
                     name="heart_notes"
-                    value={t.heart_notes}
+                    value={tr.heart_notes}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
-                  <label>Base Notes</label>
+                  <label>{t("adminCreateProduct.baseNotes")}</label>
                   <input
                     name="base_notes"
-                    value={t.base_notes}
+                    value={tr.base_notes}
                     onChange={(e) => handleTranslationChange(index, e)}
                   />
                 </div>
@@ -254,10 +270,10 @@ export default function CreateProduct() {
 
           {/* ── Upload ── */}
           <div className={styles.uploadBox}>
-            <label>Upload Images</label>
+            <label>{t("adminCreateProduct.upload")}</label>
             <input type="file" multiple onChange={handleImagesChange} />
             <p className={styles.uploadHint}>
-              You can select multiple images at once
+              {t("adminCreateProduct.uploadHint")}
             </p>
           </div>
 
@@ -276,7 +292,9 @@ export default function CreateProduct() {
 
           {/* ── Submit ── */}
           <button type="submit" className={styles.btnSubmit} disabled={loading}>
-            {loading ? "Creating..." : "✦ Create Product"}
+            {loading
+              ? t("adminCreateProduct.creating")
+              : t("adminCreateProduct.submit")}
           </button>
         </form>
       </div>

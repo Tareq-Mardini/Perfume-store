@@ -31,6 +31,9 @@ export default function DisplayDetailProduct() {
   const enTranslation = product.translations.find(
     (tItem) => tItem.language_code === "en",
   );
+  const arTranslation = product.translations.find(
+    (tItem) => tItem.language_code === "ar",
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -73,6 +76,7 @@ export default function DisplayDetailProduct() {
           <span className={styles.categoryBadge}>{product.category}</span>
 
           <h1 className={styles.productName}>{enTranslation?.name}</h1>
+          <h1 className={styles.productName}>{arTranslation?.name}</h1>
 
           <div className={styles.priceRow}>
             <span className={styles.price}>AED {product.price}</span>
@@ -107,11 +111,23 @@ export default function DisplayDetailProduct() {
                 {enTranslation?.sillage || "—"}
               </p>
             </div>
+            <div className={styles.specCard}>
+              <p className={styles.specLabel}>{t("productPage.sillage")}</p>
+              <p className={styles.specValue}>
+                {arTranslation?.sillage || "—"}
+              </p>
+            </div>
 
             <div className={styles.specCard}>
               <p className={styles.specLabel}>{t("productPage.longevity")}</p>
               <p className={styles.specValue}>
                 {enTranslation?.longevity || "—"}
+              </p>
+            </div>
+            <div className={styles.specCard}>
+              <p className={styles.specLabel}>{t("productPage.longevity")}</p>
+              <p className={styles.specValue}>
+                {arTranslation?.longevity || "—"}
               </p>
             </div>
           </div>

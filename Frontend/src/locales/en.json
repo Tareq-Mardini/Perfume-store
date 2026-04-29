@@ -258,7 +258,9 @@
   "topNotes": "Top Notes",
   "heartNotes": "Heart Notes",
   "baseNotes": "Base Notes",
-  "seeMore": "See more products"
+  "seeMore": "See more products",
+  "longevity":"Longecity",
+  "sillage":"Sillage"
 },
 "cart": {
   "title": "Your Cart",
@@ -359,8 +361,51 @@
     "errorLoad": "Failed to load products",
     "errorDelete": "Failed to delete product",
     "confirmDelete": "Are you sure you want to delete?"
-  }
-}
+  },
+  "adminCreateProduct": {
+  "back": "Back to Products",
+  "title": "Create Product",
+  "highlight": "Product",
+
+  "basicInfo": "Basic Information",
+  "price": "Price",
+  "pricePlaceholder": "e.g. 199",
+
+  "priceBefore": "Price Before Discount",
+  "priceBeforePlaceholder": "e.g. 249",
+
+  "volume": "Bottle Volume (ml)",
+  "volumePlaceholder": "e.g. 100",
+
+  "category": "Category",
+  "select": "— Select —",
+  "unisex": "Unisex",
+  "men": "Men",
+  "women": "Women",
+
+  "translations": "Translations",
+  "name": "Name",
+  "character": "Character",
+  "sillage": "Sillage",
+  "longevity": "Longevity",
+  "description": "Description",
+
+  "notes": "Notes",
+  "topNotes": "Top Notes",
+  "heartNotes": "Heart Notes",
+  "baseNotes": "Base Notes",
+
+  "upload": "Upload Images",
+  "uploadHint": "You can select multiple images at once",
+
+  "creating": "Creating...",
+  "submit": "✦ Create Product",
+
+  "success": "Product created successfully 🚀",
+  "error": "Error creating product ❌",
+  "noImage": "Please upload at least one image"
+
+}}
 
 
 
