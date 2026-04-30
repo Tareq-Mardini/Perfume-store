@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import heroPG from "../../../assets/images/hero-bg.jpg";
+import heroPG from "../../../assets/images/gemini-3-pro-image-preview-2k (nano-banana-pro)_a_Use_the_provided_ref.png";
 
 export default function Hero() {
   const { t } = useTranslation();

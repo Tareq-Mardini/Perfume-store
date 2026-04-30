@@ -122,6 +122,15 @@
   --transition: all 0.3s ease;
 
   --max-width: 1280px;
+ /* Action button specific colors */
+  --color-view: var(--color-gold);
+  --color-view-bg: rgba(198, 162, 90, 0.08);
+  --color-edit: #5A6E6A;
+  --color-edit-bg: rgba(90, 110, 106, 0.08);
+  --color-delete: #CD7A7A;
+  --color-delete-bg: rgba(205, 122, 122, 0.08);
+  --color-images: #6A9C8F;
+  --color-images-bg: rgba(106, 156, 143, 0.08);
 }
 
 /* =======================

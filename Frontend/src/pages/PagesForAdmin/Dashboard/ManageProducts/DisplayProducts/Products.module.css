@@ -153,61 +153,141 @@
   flex-wrap: wrap;
 }
 
+/* Base button style - clean, minimal, professional */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 7px 16px;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
+  font-family: var(--font-main, "Cairo", sans-serif);
+  line-height: 1.4;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: var(--transition);
   white-space: nowrap;
-  background: #fff;
+  background: transparent;
+  border: 1px solid transparent;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(0px);
+}
+
+/* Remove default button outline, add custom focus ring */
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .btn:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
-/* View */
-/* View */
+/* ========== VIEW BUTTON ========== */
 .btnView {
-  border: none;
-  background: #7ab648;
-  color: #fff;
+  border-color: var(--color-view);
+  background: var(--color-view-bg);
+  color: var(--color-view);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
+
 .btnView:hover {
-  background: #5a8f3c;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(122, 182, 72, 0.4);
+  background: var(--color-view);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+  border-color: transparent;
 }
 
-/* Edit */
+.btnView:active {
+  transform: translateY(0px);
+}
+
+/* ========== EDIT BUTTON ========== */
 .btnEdit {
-  border: none;
-  background: #d4a85c;
-  color: #fff;
+  border-color: var(--color-edit);
+  background: var(--color-edit-bg);
+  color: var(--color-edit);
 }
+
 .btnEdit:hover {
-  background: #c6a25a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(212, 168, 92, 0.4);
+  background: var(--color-edit);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(90, 110, 106, 0.25);
+  border-color: transparent;
 }
 
-/* Delete */
+.btnEdit:active {
+  transform: translateY(0px);
+}
+
+/* ========== DELETE BUTTON ========== */
 .btnDelete {
-  border: none;
-  background: #e06b6b;
-  color: #fff;
-}
-.btnDelete:hover {
-  background: #c0392b;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(224, 107, 107, 0.4);
+  border-color: var(--color-delete);
+  background: var(--color-delete-bg);
+  color: var(--color-delete);
 }
 
+.btnDelete:hover {
+  background: var(--color-delete);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(205, 122, 122, 0.3);
+  border-color: transparent;
+}
+
+.btnDelete:active {
+  transform: translateY(0px);
+}
+
+/* ========== IMAGES BUTTON ========== */
+.btnImages {
+  border-color: var(--color-images);
+  background: var(--color-images-bg);
+  color: var(--color-images);
+}
+
+.btnImages:hover {
+  background: var(--color-images);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(106, 156, 143, 0.25);
+  border-color: transparent;
+}
+
+.btnImages:active {
+  transform: translateY(0px);
+}
+
+/* Optional: Group container for better spacing */
+.action-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Optional: Make buttons compact for dense tables */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+  gap: 6px;
+}
+
+/* Optional: Icon styling (when using font icons or SVGs) */
+.btn svg,
+.btn i {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover svg,
+.btn:hover i {
+  transform: scale(1.05);
+}
 /* ===== EMPTY STATE ===== */
 .emptyState {
   text-align: center;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "../../../hooks/useInView";
-import story from "../../../assets/images/story.jpg";
+import story from "../../../assets/images/IMG-20260427-WA0021.jpg";
 
 export default function BrandStory() {
   const { t } = useTranslation();

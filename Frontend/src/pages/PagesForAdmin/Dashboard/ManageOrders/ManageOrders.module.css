@@ -144,7 +144,7 @@
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
-  border-radius: 20px;
+  border-radius:  var(--radius-sm);
   font-size: 12px;
   font-weight: 700;
   text-transform: capitalize;
@@ -180,7 +180,7 @@
 .statusBtn {
   width: 34px;
   height: 34px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1.5px solid #e3e6e2;
   background: #fff;
   cursor: pointer;

@@ -133,12 +133,12 @@ export default function Products() {
                       </button>
 
                       <button
-                        className={`${styles.btn} ${styles.btnView}`}
+                        className={`${styles.btn} ${styles.btnImages}`}
                         onClick={() =>
                           navigate(`/admin/products/edit-images/${product.id}`)
                         }
                       >
-                        tatat
+                        {t("adminProducts.images")}
                       </button>
                     </div>
                   </td>

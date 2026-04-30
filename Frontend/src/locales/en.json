@@ -352,6 +352,7 @@
     "highlight": "Products",
     "createBtn": "+ Create New Product",
     "name": "Name",
+    "images": "Images",
     "image": "Image",
     "actions": "Actions",
     "view": "View",
