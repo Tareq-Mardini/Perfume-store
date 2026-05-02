@@ -38,7 +38,6 @@ export default function NavbarHome() {
 
   // منع السكرول لما المينيو مفتوح
   useEffect(() => {
-    console.log("tareq");
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
@@ -48,7 +47,7 @@ export default function NavbarHome() {
     { name: t("navbar.about"), type: "route", path: "/about" },
     { name: t("navbar.terms"), type: "route", path: "/terms" },
   ];
-  console.log("tareq");
+  
 
   return (
     <>
