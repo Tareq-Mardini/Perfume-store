@@ -5,8 +5,7 @@
       "part1": "Discover Your",
       "highlight": "Signature Scent"
     },
-    "description": "Immerse yourself in the art of Arabian perfumery. Each fragrance is a journey through rare oud, precious saffron, and timeless elegance — crafted for those who seek distinction.",
-    "cta": "Explore Collection",
+    "description": "Immerse yourself in the art of Arabian perfumery. Each fragrance is a journey through aromatic ingredients — designed for those who seek distinction.",
     "scroll": "Scroll"
   },
   "banner": {
@@ -27,7 +26,7 @@
     "p1": "For over two decades, Dār Al-Ūd has stood at the crossroads of tradition and innovation. Born in the aromatic souks of the Arabian Gulf, our house draws upon centuries of perfumery wisdom passed down through generations of master blenders.",
     "p2": "Each fragrance begins as a vision — a memory of dew-kissed rose gardens, the warmth of aged oud wood, the quiet power of rare Yemeni frankincense. Our perfumers travel the ancient spice routes, hand-selecting the world's most precious ingredients to compose scents that transcend time.",
     "p3": "We believe a fragrance is more than a scent — it is an identity, a signature, a story told without words. Every bottle we craft is an invitation to discover the extraordinary within the everyday.",
-    "signature": "— The House of Dār Al-Ūd"
+    "signature": "Munaryss"
   },
 
   "testimonials": {
@@ -40,7 +39,7 @@
         "location": "Dubai, UAE",
         "initials": "FA",
         "rating": 5,
-        "text": "The Royal Oud Elixir is unlike anything I have ever worn. It lingers beautifully for hours and always draws compliments. Truly a masterpiece of Arabian perfumery."
+        "text": "Alfatna Elixir is unlike anything I have ever worn. It lingers beautifully for hours and always draws compliments. Truly a masterpiece of Arabian perfumery."
       },
       {
         "id": 2,
@@ -96,14 +95,14 @@
   }
 ,
   "footer": {
-    "about": "A house of rare fragrances rooted in Arabian heritage. We craft scents that celebrate identity, elegance, and the timeless art of perfumery.",
+    "about": "We create fragrances that express identity, elegance, and the timeless art of perfumery.",
     "quickLinks": "Quick Links",
     "home": "Home",
     "shops": "Shops",
     "aboutUs": "About Us",
     "terms": "Terms",
     "contactTitle": "Get in Touch",
-    "address": "Al Nahda Street, Suhail 1 Building, Apt 1406, Dubai, UAE",
+    "address": "United Arab Emirates, Dubai, Al Nahda 1, Suhail Building 1, 14th floor, Office 1406",
     "phone": "+971 50 720 5277",
     "email": "info@munaryss.com",
     "rights": "All rights reserved © Munaryss",
@@ -111,7 +110,7 @@
   },
   "about": {
     "headerLabel": "Our Heritage",
-    "title": "About Oudh Royale",
+    "title": "About Munaryss",
     "subtitle": "A legacy of fragrance, born from the rich traditions of Emirati perfumery",
     "signature": "Signature Collection",
 
@@ -119,9 +118,9 @@
     "storyTitle": "A Heritage of",
     "storyHighlight": "Arabian Luxury",
 
-    "p1": "Founded in the vibrant heart of the United Arab Emirates, Oudh Royale was born from a deep passion for Arabian perfumery traditions.",
+    "p1": "Founded in the vibrant heart of the United Arab Emirates, Munaryss was born from a deep passion for Arabian perfumery traditions.",
     "p2": "We carefully select premium ingredients including rare oud, sandalwood, and floral extracts.",
-    "p3": "Today, Oudh Royale represents elegance, authenticity, and luxury.",
+    "p3": "Today, Munaryss represents elegance, authenticity, and luxury.",
 
     "missionTitle": "Our Mission",
     "missionDesc": "To deliver high-quality luxury fragrances while preserving Arabian heritage.",
@@ -130,7 +129,7 @@
     "visionDesc": "To become a leading luxury fragrance brand known for authenticity and elegance.",
 
     "whyTitle": "Why Choose",
-    "brand": "Oudh Royale",
+    "brand": "Munaryss",
 
     "authTitle": "Certified Authentic",
     "authDesc": "100% original fragrances.",
@@ -324,7 +323,7 @@
 "featured": {
   "subtitle": "Curated for You",
   "title": "Featured Fragrances",
-  "desc": "Hand-selected masterpieces from our atelier, each bottle a testament to Arabian perfumery.",
+  "desc": "Carefully curated pieces from our atelier, each bottle represents the art of Arabian, French, and Italian perfumery.",
   "more": "More Products",
 
   "bakhoor": "Bakhoor",
