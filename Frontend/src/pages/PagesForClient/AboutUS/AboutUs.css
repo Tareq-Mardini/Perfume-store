@@ -40,6 +40,10 @@
 
 .perfume-art {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .perfume-art svg {
@@ -204,6 +208,7 @@
 
 /* ===== by bakrsafi ===== */
 .perfume-svg {
+  width: 180px;
   animation: float 2.5s ease-in-out infinite;
   will-change: transform;
   margin-bottom: 0 !important;
@@ -232,7 +237,6 @@
   width: 100px;
   height: 10px;
   margin: 0 auto;
-  margin-top: -20px;
   background: #1c1a16;
   opacity: 0.30 !important;
   border-radius: 50%;

@@ -19,7 +19,7 @@ export default function BrandStory() {
           <img src={story} alt={t("story.imageAlt")} loading="lazy" />
 
           <div className="story-image-badge">
-            <div className="number">25+</div>
+            <div className="number">15+</div>
             <div className="label">{t("story.badge")}</div>
           </div>
         </div>

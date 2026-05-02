@@ -3,59 +3,14 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import footer from "../../assets/images/final.png";
 
-function InstagramIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
+import {
+  FaInstagram,
+  FaSnapchatGhost,
+  FaFacebookF,
+  FaTiktok
+} from "react-icons/fa";
+import { FiLink } from "react-icons/fi";
 
-function TwitterIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M13.232 10.232L20 4" />
-    </svg>
-  );
-}
-
-function FacebookIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-    </svg>
-  );
-}
-
-function TiktokIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" />
-    </svg>
-  );
-}
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -71,17 +26,49 @@ export default function Footer() {
             <p className="footer-about">{t("footer.about")}</p>
 
             <div className="footer-socials">
-              <a href="#" className="social-link">
-                <InstagramIcon />
+              <a
+                href="https://www.instagram.com/munaryss.perfumes?igsh=Z3JiYW5vdHVwOXRs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaInstagram />
               </a>
-              <a href="#" className="social-link">
-                <TwitterIcon />
+
+              <a
+                href="https://www.snapchat.com/add/munaryssperfums?share_id=eLTjZpGVhqM&locale=ar-AE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaSnapchatGhost />
               </a>
-              <a href="#" className="social-link">
-                <FacebookIcon />
+
+              <a
+                href="https://share.upscrolled.com/ar/user/f1502030-0693-4ddd-8cf4-09ef3136abf3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FiLink />
               </a>
-              <a href="#" className="social-link">
-                <TiktokIcon />
+
+              <a
+                href="https://www.facebook.com/share/1DxSd4ATQH/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@munaryss.perfumes?_r=1&_t=ZS-95xUG8v3IHs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaTiktok />
               </a>
             </div>
           </div>
@@ -115,7 +102,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-contact-item">
-              <span>{t("footer.phone")}</span>
+              <span dir="ltr">{t("footer.phone")}</span>
             </div>
 
             <div className="footer-contact-item">

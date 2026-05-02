@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import "./AboutUs.css";
 import { useTranslation } from "react-i18next";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
-import logo from "../../../assets/images/final1.png";
+import logo from "../../../assets/images/IMG-20260427-WA0037.png";
+
 
 export default function AboutUs() {
   const { t } = useTranslation();
@@ -30,8 +31,8 @@ export default function AboutUs() {
           <div className="about-story">
             <div className="about-story-visual">
               <div className="perfume-art">
-                <svg className="perfume-svg" viewBox="0 0 120 200" fill="none">
-                  <rect
+                <div className="perfume-svg">
+                  {/* <rect
                     x="35"
                     y="20"
                     width="50"
@@ -65,8 +66,9 @@ export default function AboutUs() {
                     stroke="#C6A25A"
                   />
 
-                  <image href={logo} x="30" y="40" width="60" height="100" />
-                </svg>
+                  <image href={logo} x="30" y="40" width="60" height="100" /> */}
+                  <img src="/src/assets/images/IMG-20260427-WA0037.png" alt="" />
+                </div>
 
                 <div className="shadow-real"></div>
 
