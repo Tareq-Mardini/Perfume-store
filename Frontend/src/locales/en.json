@@ -4,9 +4,11 @@
     "title": {
       "part1": "Discover Your",
       "highlight": "Signature Scent"
+      
     },
     "description": "Immerse yourself in the art of Arabian perfumery. Each fragrance is a journey through aromatic ingredients — designed for those who seek distinction.",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "cta": "Discover Now"
   },
   "banner": {
     "label": "Limited Edition",
