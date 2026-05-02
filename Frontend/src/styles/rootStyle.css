@@ -668,3 +668,33 @@ ul { list-style: none; }
 .lang-dropdown div:hover {
   background: #f2f2f2;
 }
+
+/* الكونتينر */
+.Toastify__toast-container {
+  width: auto !important;
+  max-width: 90vw;
+  padding: 0 10px;
+}
+
+/* التوست نفسه */
+.Toastify__toast {
+  border-radius: 12px;
+  font-family: Cairo;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+  .Toastify__toast-container {
+    width: 100% !important;
+    left: 0;
+    right: 0;
+    padding: 0 12px;
+  }
+
+  .Toastify__toast {
+    border-radius: 10px;
+    font-size: 13px;
+  }
+}

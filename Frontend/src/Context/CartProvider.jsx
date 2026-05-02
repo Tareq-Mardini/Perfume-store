@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { CartContext } from "./CartContext";
 import { toast } from "react-toastify";
+import { useLanguage } from "../Context/LanguageContext";
 
 export const CartProvider = ({ children }) => {
+  const { language } = useLanguage();
   // 🟢 state
   const [items, setItems] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -27,7 +29,9 @@ export const CartProvider = ({ children }) => {
       }
 
       localStorage.setItem("cart", JSON.stringify(updatedItems));
-      toast.success("تم اضافة المنتج بنجاح");
+      language == "ar"
+        ? toast.success("تم اضافة المنتج بنجاح")
+        : toast.success("The product has been added successfully");
 
       return updatedItems;
     });
