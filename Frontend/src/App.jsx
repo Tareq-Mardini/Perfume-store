@@ -18,6 +18,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import EditProduct from "./pages/PagesForAdmin/Dashboard/ManageProducts/EditProduct/EditProduct";
 import EditImages from "./pages/PagesForAdmin/Dashboard/ManageProducts/EditImages/EditImages";
 import "./i18n";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
   typography: {
@@ -66,6 +68,7 @@ function App() {
 
                 <Route path="/login-admin" element={<AdminLogin />} />
               </Routes>
+              <ToastContainer />
             </CartProvider>
           </BrowserRouter>{" "}
         </LanguageProvider>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CartContext } from "./CartContext";
+import { toast } from "react-toastify";
 
 export const CartProvider = ({ children }) => {
   // 🟢 state
@@ -26,6 +27,7 @@ export const CartProvider = ({ children }) => {
       }
 
       localStorage.setItem("cart", JSON.stringify(updatedItems));
+      toast.success("تم اضافة المنتج بنجاح");
 
       return updatedItems;
     });

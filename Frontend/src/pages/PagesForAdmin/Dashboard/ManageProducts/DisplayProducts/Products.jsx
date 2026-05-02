@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Products.module.css";
+import { toast } from "react-toastify";
 import {
   getProducts,
   deleteProduct,
@@ -35,6 +36,7 @@ export default function Products() {
     try {
       await deleteProduct(id);
       setProducts((prev) => prev.filter((p) => p.id !== id));
+      toast.success("تم حذف المنتج بنجاح");
     } catch (err) {
       console.log(err);
       alert(t("adminProducts.errorDelete"));
