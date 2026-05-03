@@ -682,6 +682,7 @@ ul { list-style: none; }
   font-family: Cairo;
   font-size: 14px;
   margin-bottom: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* موبايل */

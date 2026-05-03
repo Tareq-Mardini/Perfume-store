@@ -5,7 +5,7 @@ import {
   FaShieldAlt,
   FaCreditCard,
 } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Checkout.css";
 import Navbar from "../../../components/ForClient/Navbar";
@@ -13,7 +13,8 @@ import Footer from "../../../components/ForClient/Footer";
 import { useCart } from "../../../hooks/useCart";
 import axiosInstance from "../../../api/axiosInstance";
 import { useTranslation } from "react-i18next";
-
+import { toast } from "react-toastify";
+import { useLanguage } from "../../../Context/LanguageContext";
 export const Checkout = () => {
   const { t } = useTranslation();
 
@@ -22,7 +23,11 @@ export const Checkout = () => {
   const [itemsOfCart, setitemsOfCart] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { items, setItems } = useCart();
-
+  const { language } = useLanguage();
+  const nameRef = useRef();
+  const phoneRef = useRef();
+  const areaRef = useRef();
+  const buildingRef = useRef();
   const [formData, setFormData] = useState({
     customer_name: "",
     customer_phone: "",
@@ -36,13 +41,9 @@ export const Checkout = () => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
+    setitemsOfCart(items);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  useEffect(() => {
-    setitemsOfCart(items);
-    if (items.length === 0) navigate("/products");
-  }, [items]);
 
   const total = itemsOfCart.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -91,6 +92,28 @@ export const Checkout = () => {
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+
+      // 🔥 روح لأول input فيه خطأ
+      if (validationErrors.customer_name) {
+        nameRef.current.focus();
+        nameRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (validationErrors.customer_phone) {
+        phoneRef.current.focus();
+        phoneRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      } else if (validationErrors.area) {
+        areaRef.current.focus();
+        areaRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (validationErrors.building_number) {
+        buildingRef.current.focus();
+        buildingRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
       return;
     }
 
@@ -111,9 +134,20 @@ export const Checkout = () => {
 
       localStorage.removeItem("cart");
       setItems([]);
-      navigate("/products");
+
+      navigate("/products", {
+        state: {
+          message:
+            language === "en"
+              ? "The request has been sent successfully"
+              : "تم ارسال الطلب بنجاح",
+        },
+      });
     } catch (error) {
       console.error(error);
+      language === "en"
+        ? toast.error("Failed to complete the operation")
+        : toast.error("فشل في اتمام العملية ");
     } finally {
       setIsSubmitting(false);
     }
@@ -149,6 +183,7 @@ export const Checkout = () => {
                 <div className="input-group">
                   <label>{t("checkout.fullName")} *</label>
                   <input
+                    ref={nameRef}
                     name="customer_name"
                     placeholder={t("checkout.namePlaceholder")}
                     value={formData.customer_name}
@@ -165,6 +200,7 @@ export const Checkout = () => {
                   <div className="phone">
                     <span>+971</span>
                     <input
+                      ref={phoneRef}
                       dir="ltr"
                       name="customer_phone"
                       placeholder={t("checkout.phonePlaceholder")}
@@ -201,6 +237,7 @@ export const Checkout = () => {
                 <div className="input-group">
                   <label>{t("checkout.area")} *</label>
                   <input
+                    ref={areaRef}
                     name="area"
                     placeholder={t("checkout.areaPlaceholder")}
                     value={formData.area}
@@ -223,6 +260,7 @@ export const Checkout = () => {
                 <div className="input-group">
                   <label>{t("checkout.building")} *</label>
                   <input
+                    ref={buildingRef}
                     type="number"
                     name="building_number"
                     placeholder={t("checkout.buildingPlaceholder")}
