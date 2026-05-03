@@ -3,7 +3,7 @@ import Footer from "../../../components/ForClient/Footer";
 import { useEffect } from "react";
 import "./Terms.css";
 import { useTranslation } from "react-i18next";
-
+import { Helmet } from "react-helmet-async";
 export default function Terms() {
   const { t } = useTranslation();
 
@@ -13,6 +13,9 @@ export default function Terms() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Terms</title>
+      </Helmet>
       <Navbar />
 
       <div className="page-header">

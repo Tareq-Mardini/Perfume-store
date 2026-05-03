@@ -15,6 +15,8 @@ import axiosInstance from "../../../api/axiosInstance";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLanguage } from "../../../Context/LanguageContext";
+import { Helmet } from "react-helmet-async";
+
 export const Checkout = () => {
   const { t } = useTranslation();
 
@@ -157,6 +159,9 @@ export const Checkout = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Checkout</title>
+      </Helmet>
       <Navbar />
 
       <div className="checkout">

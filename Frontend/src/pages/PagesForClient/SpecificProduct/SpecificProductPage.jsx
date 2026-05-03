@@ -7,6 +7,7 @@ import axiosInstance from "../../../api/axiosInstance";
 import "./SpecificProductStyle.css";
 import { useLanguage } from "../../../Context/LanguageContext";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 import {
   FaArrowLeft,
@@ -104,6 +105,9 @@ export default function SpecificProduct() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Product Detail</title>
+      </Helmet>
       <Navbar />
 
       {/* HEADER */}

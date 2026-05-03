@@ -21,6 +21,7 @@ import "./i18n";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const theme = createTheme({
   typography: {
     fontFamily: ["Cairo"],
@@ -29,6 +30,7 @@ const theme = createTheme({
 function App() {
   return (
     <>
+
       <ThemeProvider theme={theme}>
         <LanguageProvider>
           <BrowserRouter>

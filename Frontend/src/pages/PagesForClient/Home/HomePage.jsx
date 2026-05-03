@@ -13,6 +13,8 @@ import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Features from "./Features";
 import Footer from "../../../components/ForClient/Footer";
+import { Helmet } from "react-helmet-async";
+
 export default function HomePage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,6 +22,9 @@ export default function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Home</title>
+      </Helmet>
       <TopBar />
       <NavbarHome />
       <Hero />

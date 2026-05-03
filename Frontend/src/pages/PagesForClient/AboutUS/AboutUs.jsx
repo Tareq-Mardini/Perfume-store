@@ -5,7 +5,7 @@ import "./AboutUs.css";
 import { useTranslation } from "react-i18next";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
 import logo from "../../../assets/images/IMG-20260427-WA0037.png";
-
+import { Helmet } from "react-helmet-async";
 
 export default function AboutUs() {
   const { t } = useTranslation();
@@ -16,6 +16,9 @@ export default function AboutUs() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | About Us</title>
+      </Helmet>
       <Navbar />
 
       <section className="page-section" id="page-about">
@@ -67,7 +70,10 @@ export default function AboutUs() {
                   />
 
                   <image href={logo} x="30" y="40" width="60" height="100" /> */}
-                  <img src="/src/assets/images/IMG-20260427-WA0037.png" alt="" />
+                  <img
+                    src="/src/assets/images/IMG-20260427-WA0037.png"
+                    alt=""
+                  />
                 </div>
 
                 <div className="shadow-real"></div>

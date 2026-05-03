@@ -11,7 +11,7 @@ import { useLanguage } from "../../../Context/LanguageContext";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 export default function ProductPage() {
   const { t } = useTranslation(); // ✅
   const [searchParams, setSearchParams] = useSearchParams("");
@@ -82,6 +82,9 @@ export default function ProductPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Products</title>
+      </Helmet>
       <Navbar />
 
       <div className="page-header">
