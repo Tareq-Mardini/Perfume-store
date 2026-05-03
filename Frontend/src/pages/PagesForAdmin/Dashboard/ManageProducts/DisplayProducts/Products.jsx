@@ -7,6 +7,7 @@ import {
   deleteProduct,
 } from "../../../../../services/productsService";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 export default function Products() {
   const { t } = useTranslation();
@@ -44,112 +45,121 @@ export default function Products() {
   };
 
   return (
-    <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
-      {/* ===== HEADER ===== */}
-      <div className={styles.header}>
-        <h2 className={styles.headerTitle}>
-          {t("adminProducts.title")} <span>{t("adminProducts.highlight")}</span>
-        </h2>
+    <>
+      {" "}
+      <Helmet>
+        <title>Munaryss | Products</title>
+      </Helmet>
+      <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
+        {/* ===== HEADER ===== */}
+        <div className={styles.header}>
+          <h2 className={styles.headerTitle}>
+            {t("adminProducts.title")}{" "}
+            <span>{t("adminProducts.highlight")}</span>
+          </h2>
 
-        <Link to="/admin/products/create-product">
-          <button className={styles.btnCreate}>
-            {t("adminProducts.createBtn")}
-          </button>
-        </Link>
-      </div>
+          <Link to="/admin/products/create-product">
+            <button className={styles.btnCreate}>
+              {t("adminProducts.createBtn")}
+            </button>
+          </Link>
+        </div>
 
-      {/* ===== ERROR ===== */}
-      {error && <p className={styles.error}>{error}</p>}
+        {/* ===== ERROR ===== */}
+        {error && <p className={styles.error}>{error}</p>}
 
-      {/* ===== TABLE ===== */}
-      <div className={styles.tableCard}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>{t("adminProducts.name")}</th>
-              <th>{t("adminProducts.image")}</th>
-              <th>{t("adminProducts.actions")}</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {products.length === 0 ? (
+        {/* ===== TABLE ===== */}
+        <div className={styles.tableCard}>
+          <table className={styles.table}>
+            <thead>
               <tr>
-                <td colSpan={4} className={styles.emptyState}>
-                  {t("adminProducts.empty")}
-                </td>
+                <th>#</th>
+                <th>{t("adminProducts.name")}</th>
+                <th>{t("adminProducts.image")}</th>
+                <th>{t("adminProducts.actions")}</th>
               </tr>
-            ) : (
-              products.map((product, index) => (
-                <tr key={product.id}>
-                  {/* ID */}
-                  <td data-label="#">
-                    <span className={styles.idBadge}>{index + 1}</span>
-                  </td>
+            </thead>
 
-                  {/* Name */}
-                  <td data-label={t("adminProducts.name")}>
-                    <span className={styles.productName}>
-                      {product.translations[1]?.name}
-                    </span>
-                  </td>
-
-                  {/* Image */}
-                  <td data-label={t("adminProducts.image")}>
-                    <img
-                      src={product.images[0]?.image}
-                      alt={product.translations[1]?.name}
-                      className={styles.productImg}
-                    />
-                  </td>
-
-                  {/* Actions */}
-                  <td data-label={t("adminProducts.actions")}>
-                    <div className={styles.actions}>
-                      <button
-                        className={`${styles.btn} ${styles.btnView}`}
-                        onClick={() =>
-                          navigate(
-                            `/admin/products/product-Detail/${product.id}`,
-                          )
-                        }
-                      >
-                        {t("adminProducts.view")}
-                      </button>
-
-                      <button
-                        className={`${styles.btn} ${styles.btnEdit}`}
-                        onClick={() =>
-                          navigate(`/admin/products/edit/${product.id}`)
-                        }
-                      >
-                        {t("adminProducts.edit")}
-                      </button>
-
-                      <button
-                        className={`${styles.btn} ${styles.btnDelete}`}
-                        onClick={() => handleDelete(product.id)}
-                      >
-                        {t("adminProducts.delete")}
-                      </button>
-
-                      <button
-                        className={`${styles.btn} ${styles.btnImages}`}
-                        onClick={() =>
-                          navigate(`/admin/products/edit-images/${product.id}`)
-                        }
-                      >
-                        {t("adminProducts.images")}
-                      </button>
-                    </div>
+            <tbody>
+              {products.length === 0 ? (
+                <tr>
+                  <td colSpan={4} className={styles.emptyState}>
+                    {t("adminProducts.empty")}
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                products.map((product, index) => (
+                  <tr key={product.id}>
+                    {/* ID */}
+                    <td data-label="#">
+                      <span className={styles.idBadge}>{index + 1}</span>
+                    </td>
+
+                    {/* Name */}
+                    <td data-label={t("adminProducts.name")}>
+                      <span className={styles.productName}>
+                        {product.translations[1]?.name}
+                      </span>
+                    </td>
+
+                    {/* Image */}
+                    <td data-label={t("adminProducts.image")}>
+                      <img
+                        src={product.images[0]?.image}
+                        alt={product.translations[1]?.name}
+                        className={styles.productImg}
+                      />
+                    </td>
+
+                    {/* Actions */}
+                    <td data-label={t("adminProducts.actions")}>
+                      <div className={styles.actions}>
+                        <button
+                          className={`${styles.btn} ${styles.btnView}`}
+                          onClick={() =>
+                            navigate(
+                              `/admin/products/product-Detail/${product.id}`,
+                            )
+                          }
+                        >
+                          {t("adminProducts.view")}
+                        </button>
+
+                        <button
+                          className={`${styles.btn} ${styles.btnEdit}`}
+                          onClick={() =>
+                            navigate(`/admin/products/edit/${product.id}`)
+                          }
+                        >
+                          {t("adminProducts.edit")}
+                        </button>
+
+                        <button
+                          className={`${styles.btn} ${styles.btnDelete}`}
+                          onClick={() => handleDelete(product.id)}
+                        >
+                          {t("adminProducts.delete")}
+                        </button>
+
+                        <button
+                          className={`${styles.btn} ${styles.btnImages}`}
+                          onClick={() =>
+                            navigate(
+                              `/admin/products/edit-images/${product.id}`,
+                            )
+                          }
+                        >
+                          {t("adminProducts.images")}
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./LoginStyle.css";
 import axiosInstance from "../../../api/axiosInstance";
 import heroBg from "/src/assets/images/hero-bg copys.jpg";
+import { Helmet } from "react-helmet-async";
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +36,10 @@ export default function Login() {
 
   return (
     <>
+      <Helmet>
+        <title>Munaryss | Login</title>
+      </Helmet>
+      ;
       <div
         className="page"
         style={{

@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import styles from "./EditImages.module.css";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 export default function EditImages() {
   const { t } = useTranslation();
@@ -107,104 +108,110 @@ export default function EditImages() {
   if (error) return <div className={styles.error}>{error}</div>;
 
   return (
-    <div style={{ paddingTop: "0px" }} className={styles.container}>
-      <div className={styles.header}>
-        <div>
-          {" "}
-          <Link to="/admin/products">
-            <button className={styles.btnBack}>
-              ← {t("adminProducts.title")} {t("adminProducts.highlight")}
-            </button>
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <button
-            className={styles.addBtn}
-            onClick={() => fileInputRef.current.click()}
-          >
-            <span>+</span> إضافة صور
-          </button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            multiple
-            hidden
-            onChange={handleFileChange}
-          />
-        </div>
-      </div>
-
-      {/* Preview الصور الجديدة المختارة */}
-      {selectedFiles.length > 0 && (
-        <div className={styles.uploadSection}>
-          <h3 className={styles.uploadTitle}>
-            صور جديدة للرفع ({selectedFiles.length})
-          </h3>
-          <div className={styles.previewGrid}>
-            {selectedFiles.map((f) => (
-              <div key={f.id} className={styles.previewCard}>
-                <img src={f.preview} alt="preview" className={styles.image} />
-                <button
-                  className={styles.removeBtn}
-                  onClick={() => handleRemoveSelected(f.id)}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
+    <>
+      {" "}
+      <Helmet>
+        <title>Munaryss | Products</title>
+      </Helmet>
+      <div style={{ paddingTop: "0px" }} className={styles.container}>
+        <div className={styles.header}>
+          <div>
+            {" "}
+            <Link to="/admin/products">
+              <button className={styles.btnBack}>
+                ← {t("adminProducts.title")} {t("adminProducts.highlight")}
+              </button>
+            </Link>
           </div>
-
-          {uploadError && <p className={styles.uploadError}>{uploadError}</p>}
-
-          <button
-            className={styles.uploadBtn}
-            onClick={handleUpload}
-            disabled={uploading}
-          >
-            {uploading ? "جاري الرفع..." : `رفع ${selectedFiles.length} صورة`}
-          </button>
-        </div>
-      )}
-
-      {/* صور المنتج الحالية */}
-      <div className={styles.grid}>
-        {images.map((img) => (
-          <div
-            key={img.id}
-            className={`${styles.card} ${img.is_primary ? styles.primary : ""}`}
-          >
-            {img.is_primary && (
-              <div className={styles.primaryBadge}>✓ Primary</div>
-            )}
-            <img
-              src={img.image}
-              alt={`product-${img.id}`}
-              className={`${styles.image} ${!img.is_primary ? styles.clickable : ""}`}
-              onClick={() => !img.is_primary && handleSetPrimary(img.id)}
-              title={!img.is_primary ? "اضغط لتعيينها كـ Primary" : ""}
-            />
-
-            {/* مؤشر loading فوق الصورة أثناء التحديث */}
-            {settingPrimaryId === img.id && (
-              <div className={styles.loadingOverlay}>
-                <span className={styles.spinner} />
-              </div>
-            )}
-
-            {/* زر الحذف */}
+          <div>
+            {" "}
             <button
-              className={`${styles.deleteBtn} ${deletingId === img.id ? styles.deleting : ""}`}
-              onClick={() => handleDelete(img.id)}
-              disabled={deletingId === img.id}
-              title="حذف الصورة"
+              className={styles.addBtn}
+              onClick={() => fileInputRef.current.click()}
             >
-              {deletingId === img.id ? "..." : "🗑"}
+              <span>+</span> إضافة صور
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              hidden
+              onChange={handleFileChange}
+            />
+          </div>
+        </div>
+
+        {/* Preview الصور الجديدة المختارة */}
+        {selectedFiles.length > 0 && (
+          <div className={styles.uploadSection}>
+            <h3 className={styles.uploadTitle}>
+              صور جديدة للرفع ({selectedFiles.length})
+            </h3>
+            <div className={styles.previewGrid}>
+              {selectedFiles.map((f) => (
+                <div key={f.id} className={styles.previewCard}>
+                  <img src={f.preview} alt="preview" className={styles.image} />
+                  <button
+                    className={styles.removeBtn}
+                    onClick={() => handleRemoveSelected(f.id)}
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {uploadError && <p className={styles.uploadError}>{uploadError}</p>}
+
+            <button
+              className={styles.uploadBtn}
+              onClick={handleUpload}
+              disabled={uploading}
+            >
+              {uploading ? "جاري الرفع..." : `رفع ${selectedFiles.length} صورة`}
             </button>
           </div>
-        ))}
+        )}
+
+        {/* صور المنتج الحالية */}
+        <div className={styles.grid}>
+          {images.map((img) => (
+            <div
+              key={img.id}
+              className={`${styles.card} ${img.is_primary ? styles.primary : ""}`}
+            >
+              {img.is_primary && (
+                <div className={styles.primaryBadge}>✓ Primary</div>
+              )}
+              <img
+                src={img.image}
+                alt={`product-${img.id}`}
+                className={`${styles.image} ${!img.is_primary ? styles.clickable : ""}`}
+                onClick={() => !img.is_primary && handleSetPrimary(img.id)}
+                title={!img.is_primary ? "اضغط لتعيينها كـ Primary" : ""}
+              />
+
+              {/* مؤشر loading فوق الصورة أثناء التحديث */}
+              {settingPrimaryId === img.id && (
+                <div className={styles.loadingOverlay}>
+                  <span className={styles.spinner} />
+                </div>
+              )}
+
+              {/* زر الحذف */}
+              <button
+                className={`${styles.deleteBtn} ${deletingId === img.id ? styles.deleting : ""}`}
+                onClick={() => handleDelete(img.id)}
+                disabled={deletingId === img.id}
+                title="حذف الصورة"
+              >
+                {deletingId === img.id ? "..." : "🗑"}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
