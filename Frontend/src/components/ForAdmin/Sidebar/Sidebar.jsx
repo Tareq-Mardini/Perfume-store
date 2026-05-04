@@ -2,8 +2,18 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import logo from "../../../assets/images/final1.png";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Sidebar({ isOpen, onClose }) {
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    navigate("/login-admin");
+  };
   return (
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
       {/* Top */}
@@ -22,13 +32,15 @@ function Sidebar({ isOpen, onClose }) {
 
       {/* Navigation */}
       <nav className={styles.nav}>
-        <NavItem to="/admin/products" label="Products" />
-        <NavItem to="/admin/orders" label="Orders" />
+        <NavItem to="/admin/products" label={t("adminProducts.highlight")} />
+        <NavItem to="/admin/orders" label={t("adminOrders.name")} />
       </nav>
 
       {/* Bottom */}
       <div className={styles.bottom}>
-        <button className={styles.logout}>Logout</button>
+        <button className={styles.logout} onClick={handleLogout}>
+          {t("logout")}
+        </button>
       </div>
     </aside>
   );

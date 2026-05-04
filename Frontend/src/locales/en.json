@@ -443,8 +443,11 @@
   "date": "Date",
   "items": "Items",
   "statusUpdated": "Status updated successfully",
-  "statusError": "Failed to update status"
-}
+  "statusError": "Failed to update status",
+  "name":"Orders"
+},
+"logout":"Logout"
+
 }
 
 

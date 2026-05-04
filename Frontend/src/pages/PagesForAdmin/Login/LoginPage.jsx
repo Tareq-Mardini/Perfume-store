@@ -39,7 +39,6 @@ export default function Login() {
       <Helmet>
         <title>Munaryss | Login</title>
       </Helmet>
-      ;
       <div
         className="page"
         style={{
