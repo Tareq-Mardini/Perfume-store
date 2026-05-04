@@ -1,6 +1,7 @@
+// DashboardLayout.jsx
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import "./DashboardLayout.css";
+import styles from "./DashboardLayout.module.css";
 
 import Sidebar from "../components/ForAdmin/Sidebar/Sidebar";
 import Header from "../components/ForAdmin/Header/Header";
@@ -9,21 +10,21 @@ function DashboardLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="layout">
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onMenuClick={() => setIsSidebarOpen(false)}
-      />
+    <div className={styles.layout}>
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
-      {/* 🔥 يظهر فقط بالموبايل */}
+      {/* Overlay – يظهر فقط بالموبايل لما السايدبار مفتوح */}
       {isSidebarOpen && (
-        <div className="overlay" onClick={() => setIsSidebarOpen(false)} />
+        <div
+          className={styles.overlay}
+          onClick={() => setIsSidebarOpen(false)}
+        />
       )}
 
-      <div className="main">
+      <div className={styles.main}>
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <div className="content">
+        <div className={styles.content}>
           <Outlet />
         </div>
       </div>

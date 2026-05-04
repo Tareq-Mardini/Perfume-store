@@ -1,17 +1,22 @@
-import "./Header.css";
+// Header.jsx
+import styles from "./Header.module.css";
 
 function Header({ onMenuClick }) {
   return (
-    <header className="header">
+    <header className={styles.header}>
       {/* Left */}
-      <div className="header__left">
-        <button className="menu-btn" onClick={onMenuClick}>
+      <div className={styles.left}>
+        <button
+          className={styles.menuBtn}
+          onClick={onMenuClick}
+          aria-label="Open sidebar"
+        >
           ☰
         </button>
       </div>
 
       {/* Right */}
-      <div className="header__right"></div>
+      <div className={styles.right}></div>
     </header>
   );
 }

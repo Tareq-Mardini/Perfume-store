@@ -1,35 +1,34 @@
+// Sidebar.jsx
 import { NavLink } from "react-router-dom";
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 import logo from "../../../assets/images/final1.png";
 
-function Sidebar({ isOpen, onMenuClick }) {
+function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className={`sidebar-Admin ${isOpen ? "open" : ""}`}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
       {/* Top */}
-      <div className="sidebar__top">
-        {isOpen && (
-          <button style={{ color: "white" }} onClick={onMenuClick}>
-            ☰
-          </button>
-        )}
+      <div className={styles.top}>
+        {/* زر الإغلاق – يظهر بالموبايل فقط عبر CSS */}
+        <button
+          className={styles.closeBtn}
+          onClick={onClose}
+          aria-label="Close sidebar"
+        >
+          ✕
+        </button>
 
-        <img
-          style={{ width: "140px", height: "150px", margin: "auto" }}
-          src={logo}
-          alt=""
-        />
+        <img className={styles.logo} src={logo} alt="Logo" />
       </div>
 
       {/* Navigation */}
-
-      <nav className="sidebar__nav">
-        <NavItem to="/admin/products" label="products" />
+      <nav className={styles.nav}>
+        <NavItem to="/admin/products" label="Products" />
         <NavItem to="/admin/orders" label="Orders" />
       </nav>
 
       {/* Bottom */}
-      <div className="sidebar__bottom">
-        <button className="logout">Logout</button>
+      <div className={styles.bottom}>
+        <button className={styles.logout}>Logout</button>
       </div>
     </aside>
   );
@@ -37,7 +36,12 @@ function Sidebar({ isOpen, onMenuClick }) {
 
 function NavItem({ to, label }) {
   return (
-    <NavLink to={to} className="nav__item">
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `${styles.navItem} ${isActive ? styles.active : ""}`
+      }
+    >
       {label}
     </NavLink>
   );
