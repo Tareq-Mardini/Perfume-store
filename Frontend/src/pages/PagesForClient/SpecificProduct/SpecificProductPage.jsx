@@ -89,6 +89,12 @@ export default function SpecificProduct() {
     fetchProducts();
   }, [language]);
 
+  useEffect(() => {
+    if (product?.translations?.[0]?.name) {
+      document.title = `Munaryss | ${product.translations[0].name}`;
+    }
+  }, [product]);
+
   if (!product) {
     return (
       <>
@@ -106,7 +112,7 @@ export default function SpecificProduct() {
   return (
     <>
       <Helmet>
-        <title>Munaryss | Product Detail</title>
+        <title>Munaryss | Loading...</title>
       </Helmet>
       <Navbar />
 

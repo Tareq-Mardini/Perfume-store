@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
 export default function ProductPage() {
   const { t } = useTranslation(); // ✅
   const [searchParams, setSearchParams] = useSearchParams("");
@@ -27,7 +28,6 @@ export default function ProductPage() {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-  console.log("فشقث", location.state);
   const getCategoryName = (category) => {
     if (language === "ar") {
       if (category === "unisex") return "رجالي ونسائي";
@@ -83,7 +83,7 @@ export default function ProductPage() {
   return (
     <>
       <Helmet>
-        <title>Munaryss | Products</title>
+        <title>Munaryss | Shops</title>
       </Helmet>
       <Navbar />
 
