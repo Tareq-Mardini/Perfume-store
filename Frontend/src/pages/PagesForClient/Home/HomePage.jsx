@@ -12,6 +12,7 @@ import BrandStory from "./BrandStory";
 import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Features from "./Features";
+import Products from "./Products";
 import Footer from "../../../components/ForClient/Footer";
 import { Helmet } from "react-helmet-async";
 
@@ -35,6 +36,7 @@ export default function HomePage() {
       <BrandStory />
       <Testimonials />
       <Newsletter />
+      <Products />
       <Features />
       <Footer />
     </>
