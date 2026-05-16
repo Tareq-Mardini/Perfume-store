@@ -115,7 +115,7 @@ export default function FeaturedProducts() {
 
             return (
               <div className="product-card" key={product.id}>
-                <div className="card-img">
+                <div style={{ height: "302px" }} className="card-img">
                   <span className={`badge ${product.category}`}>
                     {getCategoryName(product.category)}
                   </span>
