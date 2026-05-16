@@ -4,7 +4,6 @@
     "title": {
       "part1": "Discover Your",
       "highlight": "Signature Scent"
-      
     },
     "description": "Immerse yourself in the art of Arabian perfumery. Each fragrance is a journey through aromatic ingredients — designed for those who seek distinction.",
     "scroll": "Scroll",
@@ -60,8 +59,7 @@
         "text": "From the moment I received my first order, I knew this was special. The attention to detail, from scent to presentation, reflects true luxury. A brand worthy of its heritage."
       }
     ]
-  }
-,
+  },
   "newsletter": {
     "subtitle": "Stay Connected",
     "title": "Join the Inner Circle",
@@ -69,9 +67,17 @@
     "placeholder": "Enter your email address",
     "button": "Subscribe",
     "success": "Welcome to the circle. Thank you for subscribing."
-  }
-,
+  },
+  "featuresProduct": {
+    "subtitle": "Handpicked for You",
+    "title": "Featured Products",
+    "desc": "A carefully selected collection from our store, each piece chosen to bring elegance and quality to your everyday life."
+  },
+
   "features": {
+    "subtitle": "Why Choose Us",
+    "title": "The Munaryss Experience",
+    "desc": "Every detail crafted for those who appreciate the art of fine fragrance.",
     "items": [
       {
         "id": 1,
@@ -94,8 +100,7 @@
         "desc": "Exquisite presentation with every purchase, complimentary"
       }
     ]
-  }
-,
+  },
   "footer": {
     "about": "We create fragrances that express identity, elegance, and the timeless art of perfumery.",
     "quickLinks": "Quick Links",
@@ -144,8 +149,7 @@
 
     "paymentTitle": "Cash on Delivery",
     "paymentDesc": "Pay upon receiving your order."
-  }
-,
+  },
   "terms": {
     "headerLabel": "Legal",
     "title": "Terms & Conditions",
@@ -223,9 +227,8 @@
 
     "contact": "Contact",
     "rightsReserved": "All rights reserved © Munaryss"
-  }
+  },
 
-,
   "products": {
     "label": "Shops",
     "title": "More Products",
@@ -236,9 +239,7 @@
     "prev": "Prev",
     "next": "Next",
     "page": "Page"
-  }
-,
-
+  },
   "filters": {
     "categories": "Categories",
     "men": "Men",
@@ -247,108 +248,107 @@
     "all": "All",
     "price": "Price",
     "apply": "Apply Filters"
-  }
-,
-"productPage": {
-  "product": "Product",
-  "loading": "Loading...",
-  "backToShop": "Back to shopping",
-  "discover": "Discover the details, notes, and craftsmanship behind this fragrance",
-  "size": "Size/Volume",
-  "addToCart": "Add To Cart",
-  "topNotes": "Top Notes",
-  "heartNotes": "Heart Notes",
-  "baseNotes": "Base Notes",
-  "seeMore": "See more products",
-  "longevity":"Longecity",
-  "sillage":"Sillage"
-},
-"cart": {
-  "title": "Your Cart",
-  "empty": "Your cart is empty",
-  "total": "Total",
-  "checkout": "Proceed to Checkout"
-},
-"checkout": {
-  "back": "Back to shopping",
-  "title": "Checkout",
-  "subtitle": "Enter your delivery details",
-  "contact": "Contact Info",
-  "fullName": "Full Name",
-  "phone": "Phone",
-  "namePlaceholder": "John Doe",
-  "phonePlaceholder": "501234567",
+  },
+  "productPage": {
+    "product": "Product",
+    "loading": "Loading...",
+    "backToShop": "Back to shopping",
+    "discover": "Discover the details, notes, and craftsmanship behind this fragrance",
+    "size": "Size/Volume",
+    "addToCart": "Add To Cart",
+    "topNotes": "Top Notes",
+    "heartNotes": "Heart Notes",
+    "baseNotes": "Base Notes",
+    "seeMore": "See more products",
+    "longevity": "Longecity",
+    "sillage": "Sillage"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Proceed to Checkout"
+  },
+  "checkout": {
+    "back": "Back to shopping",
+    "title": "Checkout",
+    "subtitle": "Enter your delivery details",
+    "contact": "Contact Info",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "namePlaceholder": "John Doe",
+    "phonePlaceholder": "501234567",
 
-  "address": "Delivery Address",
-  "city": "City",
-  "area": "Area",
-  "street": "Street",
-  "building": "Building Number",
-  "notes": "Notes",
+    "address": "Delivery Address",
+    "city": "City",
+    "area": "Area",
+    "street": "Street",
+    "building": "Building Number",
+    "notes": "Notes",
 
-  "areaPlaceholder": "e.g. Marina",
-  "streetPlaceholder": "Street name",
-  "buildingPlaceholder": "e.g. 12",
-  "notesPlaceholder": "Optional notes...",
+    "areaPlaceholder": "e.g. Marina",
+    "streetPlaceholder": "Street name",
+    "buildingPlaceholder": "e.g. 12",
+    "notesPlaceholder": "Optional notes...",
 
-  "payment": "Payment",
-  "codTitle": "Cash on Delivery",
-  "codDesc": "Pay when you receive",
+    "payment": "Payment",
+    "codTitle": "Cash on Delivery",
+    "codDesc": "Pay when you receive",
 
-  "processing": "Processing...",
-  "placeOrder": "Place Order",
+    "processing": "Processing...",
+    "placeOrder": "Place Order",
 
-  "summary": "Order Summary",
-  "total": "Total",
+    "summary": "Order Summary",
+    "total": "Total",
 
-  "errors": {
-    "nameRequired": "Name is required",
-    "nameMin": "Minimum 3 characters",
-    "phoneRequired": "Phone is required",
-    "phoneInvalid": "Invalid phone number",
-    "areaRequired": "Area is required",
-    "buildingRequired": "Building number required",
-    "buildingInvalid": "Invalid number"
-  }
-},
-"navbar": {
-  "home": "Home",
-  "shops": "Shops",
-  "about": "About Us",
-  "terms": "Terms"
-},
-"topbar": {
-  "freeDelivery": "✦ Free Delivery Across UAE ✦",
-  "premium": "✦ Premium Fragrance Experience ✦",
-  "authentic": "✦ Authentic Perfumes Only ✦"
-},
-"featured": {
-  "subtitle": "Curated for You",
-  "title": "Featured Fragrances",
-  "desc": "Carefully curated pieces from our atelier, each bottle represents the art of Arabian, French, and Italian perfumery.",
-  "more": "More Products",
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameMin": "Minimum 3 characters",
+      "phoneRequired": "Phone is required",
+      "phoneInvalid": "Invalid phone number",
+      "areaRequired": "Area is required",
+      "buildingRequired": "Building number required",
+      "buildingInvalid": "Invalid number"
+    }
+  },
+  "navbar": {
+    "home": "Home",
+    "shops": "Shops",
+    "about": "About Us",
+    "terms": "Terms"
+  },
+  "topbar": {
+    "freeDelivery": "✦ Free Delivery Across UAE ✦",
+    "premium": "✦ Premium Fragrance Experience ✦",
+    "authentic": "✦ Authentic Perfumes Only ✦"
+  },
+  "featured": {
+    "subtitle": "Curated for You",
+    "title": "Featured Fragrances",
+    "desc": "Carefully curated pieces from our atelier, each bottle represents the art of Arabian, French, and Italian perfumery.",
+    "more": "More Products",
 
-  "bakhoor": "Bakhoor",
-  "tasbih": "Tasbih",
-  "gifts": "Gift Boxes",
+    "bakhoor": "Bakhoor",
+    "tasbih": "Tasbih",
+    "gifts": "Gift Boxes",
 
-  "bakhoorCategory": "Bakhoor Collection",
-  "tasbihCategory": "Tasbih Collection",
-  "giftsCategory": "Gift Boxes",
+    "bakhoorCategory": "Bakhoor Collection",
+    "tasbihCategory": "Tasbih Collection",
+    "giftsCategory": "Gift Boxes",
 
-  "comingSoon": "Coming Soon"
-},
-"featuredComming": {
-  "comingSoon": "Coming Soon"
-},
+    "comingSoon": "Coming Soon"
+  },
+  "featuredComming": {
+    "comingSoon": "Coming Soon"
+  },
 
   "empty": {
     "loading": "Loading...",
     "noResultsTitle": "No results found",
     "noResultsDesc": "We couldn't find any products matching your search"
   },
- 
- "adminProducts": {
+
+  "adminProducts": {
     "title": "All",
     "highlight": "Products",
     "createBtn": "+ Create New Product",
@@ -365,89 +365,87 @@
     "confirmDelete": "Are you sure you want to delete?"
   },
   "adminCreateProduct": {
-  "back": "Back to Products",
-  "title": "Create Product",
-  "highlight": "Product",
+    "back": "Back to Products",
+    "title": "Create Product",
+    "highlight": "Product",
 
-  "basicInfo": "Basic Information",
-  "price": "Price",
-  "pricePlaceholder": "e.g. 199",
+    "basicInfo": "Basic Information",
+    "price": "Price",
+    "pricePlaceholder": "e.g. 199",
 
-  "priceBefore": "Price Before Discount",
-  "priceBeforePlaceholder": "e.g. 249",
+    "priceBefore": "Price Before Discount",
+    "priceBeforePlaceholder": "e.g. 249",
 
-  "volume": "Bottle Volume (ml)",
-  "volumePlaceholder": "e.g. 100",
+    "volume": "Bottle Volume (ml)",
+    "volumePlaceholder": "e.g. 100",
 
-  "category": "Category",
-  "select": "— Select —",
-  "unisex": "Unisex",
-  "men": "Men",
-  "women": "Women",
+    "category": "Category",
+    "select": "— Select —",
+    "unisex": "Unisex",
+    "men": "Men",
+    "women": "Women",
 
-  "translations": "Translations",
-  "name": "Name",
-  "character": "Character",
-  "sillage": "Sillage",
-  "longevity": "Longevity",
-  "description": "Description",
+    "translations": "Translations",
+    "name": "Name",
+    "character": "Character",
+    "sillage": "Sillage",
+    "longevity": "Longevity",
+    "description": "Description",
 
-  "notes": "Notes",
-  "topNotes": "Top Notes",
-  "heartNotes": "Heart Notes",
-  "baseNotes": "Base Notes",
+    "notes": "Notes",
+    "topNotes": "Top Notes",
+    "heartNotes": "Heart Notes",
+    "baseNotes": "Base Notes",
 
-  "upload": "Upload Images",
-  "uploadHint": "You can select multiple images at once",
+    "upload": "Upload Images",
+    "uploadHint": "You can select multiple images at once",
 
-  "creating": "Creating...",
-  "submit": "✦ Create Product",
+    "creating": "Creating...",
+    "submit": "✦ Create Product",
 
-  "success": "Product created successfully 🚀",
-  "error": "Error creating product ❌",
-  "noImage": "Please upload at least one image"
-
-},
-"adminEditProduct": {
-  "back": "Back to Products",
-  "title": "Edit",
-  "product": "Product",
-  "basicInfo": "Basic Information",
-  "price": "Price",
-  "priceBefore": "Price Before Discount",
-  "volume": "Bottle Volume (ml)",
-  "select": "Select",
-  "name": "Name",
-  "character": "Character",
-  "description": "Description",
-  "notes": "Notes",
-  "update": "Update Product",
-  "updating": "Updating...",
-  "success": "Product updated successfully",
-  "error": "Error updating product"
-},
-"adminOrders": {
-  "title": "Orders",
-  "highlight": "Management",
-  "filter": "Filter",
-  "pending": "Pending",
-  "approved": "Approved",
-  "rejected": "Rejected",
-  "shipped": "Shipped",
-  "delivered": "Delivered",
-  "empty": "No orders found 😢",
-  "phone": "Phone",
-  "city": "City",
-  "area": "Area",
-  "total": "Total",
-  "date": "Date",
-  "items": "Items",
-  "statusUpdated": "Status updated successfully",
-  "statusError": "Failed to update status",
-  "name":"Orders"
-},
-"logout":"Logout"
-
+    "success": "Product created successfully 🚀",
+    "error": "Error creating product ❌",
+    "noImage": "Please upload at least one image"
+  },
+  "adminEditProduct": {
+    "back": "Back to Products",
+    "title": "Edit",
+    "product": "Product",
+    "basicInfo": "Basic Information",
+    "price": "Price",
+    "priceBefore": "Price Before Discount",
+    "volume": "Bottle Volume (ml)",
+    "select": "Select",
+    "name": "Name",
+    "character": "Character",
+    "description": "Description",
+    "notes": "Notes",
+    "update": "Update Product",
+    "updating": "Updating...",
+    "success": "Product updated successfully",
+    "error": "Error updating product"
+  },
+  "adminOrders": {
+    "title": "Orders",
+    "highlight": "Management",
+    "filter": "Filter",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "empty": "No orders found 😢",
+    "phone": "Phone",
+    "city": "City",
+    "area": "Area",
+    "total": "Total",
+    "date": "Date",
+    "items": "Items",
+    "statusUpdated": "Status updated successfully",
+    "statusError": "Failed to update status",
+    "name": "Orders"
+  },
+  "logout": "Logout"
 }
 
 

@@ -19,7 +19,7 @@
     "description": "اختبر أحدث إبداعات عطارنا الماهر — مزيج نادر من العود الكمبودي والزعفران والورد التركي. 500 زجاجة فقط في العالم.",
     "cta": "اكتشف الآن",
     "decoration": "العود"
-},
+  },
 
   "story": {
     "imageAlt": "حرفية صناعة العطور العربية",
@@ -30,9 +30,7 @@
     "p2": "يبدأ كل عطر كفكرة — ذكرى حدائق الورد المبللة بالندى، دفء خشب العود المعتّق، وقوة اللبان اليمني النادر. يسافر عطارونا عبر طرق التوابل القديمة، لاختيار أندر المكونات لصناعة روائح تتجاوز الزمن.",
     "p3": "نؤمن أن العطر أكثر من مجرد رائحة — إنه هوية وتوقيع وقصة تُروى بلا كلمات. كل زجاجة نصنعها هي دعوة لاكتشاف الاستثنائي في الحياة اليومية.",
     "signature": "موناريس"
-  
-}
-,
+  },
   "testimonials": {
     "subtitle": "أصوات التميز",
     "title": "ماذا يقول عملاؤنا",
@@ -62,8 +60,7 @@
         "text": "منذ لحظة استلام أول طلب، علمت أن هذا شيء مميز. الاهتمام بالتفاصيل من الرائحة إلى العرض يعكس الفخامة الحقيقية."
       }
     ]
-
-},
+  },
   "newsletter": {
     "subtitle": "ابقَ على تواصل",
     "title": "انضم إلى الدائرة الخاصة",
@@ -71,9 +68,18 @@
     "placeholder": "أدخل بريدك الإلكتروني",
     "button": "اشترك",
     "success": "مرحبًا بك في الدائرة. شكرًا لاشتراكك."
-  }
-,
+  },
+
+  "featuresProduct": {
+    "subtitle": "مختار بعناية لك",
+    "title": "منتجات مميزة",
+    "desc": "تشكيلة منتقاة بعناية من متجرنا، كل قطعة اخترناها لتضيف لمسة من الأناقة والجودة إلى حياتك اليومية."
+  },
+
   "features": {
+    "subtitle": "لماذا تختارنا",
+    "title": "تجربة موناريس ",
+    "desc": "كل تفصيل صُمِّم لمن يُقدّر فن العطور الراقية.",
     "items": [
       {
         "id": 1,
@@ -96,8 +102,7 @@
         "desc": "تقديم أنيق وفاخر مع كل طلب بشكل مجاني"
       }
     ]
-
-},
+  },
   "footer": {
     "about": " نصنع عطورًا تعبر عن الهوية والأناقة وفن صناعة العطور الخالد.",
     "quickLinks": "روابط سريعة",
@@ -111,8 +116,7 @@
     "email": "info@munaryss.com",
     "rights": "جميع الحقوق محفوظة © Munaryss",
     "termsOfService": "شروط الاستخدام"
-  }
-  ,
+  },
   "about": {
     "headerLabel": "تراثنا",
     "title": "عن موناريس",
@@ -147,8 +151,7 @@
 
     "paymentTitle": "الدفع عند الاستلام",
     "paymentDesc": "ادفع بسهولة عند الاستلام."
-  }
-,
+  },
   "terms": {
     "headerLabel": "قانوني",
     "title": "الشروط والأحكام",
@@ -237,9 +240,9 @@
     "viewDetails": "عرض التفاصيل",
     "prev": "السابق",
     "next": "التالي",
-    "page": "صفحة"}
- ,
- "filters": {
+    "page": "صفحة"
+  },
+  "filters": {
     "categories": "الفئات",
     "men": "رجالي",
     "women": "نسائي",
@@ -247,105 +250,103 @@
     "all": "الكل",
     "price": "السعر",
     "apply": "تطبيق الفلاتر"
-  }
-,
-"productPage": {
-  "product": "المنتج",
-  "loading": "جاري التحميل...",
-  "backToShop": "العودة للتسوق",
-  "discover": "اكتشف التفاصيل والنوتات والحرفية وراء هذا العطر",
-  "size": "الحجم",
-  "addToCart": "أضف إلى السلة",
-  "topNotes": "النوتات العليا",
-  "heartNotes": "نوتات القلب",
-  "baseNotes": "النوتات الأساسية",
-  "seeMore": "عرض المزيد من المنتجات",
-  "longevity":"فترة البقاء",
-  "sillage":"الأنتشار"
-},
-"cart": {
-  "title": "سلة التسوق",
-  "empty": "السلة فارغة",
-  "total": "الإجمالي",
-  "checkout": "إتمام الطلب"
-},
-"checkout": {
-  "back": "العودة للتسوق",
-  "title": "إتمام الطلب",
-  "subtitle": "أدخل بيانات التوصيل",
-  "contact": "معلومات الاتصال",
-  "fullName": "الاسم الكامل",
-  "phone": "الهاتف",
-  "namePlaceholder": "محمد أحمد",
-  "phonePlaceholder": "501234567",
+  },
+  "productPage": {
+    "product": "المنتج",
+    "loading": "جاري التحميل...",
+    "backToShop": "العودة للتسوق",
+    "discover": "اكتشف التفاصيل والنوتات والحرفية وراء هذا العطر",
+    "size": "الحجم",
+    "addToCart": "أضف إلى السلة",
+    "topNotes": "النوتات العليا",
+    "heartNotes": "نوتات القلب",
+    "baseNotes": "النوتات الأساسية",
+    "seeMore": "عرض المزيد من المنتجات",
+    "longevity": "فترة البقاء",
+    "sillage": "الأنتشار"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "empty": "السلة فارغة",
+    "total": "الإجمالي",
+    "checkout": "إتمام الطلب"
+  },
+  "checkout": {
+    "back": "العودة للتسوق",
+    "title": "إتمام الطلب",
+    "subtitle": "أدخل بيانات التوصيل",
+    "contact": "معلومات الاتصال",
+    "fullName": "الاسم الكامل",
+    "phone": "الهاتف",
+    "namePlaceholder": "محمد أحمد",
+    "phonePlaceholder": "501234567",
 
-  "address": "عنوان التوصيل",
-  "city": "المدينة",
-  "area": "المنطقة",
-  "street": "الشارع",
-  "building": "رقم المبنى",
-  "notes": "ملاحظات",
+    "address": "عنوان التوصيل",
+    "city": "المدينة",
+    "area": "المنطقة",
+    "street": "الشارع",
+    "building": "رقم المبنى",
+    "notes": "ملاحظات",
 
-  "areaPlaceholder": "مثلاً مارينا",
-  "streetPlaceholder": "اسم الشارع",
-  "buildingPlaceholder": "مثلاً 12",
-  "notesPlaceholder": "ملاحظات اختيارية...",
+    "areaPlaceholder": "مثلاً مارينا",
+    "streetPlaceholder": "اسم الشارع",
+    "buildingPlaceholder": "مثلاً 12",
+    "notesPlaceholder": "ملاحظات اختيارية...",
 
-  "payment": "الدفع",
-  "codTitle": "الدفع عند الاستلام",
-  "codDesc": "ادفع عند الاستلام",
+    "payment": "الدفع",
+    "codTitle": "الدفع عند الاستلام",
+    "codDesc": "ادفع عند الاستلام",
 
-  "processing": "جاري المعالجة...",
-  "placeOrder": "إتمام الطلب",
+    "processing": "جاري المعالجة...",
+    "placeOrder": "إتمام الطلب",
 
-  "summary": "ملخص الطلب",
-  "total": "الإجمالي",
+    "summary": "ملخص الطلب",
+    "total": "الإجمالي",
 
-  "errors": {
-    "nameRequired": "الاسم مطلوب",
-    "nameMin": "الحد الأدنى 3 أحرف",
-    "phoneRequired": "رقم الهاتف مطلوب",
-    "phoneInvalid": "رقم غير صحيح",
-    "areaRequired": "المنطقة مطلوبة",
-    "buildingRequired": "رقم المبنى مطلوب",
-    "buildingInvalid": "رقم غير صالح"
-  }
-},
-"navbar": {
-  "home": "الرئيسية",
-  "shops": "المتجر",
-  "about": "من نحن",
-  "terms": "الشروط"
-},
-"topbar": {
-  "freeDelivery": "✦ توصيل مجاني داخل الإمارات ✦",
-  "premium": "✦ تجربة عطور فاخرة ✦",
-  "authentic": "✦ عطور أصلية فقط ✦"
-},
-"featured": {
-  "subtitle": "مختارة لك",
-  "title": "العطور المميزة",
-  "desc": "تحف مختارة بعناية من مشغلنا، كل زجاجة تمثل فن العطور العربي والفرنسي والايطالي.",
-  "more": "عرض المزيد",
+    "errors": {
+      "nameRequired": "الاسم مطلوب",
+      "nameMin": "الحد الأدنى 3 أحرف",
+      "phoneRequired": "رقم الهاتف مطلوب",
+      "phoneInvalid": "رقم غير صحيح",
+      "areaRequired": "المنطقة مطلوبة",
+      "buildingRequired": "رقم المبنى مطلوب",
+      "buildingInvalid": "رقم غير صالح"
+    }
+  },
+  "navbar": {
+    "home": "الرئيسية",
+    "shops": "المتجر",
+    "about": "من نحن",
+    "terms": "الشروط"
+  },
+  "topbar": {
+    "freeDelivery": "✦ توصيل مجاني داخل الإمارات ✦",
+    "premium": "✦ تجربة عطور فاخرة ✦",
+    "authentic": "✦ عطور أصلية فقط ✦"
+  },
+  "featured": {
+    "subtitle": "مختارة لك",
+    "title": "العطور المميزة",
+    "desc": "تحف مختارة بعناية من مشغلنا، كل زجاجة تمثل فن العطور العربي والفرنسي والايطالي.",
+    "more": "عرض المزيد",
 
-  "bakhoor": "بخور",
-  "tasbih": "مسبحة",
-  "gifts": "هدايا",
+    "bakhoor": "بخور",
+    "tasbih": "مسبحة",
+    "gifts": "هدايا",
 
-  "bakhoorCategory": "مجموعة البخور",
-  "tasbihCategory": "مجموعة المسابيح",
-  "giftsCategory": "علب الهدايا"
-
-},
-"featuredComming": {
-  "comingSoon": "قريباً"
-},
+    "bakhoorCategory": "مجموعة البخور",
+    "tasbihCategory": "مجموعة المسابيح",
+    "giftsCategory": "علب الهدايا"
+  },
+  "featuredComming": {
+    "comingSoon": "قريباً"
+  },
   "empty": {
     "loading": "جاري التحميل...",
     "noResultsTitle": "لا يوجد نتائج",
-    "noResultsDesc": "لم يتم العثور على أي منتجات مطابقة لبحثك"}
-  ,
- "adminProducts": {
+    "noResultsDesc": "لم يتم العثور على أي منتجات مطابقة لبحثك"
+  },
+  "adminProducts": {
     "title": "جميع",
     "highlight": "المنتجات",
     "createBtn": "+ إضافة منتج جديد",
@@ -360,90 +361,87 @@
     "errorLoad": "فشل تحميل المنتجات",
     "errorDelete": "فشل حذف المنتج",
     "confirmDelete": "هل أنت متأكد من الحذف؟"
-  }
-,
-"adminCreateProduct": {
-  "back": "العودة للمنتجات",
-  "title": "إنشاء",
-  "highlight": "منتج",
+  },
+  "adminCreateProduct": {
+    "back": "العودة للمنتجات",
+    "title": "إنشاء",
+    "highlight": "منتج",
 
-  "basicInfo": "المعلومات الأساسية",
-  "price": "السعر",
-  "pricePlaceholder": "مثال: 199",
+    "basicInfo": "المعلومات الأساسية",
+    "price": "السعر",
+    "pricePlaceholder": "مثال: 199",
 
-  "priceBefore": "السعر قبل الخصم",
-  "priceBeforePlaceholder": "مثال: 249",
+    "priceBefore": "السعر قبل الخصم",
+    "priceBeforePlaceholder": "مثال: 249",
 
-  "volume": "حجم العبوة (مل)",
-  "volumePlaceholder": "مثال: 100",
+    "volume": "حجم العبوة (مل)",
+    "volumePlaceholder": "مثال: 100",
 
-  "category": "الفئة",
-  "select": "— اختر —",
-  "unisex": "للجنسين",
-  "men": "رجالي",
-  "women": "نسائي",
+    "category": "الفئة",
+    "select": "— اختر —",
+    "unisex": "للجنسين",
+    "men": "رجالي",
+    "women": "نسائي",
 
-  "translations": "الترجمات",
-  "name": "الاسم",
-  "character": "الطابع",
-  "sillage": "الفوحان",
-  "longevity": "الثبات",
-  "description": "الوصف",
+    "translations": "الترجمات",
+    "name": "الاسم",
+    "character": "الطابع",
+    "sillage": "الفوحان",
+    "longevity": "الثبات",
+    "description": "الوصف",
 
-  "notes": "النوتات",
-  "topNotes": "النوتات العليا",
-  "heartNotes": "نوتات القلب",
-  "baseNotes": "النوتات الأساسية",
+    "notes": "النوتات",
+    "topNotes": "النوتات العليا",
+    "heartNotes": "نوتات القلب",
+    "baseNotes": "النوتات الأساسية",
 
-  "upload": "رفع الصور",
-  "uploadHint": "يمكنك اختيار عدة صور دفعة واحدة",
+    "upload": "رفع الصور",
+    "uploadHint": "يمكنك اختيار عدة صور دفعة واحدة",
 
-  "creating": "جاري الإنشاء...",
-  "submit": "✦ إنشاء المنتج",
+    "creating": "جاري الإنشاء...",
+    "submit": "✦ إنشاء المنتج",
 
-  "success": "تم إنشاء المنتج بنجاح 🚀",
-  "error": "حدث خطأ أثناء إنشاء المنتج ❌",
-  "noImage": "يرجى رفع صورة واحدة على الأقل"
-},
-"adminEditProduct": {
-  "back": "العودة للمنتجات",
-  "title": "تعديل",
-  "product": "منتج",
-  "basicInfo": "المعلومات الأساسية",
-  "price": "السعر",
-  "priceBefore": "السعر قبل الخصم",
-  "volume": "الحجم (مل)",
-  "select": "اختر",
-  "name": "الاسم",
-  "character": "الطابع",
-  "description": "الوصف",
-  "notes": "النوتات",
-  "update": "تحديث المنتج",
-  "updating": "جاري التحديث...",
-  "success": "تم تحديث المنتج بنجاح",
-  "error": "حدث خطأ أثناء التحديث"
-},
-"adminOrders": {
-  "title": "إدارة",
-  "highlight": "الطلبات",
-  "filter": "تصفية",
-  "pending": "قيد الانتظار",
-  "approved": "تمت الموافقة",
-  "rejected": "مرفوض",
-  "shipped": "تم الشحن",
-  "delivered": "تم التسليم",
-  "empty": "لا يوجد طلبات 😢",
-  "phone": "الهاتف",
-  "city": "المدينة",
-  "area": "المنطقة",
-  "total": "الإجمالي",
-  "date": "التاريخ",
-  "items": "العناصر",
-  "statusUpdated": "تم تحديث الحالة بنجاح",
-  "statusError": "فشل تحديث الحالة",
-  "name":"الطلبات"
-},
-"logout":"تسجيل خروج"
-
+    "success": "تم إنشاء المنتج بنجاح 🚀",
+    "error": "حدث خطأ أثناء إنشاء المنتج ❌",
+    "noImage": "يرجى رفع صورة واحدة على الأقل"
+  },
+  "adminEditProduct": {
+    "back": "العودة للمنتجات",
+    "title": "تعديل",
+    "product": "منتج",
+    "basicInfo": "المعلومات الأساسية",
+    "price": "السعر",
+    "priceBefore": "السعر قبل الخصم",
+    "volume": "الحجم (مل)",
+    "select": "اختر",
+    "name": "الاسم",
+    "character": "الطابع",
+    "description": "الوصف",
+    "notes": "النوتات",
+    "update": "تحديث المنتج",
+    "updating": "جاري التحديث...",
+    "success": "تم تحديث المنتج بنجاح",
+    "error": "حدث خطأ أثناء التحديث"
+  },
+  "adminOrders": {
+    "title": "إدارة",
+    "highlight": "الطلبات",
+    "filter": "تصفية",
+    "pending": "قيد الانتظار",
+    "approved": "تمت الموافقة",
+    "rejected": "مرفوض",
+    "shipped": "تم الشحن",
+    "delivered": "تم التسليم",
+    "empty": "لا يوجد طلبات 😢",
+    "phone": "الهاتف",
+    "city": "المدينة",
+    "area": "المنطقة",
+    "total": "الإجمالي",
+    "date": "التاريخ",
+    "items": "العناصر",
+    "statusUpdated": "تم تحديث الحالة بنجاح",
+    "statusError": "فشل تحديث الحالة",
+    "name": "الطلبات"
+  },
+  "logout": "تسجيل خروج"
 }
-

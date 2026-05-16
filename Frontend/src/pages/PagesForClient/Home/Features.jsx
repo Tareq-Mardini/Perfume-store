@@ -9,7 +9,6 @@ export default function Features() {
 
   const features = t("features.items", { returnObjects: true });
 
-  // Icons separated from translation (BEST PRACTICE)
   const icons = [
     <svg
       viewBox="0 0 24 24"
@@ -73,11 +72,20 @@ export default function Features() {
 
   return (
     <section
-      style={{ paddingTop: "10px", paddingBottom: "10px" }}
+      style={{ marginTop: "-50px", padding: "0px" }}
       className="section features"
       ref={ref}
     >
       <div className="container">
+        {/* HEADER — نفس نمط باقي السيكشنز */}
+        <div className={`section-header fade-in ${isInView ? "visible" : ""}`}>
+          <span className="section-subtitle">✦ {t("features.subtitle")}</span>
+          <h2 className="section-title">{t("features.title")}</h2>
+          <div className="section-divider" />
+          <p className="section-desc">{t("features.desc")}</p>
+        </div>
+
+        {/* GRID */}
         <div className="features-grid" ref={gridRef}>
           {features.map((f, i) => (
             <div
@@ -85,7 +93,6 @@ export default function Features() {
               className={`feature-card fade-in fade-in-delay-${i + 1}`}
             >
               <div className="feature-icon">{icons[i]}</div>
-
               <h3 className="feature-title">{f.title}</h3>
               <p className="feature-desc">{f.desc}</p>
             </div>

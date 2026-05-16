@@ -96,13 +96,15 @@ export default function FeaturedProducts() {
       <div className="container">
         {/* HEADER */}
         <div className={`section-header fade-in ${isInView ? "visible" : ""}`}>
-          <span className="section-subtitle">✦ {t("featured.subtitle")}</span>
+          <span className="section-subtitle">
+            ✦ {t("featuresProduct.subtitle")}
+          </span>
 
-          <h2 className="section-title">{t("featured.title")}</h2>
+          <h2 className="section-title">{t("featuresProduct.title")}</h2>
 
           <div className="section-divider" />
 
-          <p className="section-desc">{t("featured.desc")}</p>
+          <p className="section-desc">{t("featuresProduct.desc")}</p>
         </div>
 
         {/* GRID */}
@@ -115,7 +117,7 @@ export default function FeaturedProducts() {
 
             return (
               <div className="product-card" key={product.id}>
-                <div style={{ height: "302px" }} className="card-img">
+                <div className="card-img">
                   <span className={`badge ${product.category}`}>
                     {getCategoryName(product.category)}
                   </span>
