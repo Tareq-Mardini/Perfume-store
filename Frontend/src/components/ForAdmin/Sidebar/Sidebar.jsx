@@ -32,8 +32,11 @@ function Sidebar({ isOpen, onClose }) {
 
       {/* Navigation */}
       <nav className={styles.nav}>
-        <NavItem to="/admin/products" label={t("adminProducts.highlight")} />
-        <NavItem to="/admin/orders" label={t("adminOrders.name")} />
+        <NavItem
+          to="/admin-panel/products"
+          label={t("adminProducts.highlight")}
+        />
+        <NavItem to="/admin-panel/orders" label={t("adminOrders.name")} />
       </nav>
 
       {/* Bottom */}

@@ -58,7 +58,7 @@ export default function Products() {
             <span>{t("adminProducts.highlight")}</span>
           </h2>
 
-          <Link to="/admin/products/create-product">
+          <Link to="/admin-panel/products/create-product">
             <button className={styles.btnCreate}>
               {t("adminProducts.createBtn")}
             </button>
@@ -118,7 +118,7 @@ export default function Products() {
                           className={`${styles.btn} ${styles.btnView}`}
                           onClick={() =>
                             navigate(
-                              `/admin/products/product-Detail/${product.id}`,
+                              `/admin-panel/products/product-Detail/${product.id}`,
                             )
                           }
                         >
@@ -128,7 +128,7 @@ export default function Products() {
                         <button
                           className={`${styles.btn} ${styles.btnEdit}`}
                           onClick={() =>
-                            navigate(`/admin/products/edit/${product.id}`)
+                            navigate(`/admin-panel/products/edit/${product.id}`)
                           }
                         >
                           {t("adminProducts.edit")}
@@ -145,7 +145,7 @@ export default function Products() {
                           className={`${styles.btn} ${styles.btnImages}`}
                           onClick={() =>
                             navigate(
-                              `/admin/products/edit-images/${product.id}`,
+                              `/admin-panel/products/edit-images/${product.id}`,
                             )
                           }
                         >

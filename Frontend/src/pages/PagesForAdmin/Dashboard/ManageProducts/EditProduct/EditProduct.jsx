@@ -52,7 +52,7 @@ export default function EditProduct() {
       setErrors({});
       await updateProduct(id, form);
       alert(t("adminEditProduct.success"));
-      navigate("/admin/products");
+      navigate("/admin-panel/products");
     } catch (err) {
       console.error(err);
       if (err.response?.data) setErrors(err.response.data);
@@ -75,7 +75,7 @@ export default function EditProduct() {
       </Helmet>
       <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
         {/* ===== BACK ===== */}
-        <Link to="/admin/products">
+        <Link to="/admin-panel/products">
           <button className={styles.btnBack}>
             ← {t("adminEditProduct.back")}
           </button>

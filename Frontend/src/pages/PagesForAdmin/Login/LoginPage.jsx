@@ -28,7 +28,7 @@ export default function Login() {
       localStorage.setItem("refreshToken", refresh);
 
       // ✅ نجاح → روح لصفحة ثانية
-      window.location.href = "/admin/products/";
+      window.location.href = "/admin-panel/products/";
     } catch (err) {
       setError("Invalid credentials");
     }

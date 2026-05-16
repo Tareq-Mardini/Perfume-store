@@ -44,7 +44,7 @@ export default function DisplayDetailProduct() {
       </Helmet>
       <div style={{ paddingTop: "0px" }} className={styles.wrapper}>
         {/* ===== BACK ===== */}
-        <Link to="/admin/products">
+        <Link to="/admin-panel/products">
           <button className={styles.btnBack}>
             ← {t("adminProducts.title")} {t("adminProducts.highlight")}
           </button>

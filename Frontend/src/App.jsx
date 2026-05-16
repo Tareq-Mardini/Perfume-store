@@ -30,7 +30,6 @@ const theme = createTheme({
 function App() {
   return (
     <>
-
       <ThemeProvider theme={theme}>
         <LanguageProvider>
           <BrowserRouter>
@@ -48,22 +47,25 @@ function App() {
                 {/* routes to admin */}
 
                 <Route element={<DashboardLayout />}>
-                  <Route path="/admin/products" element={<Products />} />
+                  <Route path="/admin-panel/products" element={<Products />} />
                   <Route
-                    path="/admin/products/product-Detail/:id"
+                    path="/admin-panel/products/product-Detail/:id"
                     element={<DisplayDetailProduct />}
                   />
                   <Route
-                    path="/admin/products/create-product"
+                    path="/admin-panel/products/create-product"
                     element={<CreateProduct />}
                   />
-                  <Route path="/admin/orders" element={<ManageOrders />} />
                   <Route
-                    path="/admin/products/edit/:id"
+                    path="/admin-panel/orders"
+                    element={<ManageOrders />}
+                  />
+                  <Route
+                    path="/admin-panel/products/edit/:id"
                     element={<EditProduct />}
                   />
                   <Route
-                    path="/admin/products/edit-images/:id"
+                    path="/admin-panel/products/edit-images/:id"
                     element={<EditImages />}
                   />
                 </Route>

@@ -117,7 +117,7 @@ export default function EditImages() {
         <div className={styles.header}>
           <div>
             {" "}
-            <Link to="/admin/products">
+            <Link to="/admin-panel/products">
               <button className={styles.btnBack}>
                 ← {t("adminProducts.title")} {t("adminProducts.highlight")}
               </button>
