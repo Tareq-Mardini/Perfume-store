@@ -83,11 +83,11 @@ export default function ManageOrders() {
               }}
             >
               <option value="">{t("filters.all")}</option>
-              <option value="pending">{t("adminOrders.pending")}</option>
-              {/* <option value="approved">{t("adminOrders.approved")}</option> */}
-              <option value="rejected">{t("adminOrders.rejected")}</option>
-              {/* <option value="shipped">{t("adminOrders.shipped")}</option>
-              <option value="delivered">{t("adminOrders.delivered")}</option> */}
+              {/* <option value="pending">{t("adminOrders.pending")}</option> */}
+              <option value="approved">{t("adminOrders.approved")}</option>
+              {/* <option value="rejected">{t("adminOrders.rejected")}</option> */}
+              <option value="shipped">{t("adminOrders.shipped")}</option>
+              <option value="delivered">{t("adminOrders.delivered")}</option>
             </select>
           </div>
         </div>

@@ -20,7 +20,7 @@ import EditImages from "./pages/PagesForAdmin/Dashboard/ManageProducts/EditImage
 import "./i18n";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import ManageShipping from "./pages/PagesForAdmin/Dashboard/ManageShipping/ManageShipping";
 
 const theme = createTheme({
   typography: {
@@ -63,6 +63,14 @@ function App() {
                   <Route
                     path="/admin-panel/products/edit/:id"
                     element={<EditProduct />}
+                  />
+                  <Route
+                    path="/admin-panel/products/edit-images/:id"
+                    element={<EditImages />}
+                  />
+                  <Route
+                    path="/admin-panel/manage-Shipping"
+                    element={<ManageShipping />}
                   />
                   <Route
                     path="/admin-panel/products/edit-images/:id"

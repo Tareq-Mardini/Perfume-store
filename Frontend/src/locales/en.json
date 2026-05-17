@@ -445,7 +445,10 @@
     "statusError": "Failed to update status",
     "name": "Orders"
   },
-  "logout": "Logout"
+  "logout": "Logout",
+  "adminSidebar": {
+    "manageShipping": "Manage Shipping"
+  }
 }
 
 

@@ -37,6 +37,10 @@ function Sidebar({ isOpen, onClose }) {
           label={t("adminProducts.highlight")}
         />
         <NavItem to="/admin-panel/orders" label={t("adminOrders.name")} />
+        <NavItem
+          to="/admin-panel/manage-Shipping"
+          label={t("adminSidebar.manageShipping")}
+        />
       </nav>
 
       {/* Bottom */}

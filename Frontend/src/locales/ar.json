@@ -443,5 +443,8 @@
     "statusError": "فشل تحديث الحالة",
     "name": "الطلبات"
   },
-  "logout": "تسجيل خروج"
+  "logout": "تسجيل خروج",
+  "adminSidebar": {
+    "manageShipping": "إدارة الشحن"
+  }
 }
