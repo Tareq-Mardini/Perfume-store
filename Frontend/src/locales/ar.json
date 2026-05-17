@@ -441,7 +441,18 @@
     "items": "العناصر",
     "statusUpdated": "تم تحديث الحالة بنجاح",
     "statusError": "فشل تحديث الحالة",
-    "name": "الطلبات"
+    "name": "الطلبات",
+    "selectedOrders": "محدد",
+    "clearSelection": "مسح",
+    "sendToShipping": "إرسال للشحن",
+    "sending": "جاري الإرسال...",
+    "sent": "تم الإرسال!",
+    "confirmTitle": "تأكيد الشحن",
+    "confirmDesc": "أنت على وشك إرسال",
+    "confirmOrders": "طلب/طلبات للشحن.",
+    "confirmWarning": "لا يمكن التراجع عن هذه العملية.",
+    "cancel": "إلغاء",
+    "confirmSend": "نعم، إرسال"
   },
   "logout": "تسجيل خروج",
   "adminSidebar": {

@@ -443,7 +443,18 @@
     "items": "Items",
     "statusUpdated": "Status updated successfully",
     "statusError": "Failed to update status",
-    "name": "Orders"
+    "name": "Orders",
+    "selectedOrders": "Selected",
+    "clearSelection": "Clear",
+    "sendToShipping": "Send to Shipping",
+    "sending": "Sending...",
+    "sent": "Sent!",
+    "confirmTitle": "Confirm Shipping",
+    "confirmDesc": "You are about to send",
+    "confirmOrders": "order(s) to shipping.",
+    "confirmWarning": "This action cannot be undone.",
+    "cancel": "Cancel",
+    "confirmSend": "Yes, Send"
   },
   "logout": "Logout",
   "adminSidebar": {
