@@ -457,5 +457,9 @@
   "logout": "تسجيل خروج",
   "adminSidebar": {
     "manageShipping": "إدارة الشحن"
+  },
+  "adminShipping": {
+    "title": "إدارة",
+    "highlight": "الشحنات"
   }
 }

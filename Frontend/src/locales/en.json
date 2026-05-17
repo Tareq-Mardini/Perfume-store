@@ -459,6 +459,10 @@
   "logout": "Logout",
   "adminSidebar": {
     "manageShipping": "Manage Shipping"
+  },
+  "adminShipping": {
+    "title": "Shipping",
+    "highlight": "Management"
   }
 }
 

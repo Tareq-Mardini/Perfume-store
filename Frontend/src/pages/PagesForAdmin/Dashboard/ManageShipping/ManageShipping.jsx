@@ -75,7 +75,7 @@ export default function ManageOrders() {
   return (
     <>
       <Helmet>
-        <title>Munaryss | Orders</title>
+        <title>Munaryss | Shipping</title>
       </Helmet>
 
       {/* ══ SELECTION BAR — TOP FIXED ══ */}
@@ -257,7 +257,8 @@ export default function ManageOrders() {
       >
         <div className={styles.pageHeader}>
           <h2 className={styles.pageTitle}>
-            {t("adminOrders.title")} <span>{t("adminOrders.highlight")}</span>
+            {t("adminShipping.title")}{" "}
+            <span>{t("adminShipping.highlight")}</span>
           </h2>
           <div className={styles.filterBox}>
             <span className={styles.filterLabel}>
