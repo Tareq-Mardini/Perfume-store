@@ -206,7 +206,7 @@ export default function SpecificProduct() {
                     id: product.id,
                     name: data.name,
                     price: product.price,
-                    image: getFullImageUrl(primaryImage),
+                    image: primaryImage,
                   });
                 }}
                 className="btn btn-buy"
