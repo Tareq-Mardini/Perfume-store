@@ -309,7 +309,10 @@
       "areaRequired": "Area is required",
       "buildingRequired": "Building number required",
       "buildingInvalid": "Invalid number"
-    }
+    },
+    "remoteAreaNotice": "AED 20 surcharge has been added for western areas",
+    "remoteAreaFee": "Western areas surcharge",
+    "launchNotice": "We would like to inform our valued customers that the current prices are introductory launch prices for a limited period, designed to introduce you to our brand identity and quality. As the brand continues to grow and expand, prices may be adjusted in the future to reflect the true value of our premium fragrances."
   },
   "navbar": {
     "home": "Home",

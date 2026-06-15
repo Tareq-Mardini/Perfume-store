@@ -1,9 +1,8 @@
-/* Container */
+/* ─── Container ─────────────────────────────────────────── */
 .checkout {
   min-height: 100vh;
   background-color: #faf9f6;
   padding: 2rem 1rem;
-
 }
 
 .checkout-container {
@@ -28,13 +27,13 @@
   }
 }
 
-/* Left Column */
+/* ─── Left column ────────────────────────────────────────── */
 .checkout-left {
   flex: 1;
   max-width: 700px;
 }
 
-/* Back Button */
+/* ─── Back button ────────────────────────────────────────── */
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -53,7 +52,7 @@
   margin-inline-end: 0.5rem;
 }
 
-/* Card */
+/* ─── Card ───────────────────────────────────────────────── */
 .checkout-card {
   background: #fff;
   border-radius: 1.5rem;
@@ -62,7 +61,7 @@
   overflow: hidden;
 }
 
-/* Header */
+/* ─── Header ─────────────────────────────────────────────── */
 .checkout-header {
   display: flex;
   justify-content: space-between;
@@ -90,7 +89,7 @@
   color: #d1d5db;
 }
 
-/* Form */
+/* ─── Form ───────────────────────────────────────────────── */
 .form {
   padding: 2rem;
   display: flex;
@@ -106,9 +105,8 @@
   gap: 0.75rem;
 }
 
-/* Inputs */
+/* ─── Inputs ─────────────────────────────────────────────── */
 .form input,
-.form select,
 .form textarea {
   width: 100%;
   border-radius: 1rem;
@@ -121,18 +119,17 @@
 }
 
 .form input:focus,
-.form select:focus,
 .form textarea:focus {
   outline: none;
-  border-color: #10b981;
+  border-color: #b8864b;
   background-color: #fff;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 3px rgba(184, 134, 75, 0.2);
 }
 
-/* Phone input */
+/* ─── Phone ──────────────────────────────────────────────── */
 .phone {
   display: flex;
-  direction: ltr; /* ⭐ مهم جداً */
+  direction: ltr;
 }
 
 .phone span {
@@ -150,15 +147,198 @@
 
 .phone input {
   flex: 1;
-  direction: ltr; /* ⭐ يخلي الرقم يكتب صح */
+  direction: ltr;
   text-align: left;
   border-radius: 0 1rem 1rem 0;
   border-left: 0;
 }
 
+/* ─── Custom Select ──────────────────────────────────────── */
+.city-area-select {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
 
-/* Payment Section */
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-size: 0.875rem;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: start;
+  gap: 0.5rem;
+}
+
+.custom-select-trigger:hover {
+  border-color: #b8864b;
+  background-color: #fff;
+}
+
+.custom-select-trigger.open {
+  border-color: #b8864b;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(184, 134, 75, 0.15);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.custom-select-trigger.input-error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.custom-select-trigger span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-select-trigger span.placeholder {
+  color: #9ca3af;
+}
+
+.select-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.select-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #b8864b;
+  border-top: none;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  list-style: none;
+  padding: 0.4rem 0;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.area-dropdown {
+  max-height: 280px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: #d1b896;
+  border-radius: 4px;
+}
+
+.custom-select-option {
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.custom-select-option:hover {
+  background-color: #fdf6ee;
+  color: #b8864b;
+}
+
+.custom-select-option.selected {
+  background-color: #fdf6ee;
+  color: #b8864b;
+  font-weight: 600;
+}
+
+/* ─── Remote surcharge notice ────────────────────────────── */
+.remote-surcharge-notice {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #fdf6ee 0%, #fef9f3 100%);
+  border: 1px solid #e8c99a;
+  border-radius: 1rem;
+  padding: 0.875rem 1rem;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.remote-surcharge-icon {
+  min-width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #b8864b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.remote-surcharge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.remote-surcharge-text p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.remote-ar {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #7c5a2e;
+  direction: rtl;
+}
+
+.remote-en {
+  font-size: 0.8rem;
+  color: #a07540;
+}
+
+/* ─── Payment ────────────────────────────────────────────── */
 .payment {
   display: flex;
   align-items: center;
@@ -191,7 +371,7 @@
   z-index: 10;
 }
 
-/* Submit button */
+/* ─── Submit button ──────────────────────────────────────── */
 .submit-btn {
   width: 100%;
   padding: 1rem;
@@ -217,7 +397,7 @@
   cursor: not-allowed;
 }
 
-/* Right Column */
+/* ─── Right column ───────────────────────────────────────── */
 .checkout-right {
   width: 100%;
   max-width: 400px;
@@ -278,7 +458,35 @@
   font-weight: 700;
 }
 
-/* Total */
+/* ─── Surcharge row in summary ───────────────────────────── */
+.summary-surcharge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #b8864b;
+  font-weight: 600;
+  border-top: 1px dashed #e8c99a;
+  padding: 0.65rem 0;
+  margin-bottom: 0.25rem;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+.summary-surcharge-row p {
+  margin: 0;
+}
+
+.summary-surcharge-row b {
+  background: none !important;
+  color: #b8864b !important;
+  font-size: 0.875rem !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  font-weight: 700;
+}
+
+/* ─── Total ──────────────────────────────────────────────── */
 .total {
   display: flex;
   justify-content: space-between;
@@ -288,6 +496,37 @@
   padding-top: 1rem;
 }
 
+/* ─── Launch notice ──────────────────────────────────────── */
+.launch-notice {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background-color: #fdf6ee;
+  border: 1px solid #e8c99a;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.launch-notice p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.launch-ar {
+  font-size: 0.78rem;
+  color: #7c5a2e;
+  direction: rtl;
+  text-align: right;
+}
+
+.launch-en {
+  font-size: 0.75rem;
+  color: #a07540;
+  text-align: left;
+}
+
+/* ─── Shared input helpers ───────────────────────────────── */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -300,23 +539,13 @@
   color: #374151;
 }
 
-/* Error text */
 .error {
   color: #ef4444;
   font-size: 12px;
   margin-top: 2px;
 }
 
-/* Error input */
 .input-error {
-  border-color: #ef4444 !important;
-  background-color: #fef2f2;
-}
-
-/* Focus */
-.form input:focus,
-.form select:focus,
-.form textarea:focus {
-  border-color: #b8864b;
-  box-shadow: 0 0 0 3px rgba(184, 134, 75, 0.2);
+  border-color: #ef4444!important;
+  background-color: #fef2f2!important;
 }

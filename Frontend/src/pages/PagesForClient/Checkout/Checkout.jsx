@@ -4,6 +4,8 @@ import {
   FaBox,
   FaShieldAlt,
   FaCreditCard,
+  FaChevronDown,
+  FaChevronRight,
 } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -17,9 +19,236 @@ import { toast } from "react-toastify";
 import { useLanguage } from "../../../Context/LanguageContext";
 import { Helmet } from "react-helmet-async";
 
+const REMOTE_SURCHARGE = 20;
+
+const CITIES_DATA = {
+  Dubai: {
+    areas: [
+      "Dubai",
+      "Deira",
+      "Bur Dubai",
+      "Business Bay",
+      "Downtown Dubai",
+      "Dubai Marina",
+      "JBR",
+      "Jumeirah",
+      "Al Barsha",
+      "Jebel Ali",
+    ],
+    remoteAreas: [],
+  },
+  "Abu Dhabi": {
+    areas: [
+      "Abu Dhabi City",
+      "Al Ain",
+      "Liwa",
+      "Ruwais",
+      "Ghayathi",
+      "Madinat Zayed",
+      "Al Waqan",
+      "Al Qaw",
+      "Sila",
+      "Suwaihan",
+      "Nahil",
+      "Beda Zayed",
+      "Beda Mutawa",
+      "Al Khatim",
+      "Al Khazneh",
+      "Hameem",
+      "Habshan",
+      "Abu Samra",
+      "Al Marfa",
+      "Al Sad",
+      "Bainouna",
+      "Al Arad",
+      "Asab",
+      "Seih Al Lahma",
+      "Al Dhanna",
+      "Truck Road",
+      "Al Shuwaihat",
+      "Seih Sabra",
+      "Al Mahadir Sharqiya",
+      "Ramah",
+    ],
+    remoteAreas: [
+      "Al Ain",
+      "Liwa",
+      "Ruwais",
+      "Ghayathi",
+      "Madinat Zayed",
+      "Al Waqan",
+      "Al Qaw",
+      "Sila",
+      "Suwaihan",
+      "Nahil",
+      "Beda Zayed",
+      "Beda Mutawa",
+      "Al Khatim",
+      "Al Khazneh",
+      "Hameem",
+      "Habshan",
+      "Abu Samra",
+      "Al Marfa",
+      "Al Sad",
+      "Bainouna",
+      "Al Arad",
+      "Asab",
+      "Seih Al Lahma",
+      "Al Dhanna",
+      "Truck Road",
+      "Al Shuwaihat",
+      "Seih Sabra",
+      "Al Mahadir Sharqiya",
+      "Ramah",
+    ],
+  },
+  Sharjah: {
+    areas: [
+      "Sharjah City",
+      "Al Nahda",
+      "Al Khan",
+      "Muwaileh",
+      "University City",
+    ],
+    remoteAreas: [],
+  },
+  Ajman: {
+    areas: ["Ajman City", "Al Jurf", "Al Nuaimiya"],
+    remoteAreas: [],
+  },
+  "Ras Al Khaimah": {
+    areas: ["Ras Al Khaimah City", "Al Hamra", "Al Marjan Island"],
+    remoteAreas: [],
+  },
+  Fujairah: {
+    areas: ["Fujairah City", "Dibba Al Fujairah", "Mirbah"],
+    remoteAreas: [],
+  },
+  "Umm Al Quwain": {
+    areas: ["Umm Al Quwain City", "Falaj Al Mualla"],
+    remoteAreas: [],
+  },
+};
+
+const CityAreaSelect = ({
+  city,
+  area,
+  onCityChange,
+  onAreaChange,
+  errors,
+  areaRef,
+  t,
+}) => {
+  const [cityOpen, setCityOpen] = useState(false);
+  const [areaOpen, setAreaOpen] = useState(false);
+  const cityRef = useRef(null);
+  const areaDropRef = useRef(null);
+
+  const cities = Object.keys(CITIES_DATA);
+  const currentCityData = CITIES_DATA[city] || { areas: [], remoteAreas: [] };
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (cityRef.current && !cityRef.current.contains(e.target))
+        setCityOpen(false);
+      if (areaDropRef.current && !areaDropRef.current.contains(e.target))
+        setAreaOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const handleCitySelect = (c) => {
+    onCityChange(c);
+    onAreaChange("");
+    setCityOpen(false);
+  };
+
+  const handleAreaSelect = (a) => {
+    onAreaChange(a);
+    setAreaOpen(false);
+  };
+
+  return (
+    <div className="city-area-select">
+      <div className="input-group">
+        <label>{t("checkout.city")}</label>
+        <div className="custom-select-wrapper" ref={cityRef}>
+          <button
+            type="button"
+            className={`custom-select-trigger ${cityOpen ? "open" : ""}`}
+            onClick={() => {
+              setCityOpen(!cityOpen);
+              setAreaOpen(false);
+            }}
+          >
+            <span>{city || t("checkout.selectCity")}</span>
+            <FaChevronDown
+              className={`select-arrow ${cityOpen ? "rotated" : ""}`}
+            />
+          </button>
+          {cityOpen && (
+            <ul className="custom-select-dropdown">
+              {cities.map((c) => (
+                <li
+                  key={c}
+                  className={`custom-select-option ${city === c ? "selected" : ""}`}
+                  onClick={() => handleCitySelect(c)}
+                >
+                  {c}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+
+      {city && (
+        <div className="input-group">
+          <label>{t("checkout.area")} *</label>
+          <div
+            className={`custom-select-wrapper ${errors.area ? "error-border" : ""}`}
+            ref={areaDropRef}
+          >
+            <button
+              type="button"
+              ref={areaRef}
+              className={`custom-select-trigger ${areaOpen ? "open" : ""} ${errors.area ? "input-error" : ""}`}
+              onClick={() => {
+                setAreaOpen(!areaOpen);
+                setCityOpen(false);
+              }}
+            >
+              <span className={area ? "" : "placeholder"}>
+                {area || t("checkout.areaPlaceholder")}
+              </span>
+              <FaChevronDown
+                className={`select-arrow ${areaOpen ? "rotated" : ""}`}
+              />
+            </button>
+            {areaOpen && (
+              <ul className="custom-select-dropdown area-dropdown">
+                {currentCityData.areas.map((a) => (
+                  <li
+                    key={a}
+                    className={`custom-select-option ${area === a ? "selected" : ""}`}
+                    onClick={() => handleAreaSelect(a)}
+                  >
+                    {a}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          {errors.area && <span className="error">{errors.area}</span>}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const Checkout = () => {
   const { t } = useTranslation();
-
   const navigate = useNavigate();
 
   const [itemsOfCart, setitemsOfCart] = useState([]);
@@ -30,6 +259,7 @@ export const Checkout = () => {
   const phoneRef = useRef();
   const areaRef = useRef();
   const buildingRef = useRef();
+
   const [formData, setFormData] = useState({
     customer_name: "",
     customer_phone: "",
@@ -47,16 +277,33 @@ export const Checkout = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const total = itemsOfCart.reduce(
+  const baseTotal = itemsOfCart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0,
   );
 
+  const isRemoteArea = () => {
+    const cityData = CITIES_DATA[formData.city];
+    if (!cityData || !formData.area) return false;
+    return cityData.remoteAreas.includes(formData.area);
+  };
+
+  const surcharge = isRemoteArea() ? REMOTE_SURCHARGE : 0;
+  const total = baseTotal + surcharge;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleCityChange = (city) => {
+    setFormData((prev) => ({ ...prev, city, area: "" }));
+  };
+
+  const handleAreaChange = (area) => {
+    setFormData((prev) => ({ ...prev, area }));
+    setErrors((prev) => ({ ...prev, area: "" }));
   };
 
   const validate = () => {
@@ -95,7 +342,6 @@ export const Checkout = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
 
-      // 🔥 روح لأول input فيه خطأ
       if (validationErrors.customer_name) {
         nameRef.current.focus();
         nameRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -122,14 +368,16 @@ export const Checkout = () => {
     setIsSubmitting(true);
 
     try {
-      const items = itemsOfCart.map((item) => ({
+      const orderItems = itemsOfCart.map((item) => ({
         product_id: item.id,
         quantity: item.quantity,
       }));
 
       const payload = {
         ...formData,
-        items,
+        items: orderItems,
+        surcharge,
+        total,
       };
 
       await axiosInstance.post("/api/orders/", payload);
@@ -149,13 +397,15 @@ export const Checkout = () => {
       console.error(error);
       language === "en"
         ? toast.error("Failed to complete the operation")
-        : toast.error("فشل في اتمام العملية ");
+        : toast.error("فشل في اتمام العملية");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   if (itemsOfCart.length === 0) return null;
+
+  const remote = isRemoteArea();
 
   return (
     <>
@@ -221,36 +471,24 @@ export const Checkout = () => {
 
                 <h2>{t("checkout.address")}</h2>
 
-                <div className="input-group">
-                  <label>{t("checkout.city")}</label>
-                  <select
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                  >
-                    <option>Dubai</option>
-                    <option>Abu Dhabi</option>
-                    <option>Sharjah</option>
-                    <option>Ajman</option>
-                    <option>Ras Al Khaimah</option>
-                    <option>Fujairah</option>
-                    <option>Umm Al Quwain</option>
-                    <option>Al Ain</option>
-                  </select>
-                </div>
+                <CityAreaSelect
+                  city={formData.city}
+                  area={formData.area}
+                  onCityChange={handleCityChange}
+                  onAreaChange={handleAreaChange}
+                  errors={errors}
+                  areaRef={areaRef}
+                  t={t}
+                />
 
-                <div className="input-group">
-                  <label>{t("checkout.area")} *</label>
-                  <input
-                    ref={areaRef}
-                    name="area"
-                    placeholder={t("checkout.areaPlaceholder")}
-                    value={formData.area}
-                    onChange={handleChange}
-                    className={errors.area ? "input-error" : ""}
-                  />
-                  {errors.area && <span className="error">{errors.area}</span>}
-                </div>
+                {remote && (
+                  <div className="remote-surcharge-notice">
+                    <div className="remote-surcharge-icon">+20</div>
+                    <div className="remote-surcharge-text">
+                      <p>{t("checkout.remoteAreaNotice")}</p>
+                    </div>
+                  </div>
+                )}
 
                 <div className="input-group">
                   <label>{t("checkout.street")}</label>
@@ -329,9 +567,22 @@ export const Checkout = () => {
                 ))}
               </ul>
 
+              {remote && (
+                <div className="summary-surcharge-row">
+                  <p>{t("checkout.remoteAreaFee")}</p>
+                  <b>+ AED {REMOTE_SURCHARGE.toFixed(2)}</b>
+                </div>
+              )}
+
               <div className="total">
                 <p>{t("checkout.total")}</p>
                 <b>AED {total.toFixed(2)}</b>
+              </div>
+
+              <div className="launch-notice">
+                <p style={{ fontSize: "14px" }} className="launch-text">
+                  {t("checkout.launchNotice")}
+                </p>
               </div>
             </div>
           </div>
