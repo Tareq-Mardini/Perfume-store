@@ -1,7 +1,7 @@
 // Sidebar.jsx
 import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
-import logo from "../../../assets/images/final1.png";
+import logo from "../../../assets/images/final1.webp";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 

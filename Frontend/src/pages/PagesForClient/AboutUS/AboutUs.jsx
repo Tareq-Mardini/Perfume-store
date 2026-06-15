@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "./AboutUs.css";
 import { useTranslation } from "react-i18next";
 import { Target, Eye, ShieldCheck, Gem, Truck, CreditCard } from "lucide-react";
-import PerfumeBottle from "../../../assets/images/IMG-20260427-WA0037.png";
+import PerfumeBottle from "../../../assets/images/about.webp";
 import { Helmet } from "react-helmet-async";
 
 export default function AboutUs() {

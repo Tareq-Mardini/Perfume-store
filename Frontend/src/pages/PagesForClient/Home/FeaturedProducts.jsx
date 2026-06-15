@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./FeaturesProducts.module.css";
 import { FaEye } from "react-icons/fa";
-import product1 from "../../../assets/images/product-1.jpg";
-import product2 from "../../../assets/images/product-4.jpg";
-import product3 from "../../../assets/images/product-4.jpg";
+import product1 from "../../../assets/images/product-1.webp";
+import product3 from "../../../assets/images/product-2.webp";
+import product2 from "../../../assets/images/product-4.webp";
 
 const productsStatic = [
   {

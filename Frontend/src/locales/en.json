@@ -186,19 +186,24 @@
     "gccTime": "4–5 business days",
 
     "return": "Return & Exchange Policy",
-    "returnCond": "Returns are accepted within 3 days if the product is:",
-    "unopened": "Unopened",
+    "returnCond": "Returns and exchanges are available within 7 days from the date of delivery.",
+
+    "unopened": "Unopened (in original cellophane wrapping)",
     "unused": "Unused",
     "original": "In original condition",
 
     "refund": "Refunds:",
-    "refund1": "If returned unopened: Customer pays delivery fees, and shipping or service charges will be deducted from the refund.",
-    "refund2": "If opened: No return unless there is a manufacturing defect.",
+    "refund1": "For returns of products in their original unopened condition, the customer is responsible for shipping fees.",
+    "refund2": "The product value will be refunded within 10 business days after inspection and approval.",
 
     "exchange": "Exchanges:",
-    "exchange1": "If unopened: Customer pays delivery cost again.",
-    "exchange2": "If defective: Company covers all costs.",
-    "exchange3": "All returns are subject to inspection.",
+    "exchange1": "If a customer wishes to exchange an unopened product in its original condition for another product, the customer is responsible for all shipping costs.",
+    "exchange2": "This includes shipping the product back to the warehouse and shipping the replacement product.",
+    "exchange3": "In all return and exchange cases, the product must be in its original, unopened, and unused condition.",
+
+    "factoryDefect": "Manufacturing Defects:",
+    "factoryDefect1": "Customers must contact us within 48 hours of delivery and provide a video showing the defect.",
+    "factoryDefect2": "If a manufacturing defect is confirmed, the company will cover all shipping and replacement costs.",
 
     "sharing": "Data Sharing",
     "sharingDesc": "Customer data is shared only with trusted partners under strict protection agreements.",

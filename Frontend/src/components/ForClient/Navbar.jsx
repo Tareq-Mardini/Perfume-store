@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CartSidebar } from "./CartSidebar";
 import { useCart } from "../../hooks/useCart";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/images/final.png";
+import logo from "../../assets/images/logo-footer.webp";
 import { Link } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
@@ -98,7 +98,6 @@ export default function NavbarHome() {
                 onClick={() => setLangOpen(!langOpen)}
               >
                 <Earth size={20} strokeWidth={1.5} />
-
                 <span
                   style={{
                     fontSize: "0.75rem",
@@ -109,6 +108,7 @@ export default function NavbarHome() {
                 >
                   {language === "ar" ? "AR" : "EN"}
                 </span>
+
               </button>
 
               {langOpen && (

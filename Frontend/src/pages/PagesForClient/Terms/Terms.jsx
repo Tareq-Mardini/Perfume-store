@@ -103,7 +103,9 @@ export default function Terms() {
           <h2>
             <span className="legal-num">6</span> {t("terms.return")}
           </h2>
+
           <p>{t("terms.returnCond")}</p>
+
           <ul>
             <li>{t("terms.unopened")}</li>
             <li>{t("terms.unused")}</li>
@@ -113,6 +115,7 @@ export default function Terms() {
           <p>
             <strong>{t("terms.refund")}</strong>
           </p>
+
           <ul>
             <li>{t("terms.refund1")}</li>
             <li>{t("terms.refund2")}</li>
@@ -121,10 +124,20 @@ export default function Terms() {
           <p>
             <strong>{t("terms.exchange")}</strong>
           </p>
+
           <ul>
             <li>{t("terms.exchange1")}</li>
             <li>{t("terms.exchange2")}</li>
             <li>{t("terms.exchange3")}</li>
+          </ul>
+
+          <p>
+            <strong>{t("terms.factoryDefect")}</strong>
+          </p>
+
+          <ul>
+            <li>{t("terms.factoryDefect1")}</li>
+            <li>{t("terms.factoryDefect2")}</li>
           </ul>
         </div>
 

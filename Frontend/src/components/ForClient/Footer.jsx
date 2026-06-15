@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import footer from "../../assets/images/final.png";
+import footer from "../../assets/images/logo-footer.webp";
 
 import {
   FaInstagram,

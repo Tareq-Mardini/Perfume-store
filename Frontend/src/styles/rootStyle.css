@@ -305,7 +305,6 @@ ul { list-style: none; }
 }
 
 .icon-btn:hover {
-  background: var(--color-beige);
   color: var(--color-gold);
 }
 
