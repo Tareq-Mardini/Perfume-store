@@ -14,7 +14,7 @@ function Header({ onMenuClick }) {
     }
   }, [language]);
   return (
-    <header className={styles.header}>
+    <header className={styles.header} dir="rtl">
       {/* Left */}
       <div className={styles.left}>
         <button
@@ -24,9 +24,9 @@ function Header({ onMenuClick }) {
         >
           ☰
         </button>
-        <div className="lang-switcher">
-          <button className="icon-btn" onClick={() => setLangOpen(!langOpen)}>
-            <Earth size={20} strokeWidth={1.5} />
+        <div className="lang-switcher" >
+          <button dir="rtl" className="icon-btn" onClick={() => setLangOpen(!langOpen)}>
+            <Earth size={20} strokeWidth={1.5}  />
           </button>
 
           {langOpen && (

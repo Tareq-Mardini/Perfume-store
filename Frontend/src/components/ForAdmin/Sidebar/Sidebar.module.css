@@ -15,6 +15,7 @@
   left: 0;
   top: 0;
   padding: 24px 18px;
+  padding-top: 50px;
   box-shadow: var(--shadow-lg);
   z-index: 1000;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);

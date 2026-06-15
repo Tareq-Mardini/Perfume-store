@@ -10,6 +10,16 @@ export const getOrders = async (page , status = "") => {
   const res = await axiosInstanceAdmin.get(url);
   return res.data;
 };
+export const getOrdersShipped = async (page , status = "") => {
+  let url = `/api/queue/?page=${page}`;
+
+  if (status) {
+    url += `&status=${status}`;
+  }
+
+  const res = await axiosInstanceAdmin.get(url);
+  return res.data;
+};
 
 export const updateOrderStatus = async (id, status) => {
   const res = await axiosInstanceAdmin.patch(

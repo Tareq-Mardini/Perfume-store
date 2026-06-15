@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { getOrders } from "../../../../services/OrdersService";
+import { getOrdersShipped } from "../../../../services/OrdersService";
 import styles from "./ManageShipping.module.css";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
@@ -23,7 +23,7 @@ export default function ManageOrders() {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const data = await getOrders(page, statusFilter);
+      const data = await getOrdersShipped(page, statusFilter);
       setOrders(data.results);
       setTotalCount(data.count);
     } catch (err) {
@@ -55,7 +55,7 @@ export default function ManageOrders() {
     if (selectedIds.length === 0) return;
     try {
       setSending(true);
-      // await axiosInstance.post("/api/ship/", { order_ids: selectedIds });
+      await axiosInstance.post("/api/ship/", { order_ids: selectedIds });
       await new Promise((r) => setTimeout(r, 900));
       setSentSuccess(true);
       setSelectedIds([]);
@@ -297,12 +297,7 @@ export default function ManageOrders() {
                       gap: "12px",
                     }}
                   >
-                    <input
-                      type="checkbox"
-                      className={styles.orderCheckbox}
-                      checked={isSelected(order.id)}
-                      onChange={() => toggleSelect(order.id)}
-                    />
+
                     <div className={styles.orderMeta}>
                       <h3 className={styles.customerName}>
                         {order.customer_name}
@@ -316,6 +311,12 @@ export default function ManageOrders() {
                     >
                       {t(`adminOrders.${order.status}`)}
                     </span>
+                      <input
+                        type="checkbox"
+                        className={styles.orderCheckbox}
+                        checked={isSelected(order.id)}
+                        onChange={() => toggleSelect(order.id)}
+                      />
                   </div>
                 </div>
 
