@@ -98,6 +98,17 @@ export default function NavbarHome() {
                 onClick={() => setLangOpen(!langOpen)}
               >
                 <Earth size={20} strokeWidth={1.5} />
+
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    marginLeft: language === "en" ? "5px" : "0px",
+                    marginRight: language === "ar" ? "5px" : "0px",
+                  }}
+                >
+                  {language === "ar" ? "AR" : "EN"}
+                </span>
               </button>
 
               {langOpen && (

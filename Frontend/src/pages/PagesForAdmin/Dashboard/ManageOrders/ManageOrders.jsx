@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 export default function ManageOrders() {
   const { t } = useTranslation();
-
+  const [hasNext, setHasNext] = useState(false);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -27,6 +27,7 @@ export default function ManageOrders() {
       const data = await getOrders(page, statusFilter);
       setOrders(data.results);
       setTotalCount(data.count);
+      setHasNext(!!data.next);
     } catch (err) {
       console.error(err);
     } finally {
@@ -226,7 +227,7 @@ export default function ManageOrders() {
             ))}
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {(page > 1 || hasNext) && (
               <div className={styles.pagination}>
                 <button
                   className={styles.paginationBtn}
@@ -242,7 +243,7 @@ export default function ManageOrders() {
 
                 <button
                   className={styles.paginationBtn}
-                  disabled={page >= totalPages}
+                  disabled={!hasNext}
                   onClick={() => setPage(page + 1)}
                 >
                   {t("products.next")}
