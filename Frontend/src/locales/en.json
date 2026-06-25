@@ -3,21 +3,20 @@
     "badge": "Crafted in the Heart of Arabia",
     "title": {
       "part1": "Discover Your",
-      "highlight": "Signature Scent"
+      "highlight": "The World of Monaris"
     },
-    "description": "Immerse yourself in the art of Arabian perfumery. Each fragrance is a journey through aromatic ingredients — designed for those who seek distinction.",
+    "description": "A collection of luxurious fragrances inspired by the finest schools of perfumery around the world, combining elegance and long-lasting performance to give you an unforgettable presence.",
     "scroll": "Scroll",
     "cta": "Discover Now"
   },
   "banner": {
     "label": "Limited Edition",
     "title": {
-      "part1": "The Art of",
-      "highlight": "Oud — Reimagined"
+      "part1": "A World",
+      "highlight": "of Exceptional Fragrances"
     },
-    "description": "Experience our master perfumer's latest creation — a rare blend of Cambodian oud, Indian saffron, and Turkish rose. Only 500 bottles crafted worldwide.",
-    "cta": "Discover Now",
-    "decoration": "Oud"
+     "description": "Discover a curated selection of Oriental, French, and Italian fragrances, carefully crafted to suit a variety of tastes and occasions.",
+    "decoration": "Luxury Perfumes"
   },
   "story": {
     "imageAlt": "Arabian Perfumery Craftsmanship",
@@ -118,22 +117,22 @@
   "about": {
     "headerLabel": "Our Heritage",
     "title": "About Munaryss",
-    "subtitle": "A legacy of fragrance, born from the rich traditions of Emirati perfumery",
+    "subtitle": "An Emirati fragrance brand offering luxurious perfumes inspired by the finest schools of perfumery from around the world.",
     "signature": "Signature Collection",
 
     "storyLabel": "Our Story",
-    "storyTitle": "A Heritage of",
-    "storyHighlight": "Arabian Luxury",
+    "storyTitle": "A Legacy of",
+    "storyHighlight": "Global Luxury",
 
-    "p1": "Founded in the vibrant heart of the United Arab Emirates, Munaryss was born from a deep passion for Arabian perfumery traditions.",
-    "p2": "We carefully select premium ingredients including rare oud, sandalwood, and floral extracts.",
-    "p3": "Today, Munaryss represents elegance, authenticity, and luxury.",
+    "p1": "Monaris was founded in the United Arab Emirates out of a passion for the world of fine fragrances,",
+    "p2": "offering a collection of perfumes inspired by Oriental, French, and Italian scent traditions.",
+    "p3": "We combine quality, luxury, and long-lasting performance to provide our customers with an exceptional fragrance experience that leaves a lasting impression.",
 
     "missionTitle": "Our Mission",
-    "missionDesc": "To deliver high-quality luxury fragrances while preserving Arabian heritage.",
+    "missionDesc": "To create luxurious fragrances that blend authenticity, quality, and creativity.",
 
     "visionTitle": "Our Vision",
-    "visionDesc": "To become a leading luxury fragrance brand known for authenticity and elegance.",
+    "visionDesc": "To make Monaris a symbol of luxury and excellence in the world of perfumery.",
 
     "whyTitle": "Why Choose",
     "brand": "Munaryss",

@@ -10,8 +10,9 @@ export default function Hero() {
       <div className="hero-bg">
         <img src={heroPG} alt="Luxury Arabian Perfume" loading="lazy" />
       </div>
-
+      
       <div className="hero-overlay" />
+      
 
       <div className="hero-content">
         <div className="hero-badge">✦ {t("hero.badge")}</div>
@@ -38,6 +39,9 @@ export default function Hero() {
           </svg>
         </a>
       </div>
+        <div className="hero-logo">
+          <img className="hero-image" src="/src/assets/images/final1.webp" alt="" />
+        </div>
     </section>
   );
 }
