@@ -8,11 +8,10 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
-        <img src={heroPG} alt="Luxury Arabian Perfume" loading="lazy" />
+        <img src={heroPG} alt="Luxury Arabian Perfume" />
       </div>
-      
+
       <div className="hero-overlay" />
-      
 
       <div className="hero-content">
         <div className="hero-badge">✦ {t("hero.badge")}</div>
@@ -39,9 +38,6 @@ export default function Hero() {
           </svg>
         </a>
       </div>
-        <div className="hero-logo">
-          <img className="hero-image" src="/src/assets/images/final1.webp" alt="" />
-        </div>
     </section>
   );
 }

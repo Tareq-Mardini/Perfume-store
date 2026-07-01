@@ -29,7 +29,7 @@ export default function HomePage() {
       <TopBar />
       <NavbarHome />
       <Hero />
-      <FeaturedProducts />
+      {/* <FeaturedProducts /> */}
       {/* <Collections /> */}
       <Banner />
       {/* <BestSellers /> */}
